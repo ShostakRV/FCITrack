@@ -158,12 +158,15 @@
         <testSourceDirectory>${basedir}\src\test\java</testSourceDirectory>
 
         <resources>
-        <resource>
-            <directory>${basedir}/src/java</directory>
-            <includes>
-                <include>**/*.properties</include>
-            </includes>
-        </resource>
+            <!--<resource>-->
+                <!--<directory>${basedir}/src/java</directory>-->
+                <!--<includes>-->
+                    <!--<include>**/*.properties</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
         </resources>
         <plugins>
             <plugin>
@@ -190,7 +193,6 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>2.4</version>
             </plugin>
-
 
 
         </plugins>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="true">
+
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+
+    <import resource="classpath:/applicationContext-resources.xml"/>
+    <import resource="classpath:/applicationContext-dao.xml"/>
+    <import resource="classpath:/applicationContext-service.xml"/>
+    <import resource="classpath:/applicationContext-jsf.xml"/>
+    <import resource="classpath:/applicationContext-security.xml"/>
+    <import resource="classpath:/applicationContext-webservice.xml"/>
+
+    <!--<bean id="freemarkerConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">-->
+        <!--<property name="preferFileSystemAccess" value="true"/>-->
+        <!--<property name="templateLoaderPaths" value="${com.bics.itrack.mail.templatedir}, ${com.bics.itrack.view.templatedir}"/>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="itrackApplicationContext" class="com.bics.itrack.utils.ItrackApplicationContext" lazy-init="false">-->
+    <!--</bean>-->
+
+    <!--<bean id="overviewCache" class="com.bics.itrack.cache.OverviewCache" init-method="init" />-->
+    <!--<bean id="flowImageCache" class="com.bics.itrack.cache.FlowImageCache" init-method="init" />-->
+    <!--<bean id="gentesCachedClient" class="com.bics.itrack.cache.GentesCachedClientImpl" />-->
+
+    <!--<bean id="cacheMonitor" class="com.bics.itrack.jmx.CacheMonitorImpl" />-->
+
+    <!--<bean id="rssBean" class="com.bics.itrack.rss.RSSFeeder">-->
+        <!--<property name="projectService" ref="regularProjectService"/>-->
+        <!--<property name="personService" ref="personService"/>-->
+        <!--<property name="commentService" ref="projectStatusCommentService" />-->
+        <!--<property name="filterService" ref="filterService" />-->
+        <!--<property name="serverUrl" value="${com.bics.itrack.server.url}"/>-->
+    <!--</bean>-->
+
+    <!-- JMX -->
+    <context:mbean-export default-domain="fcitrack"/>
+
+</beans>
