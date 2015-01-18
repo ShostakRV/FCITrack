@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="48CD2F02-0249-2691-0A72-7B9472F41F48" name="CONF_GUI_WS">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:21:05 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="A8D92A8B-874E-ACB6-3FD8-F15F9D4B2FA4">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:22:45 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_CONT_GUI" id="BE7367A6-B77D-EF95-93A4-B99F2C3C9620">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:22:45 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>55394DAF-B584-3C00-D8AF-1F14B4B9CC6D</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3F95C73D-81C3-547F-3D06-5A47895EED2C" referredColumn="55394DAF-B584-3C00-D8AF-1F14B4B9CC6D"/>
+</associations>
+</Column>
+<Column name="FK_WS" id="0469FC10-B75B-FE94-26AA-FC144A2FD816">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:22:45 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>BAE7EF6A-CAAD-4254-001E-46FC20E0CDBA</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BF766903-2CC1-500F-BB0E-8313FCC92D89" referredColumn="BAE7EF6A-CAAD-4254-001E-46FC20E0CDBA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="044B6F5A-874F-E8B4-2B22-17F66B3444D1" name="CONF_GUI_WS_PK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:26:16 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A8D92A8B-874E-ACB6-3FD8-F15F9D4B2FA4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="914FD557-46BE-6B05-760A-311FCF9B5DDC" name="C_GUI_WS_C_GUI_VERSION_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:23:13 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE7367A6-B77D-EF95-93A4-B99F2C3C9620"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E70E2101-178E-B61D-BD40-6BD76080B00E" name="C_GUI_WS_WORKING_STATE_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:23:13 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0469FC10-B75B-FE94-26AA-FC144A2FD816"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

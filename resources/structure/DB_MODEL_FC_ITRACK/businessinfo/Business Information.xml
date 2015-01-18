@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="7CC91753-CC00-7EF1-AA87-D97E654C091A">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:39:43 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

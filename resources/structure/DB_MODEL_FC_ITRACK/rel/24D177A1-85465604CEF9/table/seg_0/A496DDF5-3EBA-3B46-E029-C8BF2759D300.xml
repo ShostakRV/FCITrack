@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A496DDF5-3EBA-3B46-E029-C8BF2759D300" name="RELEASE">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:08:07 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="1044DA80-DB16-6D27-40A3-47EA5A092045">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:09:10 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="1CECD2BB-6641-AFDF-6687-0B549E18ABFC">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:09:10 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RELEASE_DATE" id="D6D2383C-4820-3D1C-CE0B-2988C8B6E9E3">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:09:10 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="401F296F-D827-8C1F-C46B-8F5E95D24EC7" name="RELEASE_PK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:09:10 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1044DA80-DB16-6D27-40A3-47EA5A092045"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

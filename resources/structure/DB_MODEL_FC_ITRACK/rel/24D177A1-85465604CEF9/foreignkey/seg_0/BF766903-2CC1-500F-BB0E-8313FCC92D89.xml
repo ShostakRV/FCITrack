@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BF766903-2CC1-500F-BB0E-8313FCC92D89" name="C_GUI_WS_WORKING_STATE_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:23:13 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<containerWithKeyObject>48CD2F02-0249-2691-0A72-7B9472F41F48</containerWithKeyObject>
+<deleteRule>RESTRICT</deleteRule>
+<localFKIndex>E70E2101-178E-B61D-BD40-6BD76080B00E</localFKIndex>
+<keyObject>7C43F105-23FC-C210-311D-D119CE8BC2EA</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

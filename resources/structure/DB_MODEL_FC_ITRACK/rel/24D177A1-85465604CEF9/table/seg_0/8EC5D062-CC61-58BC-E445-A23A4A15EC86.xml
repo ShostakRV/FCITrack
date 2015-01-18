@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8EC5D062-CC61-58BC-E445-A23A4A15EC86" name="TECHNICAL_WORK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:42:52 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CODE" id="8A83E350-5B43-5A77-FFBA-1522B8785FDB">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:44:08 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>29</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="6F7E3BB6-30F6-7BC7-B099-E47F713D351F">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:44:08 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TW_TYPE" id="7BA2AB65-4095-0D98-7CDD-ABA236CBCCAF">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:48:22 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<listOfValues>
+<valueDef value="DISCONNECTED" description=""/>
+<valueDef value="STANDART" description=""/>
+<valueDef value="TEST" description=""/>
+</listOfValues>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_RELEASE" id="177F6B76-4AF3-ED10-84D0-3A563263A088">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:11:46 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>1044DA80-DB16-6D27-40A3-47EA5A092045</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4F5A297C-7FA3-9FBD-D6A7-2F27E25BDA9F" referredColumn="1044DA80-DB16-6D27-40A3-47EA5A092045"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ED04D668-346C-8EAA-75B3-4C8BFF71F152" name="TECHNICAL_WORK_PK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:44:08 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8A83E350-5B43-5A77-FFBA-1522B8785FDB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7282EB11-ED4D-4BDB-24C0-742D1781CDFD" name="TECHNICAL_WORK_RELEASE_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:11:46 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="177F6B76-4AF3-ED10-84D0-3A563263A088"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

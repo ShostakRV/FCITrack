@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F115090E-E992-2571-0474-CE354ED33E86" name="PROPERTY_MAP">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:59:32 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CODE" id="B8E416EB-6819-F60E-50B7-F7AFABF96469">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:00:10 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>29</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="204DF4C0-B3C8-7871-886A-34E69210AC2F">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:00:10 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_RELEASE" id="C9B69E0F-C323-4564-84C0-8572998798B4">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:00:10 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TYPE" id="9E6BBA24-FF97-F80A-8CF0-57D511DAE05C">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:01:06 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EE863569-C190-9D87-0697-75FB9E24666B" name="PROPERTY_MAP_PK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:00:10 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B8E416EB-6819-F60E-50B7-F7AFABF96469"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

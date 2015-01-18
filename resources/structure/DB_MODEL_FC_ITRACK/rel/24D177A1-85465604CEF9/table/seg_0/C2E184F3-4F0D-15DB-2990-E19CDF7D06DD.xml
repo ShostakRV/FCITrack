@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2E184F3-4F0D-15DB-2990-E19CDF7D06DD" name="WORKING_STATE">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:16:47 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="BAE7EF6A-CAAD-4254-001E-46FC20E0CDBA">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:17:40 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="9D786667-5231-82D4-509F-C108CC68AADE">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:17:40 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7C43F105-23FC-C210-311D-D119CE8BC2EA" name="WORKING_STATE_PK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:17:40 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BAE7EF6A-CAAD-4254-001E-46FC20E0CDBA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

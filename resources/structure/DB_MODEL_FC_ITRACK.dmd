@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="DB_MODEL_FC_ITRACK" id="C75BFBBA-2AD9-870F-5CE3-CC50B5E7FFB7" version="3.5">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:39:43 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C75BFBBA-2AD9-870F-5CE3-CC50B5E7FFB7</designId>
+</OSDM_Design>

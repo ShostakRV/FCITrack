@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="6001EE42-22D7-BF50-F9A1-9953BA6C0617" mainViewID="CD2FDE02-5379-C05D-DF39-52CB086BDB78">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:39:43 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

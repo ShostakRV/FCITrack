@@ -1,0 +1,157 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1F56B493-A06D-6B6F-1800-2FCF7E26D17D" name="COMMON_CONFIG">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:51:06 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="1BF19E0E-CA9E-AF18-530E-945200EC573A">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:54:15 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_FLOW" id="EC88C592-1332-A415-B1C8-6C230A74E3DC">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:54:15 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>29</dataTypeSize>
+<delegate>8812EF41-F379-F836-F077-9838AD53ABC1</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="62CBAB74-174E-0E88-6F23-C5F071A0CC62" referredColumn="8812EF41-F379-F836-F077-9838AD53ABC1"/>
+</associations>
+</Column>
+<Column name="FK_PRODUCT" id="670F17A5-6226-1C9D-D9E1-A40D77E14478">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:54:15 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>29</dataTypeSize>
+<delegate>5D18E032-EC1F-609B-455F-48220AA0478B</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="337F0B94-862C-B3AE-2461-0020A584DD84" referredColumn="5D18E032-EC1F-609B-455F-48220AA0478B"/>
+</associations>
+</Column>
+<Column name="FK_TW" id="CC015A70-9E32-6E77-D96A-9F24BB3D4859">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:54:15 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>29</dataTypeSize>
+<delegate>8A83E350-5B43-5A77-FFBA-1522B8785FDB</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F1C4E4AD-083C-02E1-0519-1D61989EB707" referredColumn="8A83E350-5B43-5A77-FFBA-1522B8785FDB"/>
+</associations>
+</Column>
+<Column name="FK_GUI" id="F8C811D7-1DDA-D9ED-16FE-787EED1777A9">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:54:15 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_EMAIL" id="83805042-876F-880D-AF7E-C4212700EFC8">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:54:15 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEQUENCE" id="BDC10248-0876-8DAC-9327-3D5DBE434C84">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:54:15 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_RELEASE" id="719BD762-C68C-FD94-9FD0-EE9447BC5A76">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:11:16 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>1044DA80-DB16-6D27-40A3-47EA5A092045</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9A7FD810-4E0E-0756-39A8-76E09B3C2B00" referredColumn="1044DA80-DB16-6D27-40A3-47EA5A092045"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="89E33367-771C-BB75-183A-965F4BAEFADB" name="COMMON_CONFIG_PK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:54:15 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1BF19E0E-CA9E-AF18-530E-945200EC573A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="72F0194F-6E3C-5A11-4B18-B64E6B182BAC" name="COM_CONF_PRODUCT_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:56:09 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="670F17A5-6226-1C9D-D9E1-A40D77E14478"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CE2A0A2E-3CB4-5DE9-8BDF-5FAF05003D1D" name="COM_CONF_TECHNICAL_WORK_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:57:36 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CC015A70-9E32-6E77-D96A-9F24BB3D4859"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3EE2ECD7-F045-8DE3-EBD9-7A8974762181" name="COM_CONF_FLOW_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 16:58:24 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC88C592-1332-A415-B1C8-6C230A74E3DC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EF94408F-8DCE-8483-9CED-84F1BC76B9CB" name="COM_CONF_RELEASE_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 17:11:16 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="719BD762-C68C-FD94-9FD0-EE9447BC5A76"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
