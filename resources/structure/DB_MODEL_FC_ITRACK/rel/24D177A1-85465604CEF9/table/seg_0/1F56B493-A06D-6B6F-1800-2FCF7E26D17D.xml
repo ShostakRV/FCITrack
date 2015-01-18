@@ -13,6 +13,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="FK_FLOW" id="EC88C592-1332-A415-B1C8-6C230A74E3DC">
@@ -111,6 +113,18 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1BF19E0E-CA9E-AF18-530E-945200EC573A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="72DFA1B5-6389-C0F9-056F-EA62EAD0C1F5" name="COMMON_CONFIG__UN">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-18 18:41:46 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="670F17A5-6226-1C9D-D9E1-A40D77E14478"/>
+<colUsage columnID="CC015A70-9E32-6E77-D96A-9F24BB3D4859"/>
+<colUsage columnID="BDC10248-0876-8DAC-9327-3D5DBE434C84"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="72F0194F-6E3C-5A11-4B18-B64E6B182BAC" name="COM_CONF_PRODUCT_FK">
