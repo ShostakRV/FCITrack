@@ -7,7 +7,7 @@
        default-lazy-init="true">
 
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
-
+    <context:component-scan base-package="com.bics.fcitrack"/>
 
     <import resource="classpath:/applicationContext-resources.xml"/>
     <import resource="classpath:/applicationContext-dao.xml"/>
@@ -40,6 +40,6 @@
     <!--</bean>-->
 
     <!-- JMX -->
-    <context:mbean-export default-domain="fcitrack"/>
+    <!--<context:mbean-export default-domain="fcitrack"/>-->
 
 </beans>
