@@ -3,7 +3,6 @@ package com.bics.fcitrack;
 
 import junit.framework.Assert;
 //import org.junit.Test;
-//import org.junit.Test;
 
 /**
  * Created by morfi_000
