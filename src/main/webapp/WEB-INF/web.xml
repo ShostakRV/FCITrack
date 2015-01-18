@@ -46,13 +46,12 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
-    <!--<resource-ref>-->
-
-        <!--<res-ref-name>jdbc/itrackds</res-ref-name>-->
-        <!--<res-type>javax.sql.DataSource</res-type>-->
-        <!--<jndi-name>java:/itrackds</jndi-name>-->
-        <!--<res-auth>Container</res-auth>-->
-    <!--</resource-ref>-->
+    <resource-ref>
+        <res-ref-name>jdbc/fcitrackds</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/fcitrackds</jndi-name>
+        <res-auth>Container</res-auth>
+    </resource-ref>
 
 
 </web-app>
