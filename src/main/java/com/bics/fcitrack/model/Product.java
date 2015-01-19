@@ -12,19 +12,25 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
-
+    @Id
     @Column(name = "CODE")
     private String code;
     @Column(name = "NAME")
     private String name;
+    @Column(name = "SEQ")
+    private Integer seq;
 
-    @Id
+    @Column(name = "ACTIVE")
+    private Boolean active;
+    @Column(name = "FK_RELEASE")
+    private Integer fkRelease;
+
     public String getCode() {
         return code;
     }
 
-    public void setCode(String id) {
-        this.code = id;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {
@@ -33,5 +39,29 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getSeq() {
+        return seq;
+    }
+
+    public void setSeq(Integer seq) {
+        this.seq = seq;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Integer getFkRelease() {
+        return fkRelease;
+    }
+
+    public void setFkRelease(Integer fkRelease) {
+        this.fkRelease = fkRelease;
     }
 }
