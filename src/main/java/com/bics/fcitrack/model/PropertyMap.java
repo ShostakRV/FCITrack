@@ -19,7 +19,7 @@ public class PropertyMap {
     private String name;
 
     @Column(name = "FK_RELEASE")
-    private Integer FkRelease;
+    private Integer fkRelease;
 
     @Column(name = "TYPE")
     private String type;

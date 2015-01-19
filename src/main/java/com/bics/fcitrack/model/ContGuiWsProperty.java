@@ -16,8 +16,8 @@ public class ContGuiWsProperty {
     private Integer id;
 
     @Column(name = "FK_CONF_VERSION")
-    private Integer FkConfVersion;
+    private Integer fkConfVersion;
 
     @Column(name = "FK_PROPERTY")
-    private String FkProperty;
+    private String fkProperty;
 }

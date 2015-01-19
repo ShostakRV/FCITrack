@@ -16,25 +16,25 @@ public class CommonConfig {
     private Integer id;
 
     @Column(name = "FK_FLOW")
-    private String FkFlow;
+    private String fkFlow;
 
     @Column(name = "FK_PRODUCT")
-    private String FkProduct;
+    private String fkProduct;
 
     @Column(name = "FK_TW")
-    private String FkTw;
+    private String fkTw;
 
     @Column(name = "FK_GUI")
-    private Integer FkGui;
+    private Integer fkGui;
 
     @Column(name = "FK_EMAIL")
-    private Integer FkEmail;
+    private Integer fkEmail;
 
     @Column(name = "SEQUENCE")
     private Integer sequence;
 
     @Column(name = "FK_RELEASE")
-    private Integer FkRelease;
+    private Integer fkRelease;
 
 
 

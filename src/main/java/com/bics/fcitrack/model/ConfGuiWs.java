@@ -16,9 +16,9 @@ public class ConfGuiWs {
     private Integer id;
 
     @Column(name = "FK_COUNT_GUI")
-    private Integer FkCountGui;
+    private Integer fkCountGui;
 
     @Column(name = "FK_WS")
-    private Integer FkWs;
+    private Integer fkWs;
 
 }
