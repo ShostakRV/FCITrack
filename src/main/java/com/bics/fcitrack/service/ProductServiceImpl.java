@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by morfi_000
  * Date: 18-Jan-15.
  */
-@Service
+@Service("productService")
 @Transactional
 public class ProductServiceImpl extends AbstractServiceImpl<Product> implements ProductService {
     @Autowired
