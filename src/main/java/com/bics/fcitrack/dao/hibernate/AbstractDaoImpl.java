@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
@@ -27,6 +28,10 @@ public abstract class AbstractDaoImpl<T> extends HibernateDaoSupport implements 
 
     protected Class<T> entityClass;
 
+    public AbstractDaoImpl(Class<T> entityClass) {
+        this.entityClass = entityClass;
+    }
+
     @PostConstruct
     private void init() {
         setSessionFactory(factory);
@@ -34,6 +39,7 @@ public abstract class AbstractDaoImpl<T> extends HibernateDaoSupport implements 
 
     @Override
     @SuppressWarnings("unchecked")
+    @Transactional
     public List<T> findAll() {
         return getSessionFactory().getCurrentSession().createCriteria(entityClass).list();
     }
