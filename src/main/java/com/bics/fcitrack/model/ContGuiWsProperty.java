@@ -20,4 +20,25 @@ public class ContGuiWsProperty {
 
     @Column(name = "FK_PROPERTY")
     private String fkProperty;
+
+    public Integer getId() {
+        return id;
+    }
+
+
+    public Integer getFkConfVersion() {
+        return fkConfVersion;
+    }
+
+    public void setFkConfVersion(Integer fkConfVersion) {
+        this.fkConfVersion = fkConfVersion;
+    }
+
+    public String getFkProperty() {
+        return fkProperty;
+    }
+
+    public void setFkProperty(String fkProperty) {
+        this.fkProperty = fkProperty;
+    }
 }

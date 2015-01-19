@@ -21,4 +21,25 @@ public class Release {
 
     @Column(name = "RELEASE_DATE")
     private Date releaseDate;
+
+    public String getId() {
+        return id;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
 }

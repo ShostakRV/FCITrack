@@ -21,4 +21,24 @@ public class ConfGuiWs {
     @Column(name = "FK_WS")
     private Integer fkWs;
 
+    public Integer getId() {
+        return id;
+    }
+
+
+    public Integer getFkCountGui() {
+        return fkCountGui;
+    }
+
+    public void setFkCountGui(Integer fkCountGui) {
+        this.fkCountGui = fkCountGui;
+    }
+
+    public Integer getFkWs() {
+        return fkWs;
+    }
+
+    public void setFkWs(Integer fkWs) {
+        this.fkWs = fkWs;
+    }
 }

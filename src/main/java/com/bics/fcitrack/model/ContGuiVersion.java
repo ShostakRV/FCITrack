@@ -11,10 +11,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CONT_GUI_VERSION")
 public class ContGuiVersion {
-    /*
-    @Column(name = "CODE")
-    private String code;
-    */
     @Id
     @Column(name = "ID")
     private Integer id;
@@ -27,4 +23,33 @@ public class ContGuiVersion {
 
     @Column(name = "FK_RELEASE")
     private Integer fkRelease;
+
+    public Integer getId() {
+        return id;
+    }
+
+
+    public String getFkFlowCode() {
+        return fkFlowCode;
+    }
+
+    public void setFkFlowCode(String fkFlowCode) {
+        this.fkFlowCode = fkFlowCode;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public Integer getFkRelease() {
+        return fkRelease;
+    }
+
+    public void setFkRelease(Integer fkRelease) {
+        this.fkRelease = fkRelease;
+    }
 }
