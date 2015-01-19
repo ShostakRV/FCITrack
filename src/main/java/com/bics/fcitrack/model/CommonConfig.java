@@ -11,11 +11,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "COMMON_CONFIG")
 public class CommonConfig {
-    /*
-    @Column(name = "CODE")
-    private String code;
-    */
-
     @Id
     @Column(name = "ID")
     private Integer id;

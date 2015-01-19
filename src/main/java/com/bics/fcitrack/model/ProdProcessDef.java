@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * Created by godex_000 on 19.01.2015.
  */
 @Entity
-@Table(name = "")
+@Table(name = "PROD_PROCESS_DEF")
 public class ProdProcessDef {
     @Id
     @Column(name = "CODE")

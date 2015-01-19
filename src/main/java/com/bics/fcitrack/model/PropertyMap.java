@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * Created by godex_000 on 19.01.2015.
  */
 @Entity
-@Table(name = "")
+@Table(name = "PROPERTY_MAP")
 public class PropertyMap {
     @Id
     @Column(name = "CODE")
@@ -19,4 +19,8 @@ public class PropertyMap {
     private String name;
 
     @Column(name = "FK_RELEASE")
+    private Integer FkRelease;
+
+    @Column(name = "TYPE")
+    private String type;
 }
