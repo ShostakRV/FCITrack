@@ -30,11 +30,14 @@
 <createdBy>godex_000</createdBy>
 <createdTime>2015-01-18 17:00:10 UTC</createdTime>
 <ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>1044DA80-DB16-6D27-40A3-47EA5A092045</delegate>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="79DA4CD9-76AA-E09D-1AFB-A10054F3A623" referredColumn="1044DA80-DB16-6D27-40A3-47EA5A092045"/>
+</associations>
 </Column>
 <Column name="TYPE" id="9E6BBA24-FF97-F80A-8CF0-57D511DAE05C">
 <createdBy>godex_000</createdBy>
@@ -57,6 +60,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="B8E416EB-6819-F60E-50B7-F7AFABF96469"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F4B3C791-2FB2-2726-AF55-C74B843D02B7" name="PROPERTY_MAP_RELEASE_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-19 18:58:42 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C9B69E0F-C323-4564-84C0-8572998798B4"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
