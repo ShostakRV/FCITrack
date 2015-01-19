@@ -22,5 +22,5 @@ public class ProdProcessDef {
     private Integer version;
 
     @Column(name = "FK_RELEASE")
-    private Integer FkRelease;
+    private Integer fkRelease;
 }

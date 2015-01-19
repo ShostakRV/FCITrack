@@ -20,11 +20,11 @@ public class ContGuiVersion {
     private Integer id;
 
     @Column(name = "FK_FLOW_CODE")
-    private String FkFlowCode;
+    private String fkFlowCode;
 
     @Column(name = "VERSION")
     private Integer version;
 
     @Column(name = "FK_RELEASE")
-    private Integer FkRelease;
+    private Integer fkRelease;
 }
