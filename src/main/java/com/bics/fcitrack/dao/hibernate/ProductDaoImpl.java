@@ -13,8 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class ProductDaoImpl extends AbstractDaoImpl<Product> implements ProductDao {
-
-
     public ProductDaoImpl() {
         super(Product.class);
     }
