@@ -17,3 +17,4 @@ public class ProductDaoImpl extends AbstractDaoImpl<Product> implements ProductD
         super(Product.class);
     }
 }
+
