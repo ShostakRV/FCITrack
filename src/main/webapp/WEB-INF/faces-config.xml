@@ -6,6 +6,8 @@
               version="2.1">
 
     <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+
         <!--<view-handler>org.apache.myfaces.view.facelets.FaceletViewHandler</view-handler>-->
         <!--<view-handler>javax.faces.application.ViewHandlerWrapper</view-handler>-->
         <locale-config>
@@ -23,7 +25,7 @@
         <!--to override JSF default error messages you need to provide a message-bundle-->
         <message-bundle>messages</message-bundle>
 
-        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+
     </application>
 
 

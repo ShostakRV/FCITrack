@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("commonConfigService")
 @Transactional
-public class CommonConfigServiceImpl extends AbstractServiceImpl<Product> implements CommonConfigService {
+public class CommonConfigServiceImpl extends AbstractServiceImpl<CommonConfig> implements CommonConfigService {
     @Autowired
     private CommonConfigDao commonConfigDao;
     @Override

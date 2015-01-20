@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title><ui:insert name="title">Default title</ui:insert></title>
+    <ui:insert name="customStylesheet">
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/fcitrack.css"/>
+    </ui:insert>
+    <ui:insert name="customJavaScript">
+        <script type="text/javascript" src="#{request.contextPath}/js/fcitrack.js"></script>
+    </ui:insert>
+</h:head>
+
+<h:body>
+    <div style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color: #DC006B; width: 100%">
+        <ui:insert name="header">
+            Default header
+        </ui:insert>
+    </div>
+    <div style="min-height: 15px">
+        <ui:insert name="massages">
+            Default messages
+        </ui:insert>
+    </div>
+
+    <div style="border-bottom-width:1px; border-bottom-style: solid; border-bottom-color: #DC006B; width: 100%; min-height: 800px">
+        <ui:insert name="content">
+            Default content
+        </ui:insert>
+    </div>
+
+    <div style="border-width:1px;  border-bottom-style:solid; min-height: 25px;border-bottom-color: #DC006B; width: 100%">
+        <ui:insert name="footer">
+            Default footer
+        </ui:insert>
+    </div>
+</h:body>
+
+</html>
