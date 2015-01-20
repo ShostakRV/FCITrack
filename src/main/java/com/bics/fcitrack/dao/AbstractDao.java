@@ -9,8 +9,12 @@ import java.util.List;
  */
 public interface AbstractDao<T> {
     public List<T> findAll();
+
     T create(T t);
+
     T read(long id);
+
     T update(T t);
+
     void delete(T t);
 }

@@ -1,6 +1,5 @@
 package com.bics.fcitrack.dao;
 
-import com.bics.fcitrack.model.Product;
 import com.bics.fcitrack.model.PropertyMap;
 
 /**
