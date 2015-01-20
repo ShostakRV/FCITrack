@@ -5,7 +5,6 @@ import com.bics.fcitrack.dao.AbstractDao;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
@@ -20,13 +19,11 @@ import java.util.List;
  */
 
 public abstract class AbstractDaoImpl<T> extends HibernateDaoSupport implements AbstractDao<T> {
-    @Autowired
-    private SessionFactory factory;
-
     @PersistenceContext
     protected EntityManager entityManager;
-
     protected Class<T> entityClass;
+    @Autowired
+    private SessionFactory factory;
 
     public AbstractDaoImpl(Class<T> entityClass) {
         this.entityClass = entityClass;

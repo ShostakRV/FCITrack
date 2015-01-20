@@ -2,7 +2,6 @@ package com.bics.fcitrack.dao.hibernate;
 
 import com.bics.fcitrack.dao.ProductDao;
 import com.bics.fcitrack.model.Product;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
