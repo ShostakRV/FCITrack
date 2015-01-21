@@ -1,0 +1,471 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+* Examples.
+*/
+
+.menu{
+    margin-left:5px;
+    font-weight:bold;
+    text-align:left;
+    font-size:12px;
+}
+
+.menu2{
+    margin-left:25px;
+    font-weight:normal;
+    text-align:left;
+    font-size:12px;
+}
+
+.menu1{
+    margin-left:15px;
+    font-weight:bolder;
+    text-align:left;
+    font-size:12px;
+    color: #6897A7;
+
+}
+
+.menu3 {
+    margin-left:25px;
+    font-weight:normal;
+    text-align:left;
+    font-size:12px;
+    color: #6897A7;
+}
+
+.menuStyleBold {
+    font-weight:bold;
+}
+
+.menuStyleNormal {
+    font-weight: normal;
+}
+
+.menubold{
+    margin-left:10px;
+    font-weight:bold;
+    text-align:right;
+    font-size:12px;
+}
+
+.rich-filter-input {
+    width: 90%;
+}
+
+.itrack-view-content {
+    font-weight:normal;
+}
+
+.itrack-view-wrapped {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rfsDate-in-past {
+    color: #ff0000;
+}
+
+.rfsDate-in-future {
+    font-weight:normal;
+}
+
+.rich-stglpanel-body {
+    padding:0;
+}
+
+.rich-table-subheadercell
+{
+    vertical-align:top;
+    text-align:center;
+}
+
+.rich-table-subheadercell.alignLeft
+{
+    vertical-align:top;
+    text-align:left;
+}
+
+.lightBlueBg {
+    background:#EFEFEF;
+}
+
+.itrack-noborder-bottom {
+    border-bottom: 0;
+}
+
+.itrack-noborder-top {
+    border-top: 0;
+}
+
+.itrack-border-bottom {
+    border-bottom:1px solid;
+}
+
+.itrack-dotted-top{
+    border-top:1px dotted;    
+}
+
+.itrack-bold-bottom{
+    border-bottom:2px solid;
+}
+
+.group-width-column {
+    width: 33%;
+}
+
+.itrack-issue-labelCol{
+    width:500px;
+    text-align:right;
+    vertical-align:text-top;
+}
+
+.itrack-issue-valueCol{
+    text-align: left;
+}
+
+.tab-container{
+    position:relative;
+    overflow:hidden;
+    z-index:auto;
+}
+.tab-container .link{
+    float:right;
+    display:block;
+    padding:5px;
+    line-height:15px;
+}
+.tab-container .tab{
+    float:left;
+    padding-top:10px;
+    padding-right:10px;
+    padding-left:6px;
+    padding-bottom: 0;
+    border:1px solid grey;
+
+    -moz-border-radius:10px 0 0 0;
+    -webkit-border-radius:10px 0 0 0;
+    border-radius:10px 0 0 0;
+
+    margin-right: 5px;
+    line-height:10px;
+    background-color: #d3d3d3;
+}
+.tab-container .tab-blanc{
+    float:left;
+    padding-top:8px;
+    padding-right:10px;
+    padding-left:6px;
+    padding-bottom: 0px;
+    border:1px solid white;
+
+    -moz-border-radius:10px 0 0 0;
+    -webkit-border-radius:10px 0 0 0;
+    border-radius:10px 0 0 0;
+
+    margin-right: 5px;
+    line-height:10px;
+    background-color: #ffffff;
+}
+.tab-container .tab-selected{
+    float:left;
+    padding-top:10px;
+    padding-right:10px;
+    padding-left:6px;
+    padding-bottom: 0px;
+    border:1px solid grey;
+
+    -moz-border-radius:10px 0 0 0;
+    -webkit-border-radius:10px 0 0 0;
+    border-radius:10px 0 0 0;
+
+    margin-right: 5px;
+    line-height:10px;
+    background-color: white;
+}
+.tab-container .tab-separator{
+    background-color:grey;
+    width:1px;
+    height:10px;
+    float:left;
+    position:relative;
+    z-index:100;
+    margin-right:10px;
+}
+h1 {
+    display: none;
+}
+
+.historySourceItrack {
+    background-color: #ccFFcc;
+}
+
+.historySourceBoost {
+    background-color: #FFcccc;
+}
+
+.note {
+    font-weight:normal;
+    font-size: 8px;
+    color: orange;
+}
+
+.normal {
+    background-color: white;
+}
+
+.noUnderline {
+    text-decoration: none;
+}
+
+.itrack-red {
+    color: #ff0000;
+}
+
+.itrack-green {
+    color: #00FF00;
+}
+/*
+dl#bcs-messages.rich-messages {
+    display: none;
+    visibility: hidden !important;
+}*/
+
+
+#nav-project-tabcontainer {
+    width: 100%;
+}
+
+
+#nav-project-tabcontainer ul {
+    list-style-type: none;
+    list-style-image: none;
+    list-style-position: inside;
+    margin:0;
+    padding:0;
+
+    display: inline;
+    text-decoration: none;
+    border-spacing: 0;
+    width: inherit;
+}
+
+#nav-project-tabcontainer table{
+    border-collapse: collapse;
+}
+/*should be adjusted explitely for IE
+
+*display : IE7 configuration
+should have an enter extra
+
+*/
+
+#nav-project-tabcontainer ul li {
+    display:inline-block;
+    white-space: nowrap;
+    margin: 5px 1px 5px 0;
+    padding-bottom: 5px;
+}
+
+#nav-project-tabcontainer ul li a.projectButton {
+     width: 100%;
+     color: #08266E;
+     text-decoration: none;
+     background-color: gainsboro;
+     border-spacing: 0;
+     padding: 5px;
+ }
+
+#nav-project-tabcontainer td {
+    vertical-align: top;
+    padding: 0;
+}
+
+#nav-project-tabcontainer ul li .selected a {
+    background-color: #DC006B;
+    color: #ffffff;
+}
+
+#nav-project-tabcontainer ul li .mainproject.selected a {
+}
+
+#nav-project-tabcontainer ul li .subproject.selected a {
+    border: 2px solid #DC006B;
+}
+
+#nav-project-tabcontainer ul li .subproject.selected.cancelled a {
+    background-color: #DC006B;
+    color: #ffffff;
+    border: 2px solid #DC006B;
+}
+
+#nav-project-tabcontainer ul li .subproject.cancelled a {
+    color: darkgray;
+}
+
+#nav-project-tabcontainer ul li .mainproject a {
+    margin-left: 0;
+    margin-right: 1px;
+    border: 2px solid grey;
+    font-weight: bold;
+}
+
+#nav-project-tabcontainer ul li .subproject a {
+    margin-left: 0;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border: 2px solid gainsboro;
+}
+
+#nav-project-tabcontainer ul li .subproject a:hover {
+    border: 2px solid #DC006B;
+}
+
+
+#nav-project-tabcontainer ul li a:hover {
+    color: #ffffff;
+    background-color: #DC006B;
+}
+
+a.linkdisabled {
+    color: #58585a;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: default;
+}
+
+.linkformattingdisabled {
+    color: #58585a;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: default;
+}
+
+.alignLeft {
+    text-align: left;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.width-90{
+    width: 90%;
+}
+
+.border-left-bottom-column {
+    border-left:1px solid #d3d3d3;
+    border-bottom:1px solid #d3d3d3;
+    width: 33%;
+}
+
+.border-bottom-column {
+    border-bottom:1px solid #d3d3d3;
+    width: 33%;
+}
+
+.border-top-column {
+    border-top:1px solid;
+}
+
+.smallLabelColumn {
+    width: 100px;
+    text-align: right;
+}
+
+.smallComponentColumn {
+}
+
+.fullWidh {
+    width: 100%;
+}
+
+.alignRight30Percents {
+    width: 30%;
+    text-align: right;
+}
+
+.dndDefault{
+    cursor:pointer;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.dndAccept{
+    cursor:pointer;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.deletedNode {
+    color: darkgray;
+}
+
+.div-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    z-index: 10000;
+}
+
+.meter-wrap{
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.meter-wrap, .meter-value, .meter-text {
+    width: 155px; height: 16px;
+}
+
+.meter-wrap, .meter-value {
+    background: #bdbdbd;
+}
+
+.meter-text {
+    position: absolute;
+    top:0; left:0;
+    padding-top: 1px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+}
