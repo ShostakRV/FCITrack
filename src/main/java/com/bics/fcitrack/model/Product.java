@@ -1,9 +1,6 @@
 package com.bics.fcitrack.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by morfi_000
@@ -22,8 +19,10 @@ public class Product {
 
     @Column(name = "ACTIVE")
     private Boolean active;
-    @Column(name = "FK_RELEASE")
-    private Integer fkRelease;
+
+    @ManyToOne
+    @JoinColumn(name = "FK_RELEASE")
+    private Release release;
 
     public String getCode() {
         return code;
@@ -57,11 +56,11 @@ public class Product {
         this.active = active;
     }
 
-    public Integer getFkRelease() {
-        return fkRelease;
+    public Release getRelease() {
+        return release;
     }
 
-    public void setFkRelease(Integer fkRelease) {
-        this.fkRelease = fkRelease;
+    public void setRelease(Release release) {
+        this.release = release;
     }
 }

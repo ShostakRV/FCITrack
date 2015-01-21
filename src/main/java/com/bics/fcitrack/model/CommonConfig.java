@@ -1,9 +1,6 @@
 package com.bics.fcitrack.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -16,85 +13,28 @@ public class CommonConfig {
     private Integer id;
 
     @Column(name = "FK_FLOW")
-    private String fkFlow;
+    private String prodProcessDef;
 
-    @Column(name = "FK_PRODUCT")
-    private String fkProduct;
+    @ManyToOne
+    @JoinColumn(name = "FK_PRODUCT")
+    private Product product;
 
-    @Column(name = "FK_TW")
-    private String fkTw;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_TW")
+    private TechnicalWork  technicalWork;
 
     @Column(name = "FK_GUI")
     private Integer fkGui;
 
     @Column(name = "FK_EMAIL")
-    private Integer fkEmail;
+    private Integer email;
 
     @Column(name = "SEQUENCE")
     private Integer sequence;
 
     @Column(name = "FK_RELEASE")
-    private Integer fkRelease;
-
-    public Integer getId() {
-        return id;
-    }
+    private Integer release;
 
 
 
-    public String getFkFlow() {
-        return fkFlow;
-    }
-
-    public void setFkFlow(String fkFlow) {
-        this.fkFlow = fkFlow;
-    }
-
-    public String getFkProduct() {
-        return fkProduct;
-    }
-
-    public void setFkProduct(String fkProduct) {
-        this.fkProduct = fkProduct;
-    }
-
-    public String getFkTw() {
-        return fkTw;
-    }
-
-    public void setFkTw(String fkTw) {
-        this.fkTw = fkTw;
-    }
-
-    public Integer getFkGui() {
-        return fkGui;
-    }
-
-    public void setFkGui(Integer fkGui) {
-        this.fkGui = fkGui;
-    }
-
-    public Integer getFkEmail() {
-        return fkEmail;
-    }
-
-    public void setFkEmail(Integer fkEmail) {
-        this.fkEmail = fkEmail;
-    }
-
-    public Integer getSequence() {
-        return sequence;
-    }
-
-    public void setSequence(Integer sequence) {
-        this.sequence = sequence;
-    }
-
-    public Integer getFkRelease() {
-        return fkRelease;
-    }
-
-    public void setFkRelease(Integer fkRelease) {
-        this.fkRelease = fkRelease;
-    }
 }

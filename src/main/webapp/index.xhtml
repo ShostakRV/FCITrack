@@ -9,6 +9,9 @@
         <h1>
             <h:outputLabel value="Some Insterted content. -"/>
         </h1>
+        <h3>
+            #{productService.findAll().get(0).getRelease().name}
+        </h3>
     </ui:define>
 </ui:composition>
 

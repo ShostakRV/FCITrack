@@ -20,7 +20,7 @@
    <object objectType="FKIndexAssociation" objectID="3BC8F944-6C52-C38D-AE6E-533E14E276EB" name="C_GUI_WS_PROP_C_GUI_WS_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="D9A3370D-FE0F-21C6-A9D9-7EF001F3EE7B" name="C_GUI_WS_PROP_PROP_MAP_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="BF766903-2CC1-500F-BB0E-8313FCC92D89" name="C_GUI_WS_WORKING_STATE_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="79DA4CD9-76AA-E09D-1AFB-A10054F3A623" name="PROPERTY_MAP_RELEASE_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="A0A2F0EC-E1EE-D2DD-C022-119D8E90B76B" name="COM_CONF_CONT_GUI_VERSION_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="47BCB685-FF4E-F74D-C4C5-AA38E464AB1B" name="FLOW_RELEASE_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="CFD06659-5DB4-A3BA-7C2E-0793F0DF3049" name="PRODUCT_RELEASE_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="4F5A297C-7FA3-9FBD-D6A7-2F27E25BDA9F" name="TECHNICAL_WORK_RELEASE_FK" seqName="seg_0"/>

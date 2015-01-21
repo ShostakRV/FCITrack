@@ -1,10 +1,8 @@
 package com.bics.fcitrack.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -21,6 +19,13 @@ public class Release {
 
     @Column(name = "RELEASE_DATE")
     private Date releaseDate;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_RELEASE")
+    private List<CommonConfig> commonConfigs;
+
+    public Release() {
+    }
 
     public String getId() {
         return id;

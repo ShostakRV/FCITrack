@@ -63,11 +63,14 @@
 <createdBy>godex_000</createdBy>
 <createdTime>2015-01-18 16:54:15 UTC</createdTime>
 <ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>55394DAF-B584-3C00-D8AF-1F14B4B9CC6D</delegate>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A0A2F0EC-E1EE-D2DD-C022-119D8E90B76B" referredColumn="55394DAF-B584-3C00-D8AF-1F14B4B9CC6D"/>
+</associations>
 </Column>
 <Column name="FK_EMAIL" id="83805042-876F-880D-AF7E-C4212700EFC8">
 <createdBy>godex_000</createdBy>
@@ -165,6 +168,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="719BD762-C68C-FD94-9FD0-EE9447BC5A76"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8AECBA97-0BAD-A133-7483-86E6EB1673FF" name="COM_CONF_CONT_GUI_VERSION_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-21 20:41:13 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F8C811D7-1DDA-D9ED-16FE-787EED1777A9"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
