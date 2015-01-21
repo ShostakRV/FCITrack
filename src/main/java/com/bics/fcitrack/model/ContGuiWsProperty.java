@@ -1,9 +1,6 @@
 package com.bics.fcitrack.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -15,30 +12,31 @@ public class ContGuiWsProperty {
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "FK_CONF_VERSION")
-    private Integer fkConfVersion;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_CONF_VERSION")
+    private ConfGuiWs confGuiWs;
 
-    @Column(name = "FK_PROPERTY")
-    private String fkProperty;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_PROPERTY")
+    private PropertyMap propertyMap;
 
     public Integer getId() {
         return id;
     }
 
-
-    public Integer getFkConfVersion() {
-        return fkConfVersion;
+    public ConfGuiWs getConfGuiWs() {
+        return confGuiWs;
     }
 
-    public void setFkConfVersion(Integer fkConfVersion) {
-        this.fkConfVersion = fkConfVersion;
+    public void setConfGuiWs(ConfGuiWs confGuiWs) {
+        this.confGuiWs = confGuiWs;
     }
 
-    public String getFkProperty() {
-        return fkProperty;
+    public PropertyMap getPropertyMap() {
+        return propertyMap;
     }
 
-    public void setFkProperty(String fkProperty) {
-        this.fkProperty = fkProperty;
+    public void setPropertyMap(PropertyMap propertyMap) {
+        this.propertyMap = propertyMap;
     }
 }

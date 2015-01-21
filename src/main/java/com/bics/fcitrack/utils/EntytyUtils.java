@@ -1,5 +1,6 @@
 package com.bics.fcitrack.utils;
 
+import com.bics.fcitrack.model.Product;
 import com.bics.fcitrack.model.Release;
 import org.hibernate.Hibernate;
 

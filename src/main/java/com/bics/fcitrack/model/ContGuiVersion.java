@@ -1,9 +1,6 @@
 package com.bics.fcitrack.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -15,27 +12,21 @@ public class ContGuiVersion {
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "FK_FLOW_CODE")
-    private String fkFlowCode;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_FLOW_CODE")
+    private ProdProcessDef prodProcessDef;
 
     @Column(name = "VERSION")
     private Integer version;
 
-    @Column(name = "FK_RELEASE")
-    private Integer fkRelease;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_RELEASE")
+    private Release release;
 
     public Integer getId() {
         return id;
     }
 
-
-    public String getFkFlowCode() {
-        return fkFlowCode;
-    }
-
-    public void setFkFlowCode(String fkFlowCode) {
-        this.fkFlowCode = fkFlowCode;
-    }
 
     public Integer getVersion() {
         return version;
@@ -45,11 +36,19 @@ public class ContGuiVersion {
         this.version = version;
     }
 
-    public Integer getFkRelease() {
-        return fkRelease;
+    public ProdProcessDef getProdProcessDef() {
+        return prodProcessDef;
     }
 
-    public void setFkRelease(Integer fkRelease) {
-        this.fkRelease = fkRelease;
+    public void setProdProcessDef(ProdProcessDef prodProcessDef) {
+        this.prodProcessDef = prodProcessDef;
+    }
+
+    public Release getRelease() {
+        return release;
+    }
+
+    public void setRelease(Release release) {
+        this.release = release;
     }
 }

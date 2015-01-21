@@ -1,9 +1,6 @@
 package com.bics.fcitrack.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -15,30 +12,31 @@ public class ConfGuiWs {
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "FK_COUNT_GUI")
-    private Integer fkCountGui;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_COUNT_GUI")
+    private ContGuiVersion contGuiVersion;
 
-    @Column(name = "FK_WS")
-    private Integer fkWs;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_WS")
+    private WorkingState workingState;
 
     public Integer getId() {
         return id;
     }
 
-
-    public Integer getFkCountGui() {
-        return fkCountGui;
+    public WorkingState getWorkingState() {
+        return workingState;
     }
 
-    public void setFkCountGui(Integer fkCountGui) {
-        this.fkCountGui = fkCountGui;
+    public void setWorkingState(WorkingState workingState) {
+        this.workingState = workingState;
     }
 
-    public Integer getFkWs() {
-        return fkWs;
+    public ContGuiVersion getContGuiVersion() {
+        return contGuiVersion;
     }
 
-    public void setFkWs(Integer fkWs) {
-        this.fkWs = fkWs;
+    public void setContGuiVersion(ContGuiVersion contGuiVersion) {
+        this.contGuiVersion = contGuiVersion;
     }
 }

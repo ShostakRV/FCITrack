@@ -12,10 +12,11 @@ public class CommonConfig {
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "FK_FLOW")
-    private String prodProcessDef;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_FLOW")
+    private ProdProcessDef prodProcessDef;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_PRODUCT")
     private Product product;
 
@@ -23,8 +24,9 @@ public class CommonConfig {
     @JoinColumn(name = "FK_TW")
     private TechnicalWork  technicalWork;
 
-    @Column(name = "FK_GUI")
-    private Integer fkGui;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_GUI")
+    private ContGuiVersion contGuiVersion;
 
     @Column(name = "FK_EMAIL")
     private Integer email;
@@ -35,6 +37,64 @@ public class CommonConfig {
     @Column(name = "FK_RELEASE")
     private Integer release;
 
+    public Integer getId() {
+        return id;
+    }
 
 
+    public ProdProcessDef getProdProcessDef() {
+        return prodProcessDef;
+    }
+
+    public void setProdProcessDef(ProdProcessDef prodProcessDef) {
+        this.prodProcessDef = prodProcessDef;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public TechnicalWork getTechnicalWork() {
+        return technicalWork;
+    }
+
+    public void setTechnicalWork(TechnicalWork technicalWork) {
+        this.technicalWork = technicalWork;
+    }
+
+    public ContGuiVersion getContGuiVersion() {
+        return contGuiVersion;
+    }
+
+    public void setContGuiVersion(ContGuiVersion contGuiVersion) {
+        this.contGuiVersion = contGuiVersion;
+    }
+
+    public Integer getEmail() {
+        return email;
+    }
+
+    public void setEmail(Integer email) {
+        this.email = email;
+    }
+
+    public Integer getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
+
+    public Integer getRelease() {
+        return release;
+    }
+
+    public void setRelease(Integer release) {
+        this.release = release;
+    }
 }

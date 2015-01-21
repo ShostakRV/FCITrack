@@ -1,6 +1,7 @@
 package com.bics.fcitrack.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by morfi_000
@@ -12,15 +13,18 @@ public class Product {
     @Id
     @Column(name = "CODE")
     private String code;
+
     @Column(name = "NAME")
     private String name;
+
     @Column(name = "SEQ")
     private Integer seq;
 
     @Column(name = "ACTIVE")
     private Boolean active;
 
-    @ManyToOne
+    //TODO change EAGER to LAZY
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_RELEASE")
     private Release release;
 

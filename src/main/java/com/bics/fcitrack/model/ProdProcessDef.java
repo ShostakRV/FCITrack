@@ -1,9 +1,6 @@
 package com.bics.fcitrack.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -21,8 +18,9 @@ public class ProdProcessDef {
     @Column(name = "VERSION")
     private Integer version;
 
-    @Column(name = "FK_RELEASE")
-    private Integer fkRelease;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_RELEASE")
+    private Release release;
 
     public String getCode() {
         return code;
@@ -48,11 +46,11 @@ public class ProdProcessDef {
         this.version = version;
     }
 
-    public Integer getFkRelease() {
-        return fkRelease;
+    public Release getRelease() {
+        return release;
     }
 
-    public void setFkRelease(Integer fkRelease) {
-        this.fkRelease = fkRelease;
+    public void setRelease(Release release) {
+        this.release = release;
     }
 }
