@@ -47,4 +47,12 @@ public class Release {
     public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
+
+    public List<CommonConfig> getCommonConfigs() {
+        return commonConfigs;
+    }
+
+    public void setCommonConfigs(List<CommonConfig> commonConfigs) {
+        this.commonConfigs = commonConfigs;
+    }
 }
