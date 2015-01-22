@@ -3,12 +3,15 @@ package com.bics.fcitrack.managedbeans;
 import com.bics.fcitrack.model.Product;
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.ProductServiceImpl;
-import com.bics.fcitrack.service.ReleaseServiceImpl;
+import com.bics.fcitrack.service.interfaces.ProductService;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import javax.annotation.PostConstruct;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,64 +20,27 @@ import java.util.List;
  * on 22.01.2015.
  */
 @Controller
-@Scope("request")
+@Scope("session")
+//@KeepAlive
 public class ProductBean implements Serializable {
     @Autowired
     private ReleaseService releaseService;
     @Autowired
-    private ProductServiceImpl productService;
-    private String code;
-    private String name;
-    private Integer seq;
-    private Boolean active;
-    private Release release;
+    private ProductService productService;
+    private Product selectedProduct;
     private List<Release> releases;
 
+    @PostConstruct
+    public void init() {
+        selectedProduct = new Product();
+    }
+
     public void save() {
-        Product product = new Product();
-        product.setName(this.name);
-        product.setActive(this.active);
-        product.setSeq(seq);
-        //TODO crutch
-        product.setRelease(this.release);
         try {
-            productService.create(product);
+            productService.create(selectedProduct);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getSeq() {
-        return seq;
-    }
-
-    public void setSeq(Integer seq) {
-        this.seq = seq;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-
-    public Release getRelease() {
-        return release;
-    }
-
-    public void setRelease(Release release) {
-        this.release = release;
     }
 
     public List<Release> getReleases() {
@@ -84,5 +50,11 @@ public class ProductBean implements Serializable {
         return releases;
     }
 
+    public Product getSelectedProduct() {
+        return selectedProduct;
+    }
 
+    public void valueChangeMethod(ActionEvent e) {
+        System.out.print("");
+    }
 }

@@ -2,6 +2,7 @@ package com.bics.fcitrack.service;
 
 import com.bics.fcitrack.dao.AbstractDao;
 import com.bics.fcitrack.service.interfaces.AbstractService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
         return getDao().findAll();
     }
 
+    @Transactional(readOnly = false)
     public T create(T t) {
         return getDao().create(t);
     }

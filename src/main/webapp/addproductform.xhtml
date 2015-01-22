@@ -2,26 +2,48 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:rich="http://richfaces.org/rich"
-      xmlns:a4j="http://richfaces.org/a4j">
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
 
 <ui:composition template="xhtml/template/template.xhtml">
     <ui:define name="content">
         <h3>addproductform.xhtml</h3>
         <h:form>
             <a4j:outputPanel id="pnl_productCreate">
-            <h:outputText value="Name"/><h:inputText value="#{productBean.name}" immediate="true"/>
-            <br/>
-            <h:outputText value="Active"/><h:selectBooleanCheckbox value="#{productBean.active}" immediate="true"/>
-            <br/>
-            Sequency<h:inputText value="#{productBean.seq}" immediate="true"><f:validateLongRange minimum="1"/></h:inputText>
-            <br/>
-            //TODO crutch
-            <h:selectOneMenu value="#{productBean.release}"  immediate="true">
-                <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}"/>
-            </h:selectOneMenu>
-            <br/>
-            <a4j:commandButton value="send" action="#{productBean.save}" render="pnl_productCreate"/>
+                <h:panelGrid columns="4">
+
+                    <h:outputText value="Code"/>
+                    <h:outputText value="Name"/>
+                    <h:outputText value="Sequance"/>
+                    <h:outputText value="Release"/>
+                    <h:inputText value="#{productBean.selectedProduct.code}" immediate="true" ><f:ajax/></h:inputText>
+                    <h:inputText value="#{productBean.selectedProduct.name}" immediate="true"><f:ajax/></h:inputText>
+                    <h:inputText value="#{productBean.selectedProduct.seq}" immediate="true">
+                        <f:validateLongRange minimum="1"/>
+                        <f:ajax/>
+                    </h:inputText>
+                    <h:selectOneMenu value="#{productBean.selectedProduct.release}" immediate="true" >
+                        <f:selectItem value="#{null}" itemLabel="Select release" />
+                        <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}" />
+                        <!--<f:ajax immediate="true" listener="# {productBean.valueChangeMethod}"/>-->
+                        <f:ajax onevent="change" listener="#{productBean.valueChangeMethod}" render="pnl_productCreate"  />
+
+
+                    </h:selectOneMenu>
+
+                </h:panelGrid>
+
+                <rich:extendedDataTable value="#{productBean.releases}" var="item">
+                    <rich:column sortBy="">
+                         #{item.name}
+
+                    </rich:column>
+
+                </rich:extendedDataTable>
+                    <br/>
+                    <a4j:commandButton value="send" type="submit" action="#{productBean.save()}" immediate="true"
+                                       render="pnl_productCreate"/>
+
             </a4j:outputPanel>
         </h:form>
     </ui:define>
