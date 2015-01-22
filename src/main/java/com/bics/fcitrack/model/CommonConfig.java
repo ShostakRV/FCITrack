@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "COMMON_CONFIG")
 public class CommonConfig {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Integer id;
 

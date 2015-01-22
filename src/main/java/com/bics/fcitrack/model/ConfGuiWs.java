@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "CONF_GUI_WS")
 public class ConfGuiWs {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Integer id;
 
