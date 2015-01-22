@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="xhtml/template/template.xhtml">
+    <ui:define name="content">
+        <h3>addproductform.xhtml</h3>
+        <h:form>
+            <h3>Name<h:inputText value="#{producAddBean.name}">SMS</h:inputText></h3>
+            <h3>Active<h:selectBooleanCheckbox value="#{producAddBean.active}"></h:selectBooleanCheckbox></h3>
+            <h3>Sequency<h:inputText value="#{producAddBean.seq}">some</h:inputText></h3>
+            //TODO crutch
+            <h3>release poka XZ</h3>
+            <h:commandButton value="send" action="addproduct"></h:commandButton>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

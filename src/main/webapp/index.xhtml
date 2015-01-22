@@ -3,7 +3,6 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 
-
 <ui:composition template="xhtml/template/template.xhtml">
     <ui:define name="content">
         <h1>
@@ -12,12 +11,11 @@
         <h3>
             productname->#{productService.findAll().get(0).getName()}
             <br/>
-            productFKreleasename->#{productService.findAll().get(0).getRelease().name}
+            releasename->#{releaseService.findAll().get(0).name}
         </h3>
+
+        <h:link value="add_product" outcome="addproductform"></h:link>
     </ui:define>
 </ui:composition>
-
-
-
 
 </html>
