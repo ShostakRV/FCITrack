@@ -1,18 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
 
 <ui:composition template="xhtml/template/template.xhtml">
     <ui:define name="content">
         <h3>addproductform.xhtml</h3>
         <h:form>
-            <h3>Name<h:inputText value="#{producAddBean.name}">SMS</h:inputText></h3>
-            <h3>Active<h:selectBooleanCheckbox value="#{producAddBean.active}"></h:selectBooleanCheckbox></h3>
-            <h3>Sequency<h:inputText value="#{producAddBean.seq}">some</h:inputText></h3>
+            <a4j:outputPanel id="pnl_productCreate">
+            <h:outputText value="Name"/><h:inputText value="#{productBean.name}" immediate="true"/>
+            <br/>
+            <h:outputText value="Active"/><h:selectBooleanCheckbox value="#{productBean.active}" immediate="true"/>
+            <br/>
+            Sequency<h:inputText value="#{productBean.seq}" immediate="true"><f:validateLongRange minimum="1"/></h:inputText>
+            <br/>
             //TODO crutch
-            <h3>release poka XZ</h3>
-            <h:commandButton value="send" action="addproduct"></h:commandButton>
+            <h:selectOneMenu value="#{productBean.release}"  immediate="true">
+                <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}"/>
+            </h:selectOneMenu>
+            <br/>
+            <a4j:commandButton value="send" action="#{productBean.save}" render="pnl_productCreate"/>
+            </a4j:outputPanel>
         </h:form>
     </ui:define>
 </ui:composition>
