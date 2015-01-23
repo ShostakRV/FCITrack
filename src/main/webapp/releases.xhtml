@@ -15,7 +15,7 @@
                     <h:outputText value="Release Date"/>
                     <h:outputText value="Actions"/>
                     <h:inputText value="#{releaseBean.selectedRelease.name}" immediate="true"><f:ajax  onevent="onchange"/></h:inputText>
-                    <rich:calendar datePattern="yyyy-MM-dd hh:mm:ss" value="#{releaseBean.selectedRelease.releaseDate}" immediate="true"><f:ajax immediate="true"/></rich:calendar>
+                    <rich:calendar datePattern="yyyy-MM-dd HH:mm:ss" value="#{releaseBean.selectedRelease.releaseDate}" immediate="true"><f:ajax immediate="true"/></rich:calendar>
                     <a4j:commandButton value="send" type="submit" actionListener="#{releaseBean.save}" immediate="true" render="pnl_releaseTable"/>
                 </h:panelGrid>
 
@@ -23,7 +23,7 @@
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
                     </f:facet>
-                    <rich:column>
+                    <rich:column sortBy="#{item.id}" sortOrder="ascending" sortType="string">
                         <f:facet name="header">ID</f:facet>
                         <h:outputText value="#{item.id}"/>
                         <f:facet name="footer">ID</f:facet>
