@@ -9,20 +9,17 @@
     <ui:define name="content">
         <h3>addproductform.xhtml</h3>
         <h:form>
-            <a4j:outputPanel ajaxRendered="true" id="pnl_productCreate">
+            <a4j:outputPanel ajaxRendered="true" id="pnl_releaseTable">
                 <h:panelGrid columns="3">
                     <h:outputText value="Name"/>
                     <h:outputText value="Release Date"/>
                     <h:outputText value="Actions"/>
                     <h:inputText value="#{releaseBean.selectedRelease.name}" immediate="true"><f:ajax  onevent="onchange"/></h:inputText>
                     <rich:calendar datePattern="yyyy-MM-dd hh:mm:ss" value="#{releaseBean.selectedRelease.releaseDate}" immediate="true"><f:ajax immediate="true"/></rich:calendar>
-                    <a4j:commandButton value="send" type="submit" actionListener="#{releaseBean.save}" immediate="true" render="pnl_productCreate"/>
+                    <a4j:commandButton value="send" type="submit" actionListener="#{releaseBean.save}" immediate="true" render="pnl_releaseTable"/>
                 </h:panelGrid>
 
-                <rich:dataTable value="#{releaseBean.releases}" var="item" >
-                    <f:facet name="caption">
-                        <h:outputText value="Caption"/>
-                    </f:facet>
+                <rich:dataTable sortMode="single" value="#{releaseBean.releases}" var="item">
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
                     </f:facet>
@@ -43,12 +40,11 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">Actions</f:facet>
-                        <h:graphicImage style="height: 20px; width: 20px" value="images/edit.png"/>
+                        <a4j:commandLink action="#{releaseBean.edit(item)}" render="pnl_productCreate"><h:graphicImage style="height: 20px; width: 20px" value="images/edit.png"/></a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.delete(item)}" render="pnl_productCreate"><h:graphicImage style="height: 20px; width: 20px" value="images/delete.png"/></a4j:commandLink>
                         <f:facet name="footer">Actions</f:facet>
                     </rich:column>
                     <f:facet name="footer">
-                        <h:outputText value="Capitals and States Table"/>
                     </f:facet>
                 </rich:dataTable>
                 <br/>
