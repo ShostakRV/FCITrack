@@ -58,6 +58,7 @@ public abstract class AbstractDaoImpl<T> extends HibernateDaoSupport implements 
         return t;
     }
 
+    @Transactional
     @Override
     public void delete(T t) {
         getSessionFactory().getCurrentSession().delete(t);

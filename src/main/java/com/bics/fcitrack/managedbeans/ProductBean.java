@@ -42,6 +42,9 @@ public class ProductBean implements Serializable {
             e.printStackTrace();
         }
     }
+    public List<Product> getProducts() {
+        return productService.findAll();
+    }
 
     public List<Release> getReleases() {
         if (releases == null) {

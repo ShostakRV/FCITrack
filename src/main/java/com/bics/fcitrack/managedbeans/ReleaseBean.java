@@ -20,22 +20,22 @@ public class ReleaseBean {
     private ReleaseService releaseService;
 
     private Release selectedRelease;
-    private List<Release> releases;
 
     @PostConstruct
     public void init() {
         selectedRelease = new Release();
-        if (releases == null) {
-            releases = releaseService.findAll();
-        }
     }
 
     public void save() {
         try {
             releaseService.create(selectedRelease);
+            selectedRelease = new Release();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void delete(Release release){
+        releaseService.delete(release);
     }
 
     public Release getSelectedRelease() {
@@ -43,6 +43,6 @@ public class ReleaseBean {
     }
 
     public List<Release> getReleases() {
-        return releases;
+        return releaseService.findAll();
     }
 }

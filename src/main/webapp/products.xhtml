@@ -16,13 +16,13 @@
                     <h:outputText value="Name"/>
                     <h:outputText value="Sequance"/>
                     <h:outputText value="Release"/>
-                    <h:inputText value="#{productBean.selectedProduct.code}" immediate="true"><f:ajax/></h:inputText>
-                    <h:inputText value="#{productBean.selectedProduct.name}" immediate="true"><f:ajax/></h:inputText>
-                    <h:inputText value="#{productBean.selectedProduct.seq}" immediate="true">
+                    <h:inputText value="#{productBean.selectedProduct.code}" immediate="false"><f:ajax/></h:inputText>
+                    <h:inputText value="#{productBean.selectedProduct.name}" immediate="false"><f:ajax/></h:inputText>
+                    <h:inputText value="#{productBean.selectedProduct.seq}" immediate="false">
                         <f:validateLongRange minimum="1"/>
                         <f:ajax/>
                     </h:inputText>
-                    <h:selectOneMenu value="#{productBean.selectedProduct.release}" immediate="true">
+                    <h:selectOneMenu value="#{productBean.selectedProduct.release}" immediate="false">
                         <f:selectItem value="#{null}" itemLabel="Select release"/>
                         <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}"/>
                         <!--<f:ajax immediate="true" listener="# {productBean.valueChangeMethod}"/>-->
