@@ -7,30 +7,43 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 import java.util.List;
 
 /**
  * Created by godex_000
  * on 22.01.2015.
  */
-@Controller
-@Scope(value = "session")
+//@Controller
+//@Scope(value = "session")
+    @ManagedBean
+    @ViewScoped
 public class ReleaseBean {
-    @Autowired
+    public void setReleaseService(ReleaseService releaseService) {
+        this.releaseService = releaseService;
+    }
+
+    //    @Autowired
+    @ManagedProperty(value = "#{releaseService}")
     private ReleaseService releaseService;
 
     private Release selectedRelease;
+
 
     @PostConstruct
     public void init() {
         selectedRelease = new Release();
     }
 
-    public void save() {
+    public void save(ActionEvent actionEvent) {
         try {
             releaseService.create(selectedRelease);
             selectedRelease = new Release();
         } catch (Exception e) {
+            selectedRelease = new Release();
             e.printStackTrace();
         }
     }
