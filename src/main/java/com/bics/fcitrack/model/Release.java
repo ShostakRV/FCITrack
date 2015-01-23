@@ -4,15 +4,18 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+
 /**
  * Created by godex_000 on 19.01.2015.
  */
 @Entity
 @Table(name = "RELEASE")
+//@Name(
 public class Release {
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROJECT_SEQ_GENERATOR")
-//    @SequenceGenerator(name = "PROJECT_SEQ_GENERATOR", sequenceName = "PROJECT_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RELEASE_SEQ_GENERATOR")
+    //@SequenceGenerator(name = "RELEASE_SEQ_GENERATOR", sequenceName = "RELEASE_SEQ")
     @Column(name = "ID")
     private Integer id;
 

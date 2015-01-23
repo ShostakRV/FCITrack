@@ -14,7 +14,11 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementMinValue>1</autoIncrementMinValue>
 <autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>RELEASE_SEQ</autoIncrementSequenceName>
+<autoIncrementTriggerName>TREGGER_SEQ</autoIncrementTriggerName>
 </Column>
 <Column name="NAME" id="1CECD2BB-6641-AFDF-6687-0B549E18ABFC">
 <createdBy>godex_000</createdBy>
