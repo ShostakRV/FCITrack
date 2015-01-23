@@ -14,7 +14,6 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementColumn>true</autoIncrementColumn>
-<identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="FK_CONF_VERSION_WS" id="7099092D-2E71-7BAA-644D-D70A0B080DD8">

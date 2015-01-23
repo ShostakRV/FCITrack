@@ -16,17 +16,17 @@
                     <h:outputText value="Name"/>
                     <h:outputText value="Sequance"/>
                     <h:outputText value="Release"/>
-                    <h:inputText value="#{productBean.selectedProduct.code}" immediate="true" ><f:ajax/></h:inputText>
+                    <h:inputText value="#{productBean.selectedProduct.code}" immediate="true"><f:ajax/></h:inputText>
                     <h:inputText value="#{productBean.selectedProduct.name}" immediate="true"><f:ajax/></h:inputText>
                     <h:inputText value="#{productBean.selectedProduct.seq}" immediate="true">
                         <f:validateLongRange minimum="1"/>
                         <f:ajax/>
                     </h:inputText>
-                    <h:selectOneMenu value="#{productBean.selectedProduct.release}" immediate="true" >
-                        <f:selectItem value="#{null}" itemLabel="Select release" />
-                        <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}" />
+                    <h:selectOneMenu value="#{productBean.selectedProduct.release}" immediate="true">
+                        <f:selectItem value="#{null}" itemLabel="Select release"/>
+                        <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}"/>
                         <!--<f:ajax immediate="true" listener="# {productBean.valueChangeMethod}"/>-->
-                        <f:ajax onevent="change" listener="#{productBean.valueChangeMethod}" render="pnl_productCreate"  />
+                        <f:ajax onevent="change" listener="#{productBean.valueChangeMethod}" render="pnl_productCreate"/>
 
 
                     </h:selectOneMenu>
@@ -34,15 +34,18 @@
                 </h:panelGrid>
 
                 <rich:extendedDataTable value="#{productBean.releases}" var="item">
-                    <rich:column sortBy="">
-                         #{item.name}
 
+                    <rich:column sortBy="">
+                        #{item.name}
+                    </rich:column>
+                    <rich:column sortBy="">
+                        #{item.releaseDate}
                     </rich:column>
 
                 </rich:extendedDataTable>
-                    <br/>
-                    <a4j:commandButton value="send" type="submit" action="#{productBean.save()}" immediate="true"
-                                       render="pnl_productCreate"/>
+                <br/>
+                <a4j:commandButton value="send" type="submit" action="#{productBean.save()}" immediate="true"
+                                   render="pnl_productCreate"/>
 
             </a4j:outputPanel>
         </h:form>

@@ -22,6 +22,9 @@ public class PropertyMap {
     @Column(name = "TYPE")
     private String type;
 
+    @Column(name = "ACTIVE")
+    private Boolean active;
+
     public String getCode() {
         return code;
     }
@@ -52,5 +55,13 @@ public class PropertyMap {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

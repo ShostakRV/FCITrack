@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "COMMON_CONFIG")
 public class CommonConfig {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Integer id;
 
@@ -35,8 +35,12 @@ public class CommonConfig {
     @Column(name = "SEQUENCE")
     private Integer sequence;
 
-    @Column(name = "FK_RELEASE")
-    private Integer release;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_RELEASE")
+    private Release release;
+
+    @Column(name = "OUTPHASE")
+    private Boolean outphase;
 
     public Integer getId() {
         return id;
@@ -91,11 +95,19 @@ public class CommonConfig {
         this.sequence = sequence;
     }
 
-    public Integer getRelease() {
+    public Release getRelease() {
         return release;
     }
 
-    public void setRelease(Integer release) {
+    public void setRelease(Release release) {
         this.release = release;
+    }
+
+    public Boolean getOutphase() {
+        return outphase;
+    }
+
+    public void setOutphase(Boolean outphase) {
+        this.outphase = outphase;
     }
 }

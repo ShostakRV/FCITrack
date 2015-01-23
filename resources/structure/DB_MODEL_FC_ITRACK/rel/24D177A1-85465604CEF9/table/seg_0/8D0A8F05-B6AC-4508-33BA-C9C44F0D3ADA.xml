@@ -60,6 +60,17 @@
 <colAssociation fkAssociation="CFD06659-5DB4-A3BA-7C2E-0793F0DF3049" referredColumn="1044DA80-DB16-6D27-40A3-47EA5A092045"/>
 </associations>
 </Column>
+<Column name="DELETED" id="B03FCAC8-3104-2334-0BFF-5E02C92F15B9">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-22 19:30:08 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="921A22EB-0336-6443-5BC6-80D537E23639" name="PRODUCT_PK">

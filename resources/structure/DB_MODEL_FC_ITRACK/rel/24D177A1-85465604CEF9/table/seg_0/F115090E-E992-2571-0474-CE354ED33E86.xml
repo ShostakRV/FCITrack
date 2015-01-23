@@ -35,6 +35,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <delegate>1044DA80-DB16-6D27-40A3-47EA5A092045</delegate>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="091EAB15-2019-DF98-F051-C69C91AFD414" referredColumn="1044DA80-DB16-6D27-40A3-47EA5A092045"/>
+</associations>
 </Column>
 <Column name="TYPE" id="9E6BBA24-FF97-F80A-8CF0-57D511DAE05C">
 <createdBy>godex_000</createdBy>
@@ -44,6 +47,17 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACTIVE" id="2B71CD0D-6BDE-D98F-294C-37C605AB270A">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-22 19:34:26 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
@@ -59,9 +73,9 @@
 <colUsage columnID="B8E416EB-6819-F60E-50B7-F7AFABF96469"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="F4B3C791-2FB2-2726-AF55-C74B843D02B7" name="PROPERTY_MAP_RELEASE_FK">
+<ind_PK_UK id="4AE3F1A8-0A0A-0BEB-4C22-1D4038162EB4" name="PROPERTY_MAP_RELEASE_FK">
 <createdBy>godex_000</createdBy>
-<createdTime>2015-01-19 18:58:42 UTC</createdTime>
+<createdTime>2015-01-19 18:56:22 UTC</createdTime>
 <ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>

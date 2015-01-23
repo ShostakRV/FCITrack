@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "CONT_GUI_WS_PROPERTY")
 public class ContGuiWsProperty {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Integer id;
 

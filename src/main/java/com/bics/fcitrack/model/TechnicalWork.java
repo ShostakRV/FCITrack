@@ -22,6 +22,9 @@ public class TechnicalWork {
     @JoinColumn(name = "FK_RELEASE")
     private Release release;
 
+    @Column(name = "DELETED")
+    private Boolean deleted;
+
     public String getCode() {
         return code;
     }
@@ -52,5 +55,13 @@ public class TechnicalWork {
 
     public void setRelease(Release release) {
         this.release = release;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 }

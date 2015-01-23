@@ -14,7 +14,6 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementColumn>true</autoIncrementColumn>
-<identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="FK_FLOW" id="EC88C592-1332-A415-B1C8-6C230A74E3DC">
@@ -63,14 +62,11 @@
 <createdBy>godex_000</createdBy>
 <createdTime>2015-01-18 16:54:15 UTC</createdTime>
 <ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>55394DAF-B584-3C00-D8AF-1F14B4B9CC6D</delegate>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="A0A2F0EC-E1EE-D2DD-C022-119D8E90B76B" referredColumn="55394DAF-B584-3C00-D8AF-1F14B4B9CC6D"/>
-</associations>
 </Column>
 <Column name="FK_EMAIL" id="83805042-876F-880D-AF7E-C4212700EFC8">
 <createdBy>godex_000</createdBy>
@@ -105,6 +101,17 @@
 <colAssociation fkAssociation="9A7FD810-4E0E-0756-39A8-76E09B3C2B00" referredColumn="1044DA80-DB16-6D27-40A3-47EA5A092045"/>
 </associations>
 </Column>
+<Column name="OUTPHASE" id="248A7BD3-BAAA-9030-1A3A-BCB06E074683">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-22 19:31:33 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="89E33367-771C-BB75-183A-965F4BAEFADB" name="COMMON_CONFIG_PK">
@@ -116,18 +123,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1BF19E0E-CA9E-AF18-530E-945200EC573A"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="72DFA1B5-6389-C0F9-056F-EA62EAD0C1F5" name="COMMON_CONFIG__UN">
-<createdBy>godex_000</createdBy>
-<createdTime>2015-01-18 18:41:46 UTC</createdTime>
-<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
-<indexState>Unique Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="670F17A5-6226-1C9D-D9E1-A40D77E14478"/>
-<colUsage columnID="CC015A70-9E32-6E77-D96A-9F24BB3D4859"/>
-<colUsage columnID="BDC10248-0876-8DAC-9327-3D5DBE434C84"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="72F0194F-6E3C-5A11-4B18-B64E6B182BAC" name="COM_CONF_PRODUCT_FK">
@@ -168,16 +163,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="719BD762-C68C-FD94-9FD0-EE9447BC5A76"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="8AECBA97-0BAD-A133-7483-86E6EB1673FF" name="COM_CONF_CONT_GUI_VERSION_FK">
-<createdBy>godex_000</createdBy>
-<createdTime>2015-01-21 20:41:13 UTC</createdTime>
-<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="F8C811D7-1DDA-D9ED-16FE-787EED1777A9"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
