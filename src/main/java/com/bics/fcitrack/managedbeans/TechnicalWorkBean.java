@@ -2,14 +2,12 @@ package com.bics.fcitrack.managedbeans;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import sun.misc.Contended;
 
 /**
  * Created by godex_000
- * on 22.01.2015.
+ * on 23.01.2015.
  */
 @Controller
-@Scope(value = "request")
-public class ReleaseBean {
-
+@Scope(value = "session")
+public class TechnicalWorkBean {
 }

@@ -20,7 +20,7 @@ import java.util.List;
  * on 22.01.2015.
  */
 @Controller
-@Scope("session")
+@Scope(value = "session")
 //@KeepAlive
 public class ProductBean implements Serializable {
     @Autowired
