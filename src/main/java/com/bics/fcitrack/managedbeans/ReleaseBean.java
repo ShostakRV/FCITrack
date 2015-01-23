@@ -14,7 +14,7 @@ import java.util.List;
  * on 22.01.2015.
  */
 @Controller
-@Scope(value = "request")
+@Scope(value = "session")
 public class ReleaseBean {
     @Autowired
     private ReleaseService releaseService;
