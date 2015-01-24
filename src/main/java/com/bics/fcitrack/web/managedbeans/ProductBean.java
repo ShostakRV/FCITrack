@@ -1,17 +1,14 @@
-package com.bics.fcitrack.managedbeans;
+package com.bics.fcitrack.web.managedbeans;
 
 import com.bics.fcitrack.model.Product;
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.ProductService;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
-import com.google.common.base.Function;
-import com.google.common.collect.Lists;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.model.SelectItem;
 import java.io.Serializable;
 import java.util.List;
 

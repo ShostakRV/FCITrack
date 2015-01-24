@@ -1,12 +1,9 @@
-package com.bics.fcitrack.managedbeans;
+package com.bics.fcitrack.web.managedbeans;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 
 /**
  * Created by morfi_000

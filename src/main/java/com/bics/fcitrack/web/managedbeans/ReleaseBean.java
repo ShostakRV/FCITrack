@@ -1,4 +1,4 @@
-package com.bics.fcitrack.managedbeans;
+package com.bics.fcitrack.web.managedbeans;
 
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 import java.util.List;
 import java.util.Map;
 

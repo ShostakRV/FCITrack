@@ -1,4 +1,4 @@
-package com.bics.fcitrack.managedbeans.converter;
+package com.bics.fcitrack.web.converter;
 
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.ReleaseService;

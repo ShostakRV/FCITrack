@@ -1,9 +1,7 @@
-package com.bics.fcitrack.managedbeans;
+package com.bics.fcitrack.web.managedbeans;
 
-import com.bics.fcitrack.model.Product;
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.model.TechnicalWork;
-import com.bics.fcitrack.service.interfaces.ProductService;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
 import com.bics.fcitrack.service.interfaces.TechnicalWorkService;
 import org.springframework.beans.factory.annotation.Autowired;
