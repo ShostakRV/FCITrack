@@ -2,32 +2,28 @@ package com.bics.fcitrack.managedbeans;
 
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by godex_000
  * on 22.01.2015.
  */
-//@Controller
-//@Scope(value = "session")
-    @ManagedBean
-    @ViewScoped
+@ManagedBean
+@ViewScoped
 public class ReleaseBean {
     public void setReleaseService(ReleaseService releaseService) {
         this.releaseService = releaseService;
     }
 
-    //    @Autowired
+
     @ManagedProperty(value = "#{releaseService}")
     private ReleaseService releaseService;
 
@@ -39,7 +35,10 @@ public class ReleaseBean {
         selectedRelease = new Release();
     }
 
-    public void save(ActionEvent actionEvent) {
+    public void save() {
+
+        Map<String, String> requestMap = FacesContext.getCurrentInstance()
+                .getExternalContext().getRequestParameterMap();
         try {
             releaseService.create(selectedRelease);
             selectedRelease = new Release();
@@ -48,7 +47,8 @@ public class ReleaseBean {
             e.printStackTrace();
         }
     }
-    public void delete(Release release){
+
+    public void delete(Release release) {
         releaseService.delete(release);
     }
 

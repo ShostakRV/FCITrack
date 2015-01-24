@@ -7,17 +7,17 @@
 
 <ui:composition template="xhtml/template/template.xhtml">
     <ui:define name="content">
-        <h3>addproductform.xhtml</h3>
-        <h:form>
+        <h:form id="form_release">
             <a4j:outputPanel ajaxRendered="true" id="pnl_releaseTable">
                 <h:panelGrid columns="3">
-                    <h:outputText value="Name"/>
+                    <h:outputText value="#{msg.product_name}"/>
                     <h:outputText value="Release Date"/>
                     <h:outputText value="Actions"/>
-                    <h:inputText value="#{releaseBean.selectedRelease.name}"   immediate="true"><f:ajax  onevent="onchange"/></h:inputText>
+                    <h:inputText value="#{releaseBean.selectedRelease.name}" immediate="true"><f:ajax/></h:inputText>
                     <rich:calendar datePattern="yyyy-MM-dd HH:mm:ss" value="#{releaseBean.selectedRelease.releaseDate}" immediate="true"><f:ajax immediate="true"/></rich:calendar>
-
-                    <a4j:commandButton type="submit" action="#{releaseBean.save}" immediate="true" render="pnl_releaseTable"/>
+                    <h:commandButton value="Submit" action="#{releaseBean.save}">
+                        <f:ajax render="@form"/>
+                    </h:commandButton>
                 </h:panelGrid>
 
                 <rich:dataTable sortMode="single" value="#{releaseBean.releases}" var="item">
