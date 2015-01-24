@@ -14,9 +14,10 @@
                     <h:outputText value="Name"/>
                     <h:outputText value="Release Date"/>
                     <h:outputText value="Actions"/>
-                    <h:inputText value="#{releaseBean.selectedRelease.name}" immediate="true"><f:ajax  onevent="onchange"/></h:inputText>
+                    <h:inputText value="#{releaseBean.selectedRelease.name}"   immediate="true"><f:ajax  onevent="onchange"/></h:inputText>
                     <rich:calendar datePattern="yyyy-MM-dd HH:mm:ss" value="#{releaseBean.selectedRelease.releaseDate}" immediate="true"><f:ajax immediate="true"/></rich:calendar>
-                    <a4j:commandButton value="send" type="submit" actionListener="#{releaseBean.save}" immediate="true" render="pnl_releaseTable"/>
+
+                    <a4j:commandButton type="submit" action="#{releaseBean.save}" immediate="true" render="pnl_releaseTable"/>
                 </h:panelGrid>
 
                 <rich:dataTable sortMode="single" value="#{releaseBean.releases}" var="item">
