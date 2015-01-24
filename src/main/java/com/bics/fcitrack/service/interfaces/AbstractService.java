@@ -6,12 +6,12 @@ import java.util.List;
  * Created by morfi_000
  * Date: 18-Jan-15.
  */
-public interface AbstractService<T> {
+public interface AbstractService<T,PK> {
     public List<T> findAll();
 
     T create(T t);
 
-    T read(long id);
+    T read(PK id);
 
     T update(T t);
 

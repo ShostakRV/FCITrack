@@ -24,7 +24,27 @@
     </div>
     <div style="min-height: 15px">
         <ui:insert name="massages">
-            Default messages(navigation)
+            <!--errorClass="bcs-error-message"-->
+            <!--infoClass="bcs-info-message"-->
+            <!--warnClass="bcs-warn-message"-->
+            <!--fatalClass="bcs-fatal-message"-->
+            <rich:messages
+                    id="itrack-messages-filters"
+                    layout="list" globalOnly="false">
+                <f:facet name="errorMarker">
+                    <h:graphicImage value="/img/cross_small.png"/>
+                </f:facet>
+                <f:facet name="warnMarker">
+                    <h:graphicImage value="/img/exclamation_small.png"/>
+                </f:facet>
+                <f:facet name="infoMarker">
+                    <h:graphicImage value="/img/tick_small.png"/>
+                </f:facet>
+                <f:facet name="fatalMarker">
+                    <h:graphicImage value="/img/cross_small.png"/>
+                </f:facet>
+            </rich:messages>
+
         </ui:insert>
         <h:button value="Home" outcome="index" />__
         <h:button value="Releases" outcome="releases"/>__

@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class CommonConfigDaoImpl extends AbstractDaoImpl<CommonConfig> implements CommonConfigDao {
+public class CommonConfigDaoImpl extends AbstractDaoImpl<CommonConfig, Long> implements CommonConfigDao {
     public CommonConfigDaoImpl() {
         super(CommonConfig.class);
     }

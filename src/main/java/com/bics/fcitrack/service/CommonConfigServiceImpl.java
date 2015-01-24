@@ -14,12 +14,12 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("commonConfigService")
 @Transactional
-public class CommonConfigServiceImpl extends AbstractServiceImpl<CommonConfig> implements CommonConfigService {
+public class CommonConfigServiceImpl extends AbstractServiceImpl<CommonConfig,Long> implements CommonConfigService {
     @Autowired
     private CommonConfigDao commonConfigDao;
 
     @Override
-    protected AbstractDao<CommonConfig> getDao() {
+    protected AbstractDao<CommonConfig,Long> getDao() {
         return commonConfigDao;
     }
 }

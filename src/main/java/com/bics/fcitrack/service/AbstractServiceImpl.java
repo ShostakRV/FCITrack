@@ -4,6 +4,7 @@ import com.bics.fcitrack.dao.AbstractDao;
 import com.bics.fcitrack.service.interfaces.AbstractService;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,11 +12,12 @@ import java.util.List;
  * Date: 16-Nov-14.
  * Time: 11:54
  */
-@Transactional
-public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
 
-    protected abstract AbstractDao<T> getDao();
+public abstract class AbstractServiceImpl<T, PK extends Serializable> implements AbstractService<T, PK> {
 
+    protected abstract AbstractDao<T, PK> getDao();
+
+    @Transactional
     public List<T> findAll() {
         return getDao().findAll();
     }
@@ -26,14 +28,16 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
     }
 
     @Transactional
-    public T read(long id) {
+    public T read(PK id) {
         return getDao().read(id);
     }
 
+    @Transactional
     public T update(T t) {
         return getDao().update(t);
     }
 
+    @Transactional
     public void delete(T t) {
         getDao().delete(t);
     }

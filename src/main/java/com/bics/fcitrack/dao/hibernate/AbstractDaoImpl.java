@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -18,9 +19,7 @@ import java.util.List;
  * Time: 14:53
  */
 
-public abstract class AbstractDaoImpl<T> extends HibernateDaoSupport implements AbstractDao<T> {
-    @PersistenceContext
-    protected EntityManager entityManager;
+public abstract class AbstractDaoImpl<T, PK extends Serializable> extends HibernateDaoSupport implements AbstractDao<T, PK> {
     protected Class<T> entityClass;
     @Autowired
     private SessionFactory factory;
@@ -48,7 +47,7 @@ public abstract class AbstractDaoImpl<T> extends HibernateDaoSupport implements 
     }
 
     @Override
-    public T read(long id) {
+    public T read(PK id) {
         return (T) getSessionFactory().getCurrentSession().get(entityClass, id);//entityManager.find(entityClass, id);
     }
 

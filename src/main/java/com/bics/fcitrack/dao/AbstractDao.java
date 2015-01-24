@@ -8,12 +8,12 @@ import java.util.List;
  * Time: 14:53
  */
 //todo add generic PK
-public interface AbstractDao<T> {
+public interface AbstractDao<T,PK> {
     public List<T> findAll();
 
     T create(T t);
 
-    T read(long id);
+    T read(PK id);
 
     T update(T t);
 
