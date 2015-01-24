@@ -28,7 +28,6 @@ public class ProductBean implements Serializable {
     @Autowired
     private ProductService productService;
     private Product selectedProduct;
-    private List<Release> releases;
 
     @PostConstruct
     public void init() {
@@ -49,10 +48,7 @@ public class ProductBean implements Serializable {
     }
 
     public List<Release> getReleases() {
-        if (releases == null) {
-            releases = releaseService.findAll();
-        }
-        return releases;
+        return releaseService.findAll();
     }
 
     public Product getSelectedProduct() {

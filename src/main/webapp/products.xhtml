@@ -22,9 +22,9 @@
                     <h:inputText value="#{productBean.selectedProduct.name}" immediate="true"><f:ajax/></h:inputText>
                     <h:inputText value="#{productBean.selectedProduct.seq}" immediate="true"><f:ajax/></h:inputText>
                     <h:selectBooleanCheckbox value="#{productBean.selectedProduct.active}" immediate="true"><f:ajax/></h:selectBooleanCheckbox>
-                    <h:selectOneMenu value="#{productBean.selectedProduct.release}" immediate="true" onselect="#{productBean.releasSelected(it)}">
+                    <h:selectOneMenu value="#{productBean.selectedProduct.release}" immediate="true">
                         <f:selectItem value="#{null}" itemLabel="Select release"/>
-                        <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}" />
+                        <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}"/>
                         <!--<f:ajax immediate="true" listener="# {productBean.valueChangeMethod}"/>-->
                     </h:selectOneMenu>
                     <h:selectBooleanCheckbox value="#{productBean.selectedProduct.deleted}" immediate="true"><f:ajax/></h:selectBooleanCheckbox>
@@ -36,7 +36,7 @@
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
                     </f:facet>
-                    <rich:column >
+                    <rich:column>
                         <f:facet name="header">CODE</f:facet>
                         <h:outputText value="#{item.code}"/>
                     </rich:column>
@@ -50,15 +50,16 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">ACTIVE</f:facet>
-                        <h:outputText value="#{item.active}"/>
+
+                        <h:selectBooleanCheckbox value="#{item.active}" disabled="true"/>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">RELEASE</f:facet>
-                        <h:outputText value="#{item.release}"/>
+                        <h:outputText value="#{item.release.name}"/>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">DELETED</f:facet>
-                        <h:outputText value="#{item.deleted}"/>
+                        <h:selectBooleanCheckbox value="#{item.deleted}" disabled="true"/>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">Actions</f:facet>
