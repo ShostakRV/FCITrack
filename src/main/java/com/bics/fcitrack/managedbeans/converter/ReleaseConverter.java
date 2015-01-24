@@ -1,0 +1,39 @@
+package com.bics.fcitrack.managedbeans.converter;
+
+import com.bics.fcitrack.model.Release;
+import com.bics.fcitrack.service.interfaces.ReleaseService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
+
+/**
+ * Created by morfi_000
+ * Date: 24-Jan-15.
+ */
+@Component
+@FacesConverter
+public class ReleaseConverter implements Converter {
+    @Autowired
+    private ReleaseService releaseService;
+
+    @Override
+    public Object getAsObject(FacesContext context, UIComponent component, String value) {
+        if (StringUtils.isNotBlank(value)) {
+            return releaseService.read(Long.parseLong(value));
+        }
+        return null;
+    }
+
+    @Override
+    public String getAsString(FacesContext context, UIComponent component, Object value) {
+        if (value instanceof Release) {
+            return String.valueOf(((Release) value).getId());
+        }
+        return null;
+    }
+}

@@ -7,6 +7,7 @@ import java.util.List;
  * Date: 15-Nov-14.
  * Time: 14:53
  */
+//todo add generic PK
 public interface AbstractDao<T> {
     public List<T> findAll();
 

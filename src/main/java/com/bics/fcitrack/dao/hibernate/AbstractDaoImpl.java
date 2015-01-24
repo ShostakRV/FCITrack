@@ -49,7 +49,7 @@ public abstract class AbstractDaoImpl<T> extends HibernateDaoSupport implements 
 
     @Override
     public T read(long id) {
-        return entityManager.find(entityClass, id);
+        return (T) getSessionFactory().getCurrentSession().get(entityClass, id);//entityManager.find(entityClass, id);
     }
 
     @Override

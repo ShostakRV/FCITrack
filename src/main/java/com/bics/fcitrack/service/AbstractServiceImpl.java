@@ -11,6 +11,7 @@ import java.util.List;
  * Date: 16-Nov-14.
  * Time: 11:54
  */
+@Transactional
 public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
 
     protected abstract AbstractDao<T> getDao();
@@ -24,6 +25,7 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
         return getDao().create(t);
     }
 
+    @Transactional
     public T read(long id) {
         return getDao().read(id);
     }

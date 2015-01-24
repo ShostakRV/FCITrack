@@ -17,7 +17,7 @@ public class Release {
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RELEASE_SEQ_GENERATOR")
     //@SequenceGenerator(name = "RELEASE_SEQ_GENERATOR", sequenceName = "RELEASE_SEQ")
     @Column(name = "ID")
-    private Integer id;
+    private Long id;
 
     @Column(name = "NAME")
     private String name;
@@ -32,7 +32,7 @@ public class Release {
     public Release() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -58,5 +58,21 @@ public class Release {
 
     public void setCommonConfigs(List<CommonConfig> commonConfigs) {
         this.commonConfigs = commonConfigs;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Release release = (Release) o;
+
+        return !(id != null ? !id.equals(release.id) : release.id != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }

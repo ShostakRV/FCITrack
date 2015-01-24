@@ -59,4 +59,14 @@ public class ReleaseBean {
     public List<Release> getReleases() {
         return releaseService.findAll();
     }
+    /*
+    * public List<SelectItem> getReleases() {
+        return Lists.transform(releaseService.findAll(), new Function<Release, SelectItem>() {
+            @Override
+            public SelectItem apply(Release release) {
+                return new SelectItem(release, release.getName());
+            }
+        });
+    }
+    * */
 }

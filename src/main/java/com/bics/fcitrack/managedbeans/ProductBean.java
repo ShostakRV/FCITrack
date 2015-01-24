@@ -2,16 +2,16 @@ package com.bics.fcitrack.managedbeans;
 
 import com.bics.fcitrack.model.Product;
 import com.bics.fcitrack.model.Release;
-import com.bics.fcitrack.service.ProductServiceImpl;
 import com.bics.fcitrack.service.interfaces.ProductService;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
 
 import javax.annotation.PostConstruct;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.ValueChangeEvent;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
+import javax.faces.model.SelectItem;
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,16 +19,16 @@ import java.util.List;
  * Created by godex_000
  * on 22.01.2015.
  */
-@Controller
-@Scope(value = "session")
-//@KeepAlive
+@ManagedBean
+@ViewScoped
 public class ProductBean implements Serializable {
-    @Autowired
+    @ManagedProperty(value = "#{releaseService}")
     private ReleaseService releaseService;
-    @Autowired
+    @ManagedProperty(value = "#{productService}")
     private ProductService productService;
     private Product selectedProduct;
 
+    private Object test;
     @PostConstruct
     public void init() {
         selectedProduct = new Product();
@@ -36,13 +36,14 @@ public class ProductBean implements Serializable {
 
     public void save() {
         try {
-            //productService.create(selectedProduct);
+//            productService.create(selectedProduct);
             selectedProduct = new Product();
         } catch (Exception e) {
             selectedProduct = new Product();
             e.printStackTrace();
         }
     }
+
     public List<Product> getProducts() {
         return productService.findAll();
     }
@@ -51,11 +52,40 @@ public class ProductBean implements Serializable {
         return releaseService.findAll();
     }
 
+
+//    public List<SelectItem> getReleases() {//todo use lambdas
+//        return Lists.transform(releaseService.findAll(), new Function<Release, SelectItem>() {
+//            @Override
+//            public SelectItem apply(Release release) {
+//                return new SelectItem(release, release.getName());
+//            }
+//        });
+//    }
+
+
     public Product getSelectedProduct() {
         return selectedProduct;
     }
 
-    public void valueChangeMethod(ActionEvent e) {
+    //    ActionEvent e
+    public void valueChangeMethod() {
         System.out.print("");
     }
+
+    public void setReleaseService(ReleaseService releaseService) {
+        this.releaseService = releaseService;
+    }
+
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
+    }
+
+    public Object getTest() {
+        return test;
+    }
+
+    public void setTest(Object test) {
+        this.test = test;
+    }
 }
+
