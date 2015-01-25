@@ -16,11 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("technicalWorkService")
 @Transactional
-public class TechnicalWorkServiceImpl extends AbstractServiceImpl<TechnicalWork, Long> implements TechnicalWorkService {
+public class TechnicalWorkServiceImpl extends AbstractServiceImpl<TechnicalWork, String> implements TechnicalWorkService {
     @Autowired
     private TechnicalWorkDao technicalWorkDao;
     @Override
-    protected AbstractDao<TechnicalWork, Long> getDao() {
+    protected AbstractDao<TechnicalWork, String> getDao() {
         return technicalWorkDao;
     }
 }
