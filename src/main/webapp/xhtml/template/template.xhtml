@@ -17,17 +17,17 @@
 </h:head>
 
 <h:body>
-    <div style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color: #DC006B; width: 100%">
-        <ui:insert name="header">
-            Default header
+    <div style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color: #DC006B; width: 100%;">
+        <ui:insert name="headerMenu">
+                <!--<rich:toolbar id="menuToolBar"  width="300px" onitemclick="refresh()">-->
+                    <!--<ui:include src="/xhtml/template/menu.xhtml"/>-->
+                <!--</rich:toolbar>-->
+            <ui:include src="/xhtml/template/menu2.xhtml"/>
+
         </ui:insert>
     </div>
     <div style="min-height: 15px">
         <ui:insert name="massages">
-            <!--errorClass="bcs-error-message"-->
-            <!--infoClass="bcs-info-message"-->
-            <!--warnClass="bcs-warn-message"-->
-            <!--fatalClass="bcs-fatal-message"-->
             <rich:messages
                     id="itrack-messages-filters"
                     layout="list" globalOnly="false">
@@ -46,11 +46,6 @@
             </rich:messages>
 
         </ui:insert>
-
-        <h:button value="Home" outcome="index" />__
-        <h:button value="Releases" outcome="releases"/>__
-        <h:button value="Products" outcome="products"/>__
-        <h:button value="Technical Works" outcome="technicalworks"/>
     </div>
 
     <div style="border-bottom-width:1px; border-bottom-style: solid; border-bottom-color: #DC006B; width: 100%; min-height: 800px">

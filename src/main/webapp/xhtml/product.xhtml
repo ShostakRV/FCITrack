@@ -5,9 +5,13 @@
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:rich="http://richfaces.org/rich">
 
-<ui:composition template="xhtml/template/template.xhtml">
+
+<ui:composition template="template/template.xhtml">
+    <ui:define name="title">
+        <h:outputText value="Product"/>
+    </ui:define>
     <ui:define name="content">
-        <h3>addproductform.xhtml</h3>
+        <h3>Product Mangement</h3>
         <h:form>
             <a4j:outputPanel ajaxRendered="true" id="pnl_productTable">
 
@@ -77,8 +81,8 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">Actions</f:facet>
-                        <a4j:commandLink action="#{releaseBean.edit(item)}" render="pnl_productTable"><h:graphicImage style="height: 20px; width: 20px" value="images/edit.png"/></a4j:commandLink>
-                        <a4j:commandLink action="#{releaseBean.delete(item)}" render="pnl_productTable"><h:graphicImage style="height: 20px; width: 20px" value="images/delete.png"/></a4j:commandLink>
+                        <a4j:commandLink action="#{releaseBean.edit(item)}" render="pnl_productTable"><h:graphicImage style="height: 20px; width: 20px" value="../images/edit.png"/></a4j:commandLink>
+                        <a4j:commandLink action="#{releaseBean.delete(item)}" render="pnl_productTable"><h:graphicImage style="height: 20px; width: 20px" value="../images/delete.png"/></a4j:commandLink>
                     </rich:column>
                     <f:facet name="footer">
                     </f:facet>

@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+<h:form>
+    <rich:dropDownMenu submitMode="ajax">
+        <f:facet name="label">
+            <h:commandButton value="Common config" action="commonConfig" style="color: #DC006B"/>
+        </f:facet>
+    </rich:dropDownMenu>
+
+    <rich:dropDownMenu submitMode="ajax">
+        <f:facet name="label">
+            <h:commandLink value="Flow version" action="flowVersion" style="color: #DC006B"/>
+        </f:facet>
+    </rich:dropDownMenu>
+
+    <rich:dropDownMenu>
+        <f:facet name="label">
+            <h:commandLink value="Actions and fields" action="actionAndFields" style="color: #DC006B"/>
+        </f:facet>
+    </rich:dropDownMenu>
+
+
+    <rich:dropDownMenu submitMode="ajax">
+        <f:facet name="label">
+            <h:outputText value="Base"/>
+        </f:facet>
+        <rich:menuItem action="product" value="Product"/>
+        <rich:menuItem action="technicalWork" value="Technical Work"/>
+        <rich:menuItem action="iTrackProperties" value="iTrack Properties"/>
+        <rich:menuItem action="workingState" value="Working states"/>
+
+
+    </rich:dropDownMenu>
+
+    <rich:dropDownMenu submitMode="ajax">
+        <f:facet name="label">
+            <h:commandLink value="Release" action="release" style="color: #DC006B"/>
+        </f:facet>
+    </rich:dropDownMenu>
+
+</h:form>
+</ui:composition>

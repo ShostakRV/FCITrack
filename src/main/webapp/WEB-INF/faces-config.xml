@@ -28,5 +28,53 @@
 
     </application>
 
+    <navigation-rule>
+        <navigation-case>
+            <!-- if you change the path, change it also in enum navigation !! -->
+            <from-outcome>test</from-outcome>
+            <to-view-id>/xhtml/test.xhtml</to-view-id>
+            <!-- <redirect /> -->
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>product</from-outcome>
+            <to-view-id>/xhtml/product.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>technicalWork</from-outcome>
+            <to-view-id>/xhtml/technicalWork.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>release</from-outcome>
+            <to-view-id>/xhtml/release.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>iTrackProperties</from-outcome>
+            <to-view-id>/xhtml/itrackProperties.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>workingState</from-outcome>
+            <to-view-id>/xhtml/workingState.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>commonConfig</from-outcome>
+            <to-view-id>/xhtml/commonConfig.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>flowVersion</from-outcome>
+            <to-view-id>/xhtml/flowVersion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actionAndFields</from-outcome>
+            <to-view-id>/xhtml/actionAndFields.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
 
 </faces-config>
