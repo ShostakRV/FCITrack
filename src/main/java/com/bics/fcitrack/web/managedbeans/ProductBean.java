@@ -33,7 +33,7 @@ public class ProductBean implements Serializable {
 
     public void save() {
         try {
-//            productService.create(selectedProduct);
+            productService.create(selectedProduct);
             selectedProduct = new Product();
         } catch (Exception e) {
             selectedProduct = new Product();
