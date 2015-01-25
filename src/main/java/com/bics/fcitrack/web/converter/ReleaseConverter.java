@@ -16,7 +16,7 @@ import javax.faces.convert.FacesConverter;
  * Date: 24-Jan-15.
  */
 @Component
-@FacesConverter
+
 public class ReleaseConverter implements Converter {
     @Autowired
     private ReleaseService releaseService;
