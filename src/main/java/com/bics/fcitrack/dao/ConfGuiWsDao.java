@@ -5,5 +5,5 @@ import com.bics.fcitrack.model.ConfGuiWs;
 /**
  * Created by godex_000 on 20.01.2015.
  */
-public interface ConfGuiWsDao extends AbstractDao<ConfGuiWs> {
+public interface ConfGuiWsDao extends AbstractDao<ConfGuiWs, Long> {
 }

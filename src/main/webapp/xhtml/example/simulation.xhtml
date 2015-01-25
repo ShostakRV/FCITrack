@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:rich="http://richfaces.org/rich"
+	  xmlns:a4j="http://richfaces.org/a4j" xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/xhtml/template/template.xhtml">
+
+	<ui:define name="title">
+		#{msg.title_simulation}
+	</ui:define>
+
+	<ui:define name="body">
+		<h:form id="simulationForm" rendered="#{securityProvider.user.hasGrantedAuthority('ROLE_GPT_BILLING_SIMULATION')}">
+            <h:panelGrid columns="2" columnClasses="label, field">
+				<h:outputLabel value="#{msg.label_simulation_email}" for="recipients" />
+				<h:inputText id="recipients" value="#{billingSimulation.recipients}" required="true" validator="emailListValidator" styleClass="contentBox" style="width: 250px;" maxlength="1024"/>
+
+				<h:outputLabel value="#{msg.label_simulation_month}" for="simulationMonth" title="#{msg.tooltip_simulation_month}"/>
+				<h:inputText id="simulationMonth" value="#{billingSimulation.simulationMonth}"
+							 validator="#{billingSimulation.validatePostingMonth}" required="true"
+							 styleClass="contentBox" style="width: 250px; margin-right: 5px" />
+				<h:outputLabel value="#{msg.label_simulation_type}" for="simulationType" />
+				<h:selectOneMenu id="simulationType" value="#{billingSimulation.simulationType}">
+					<a4j:ajax event="change" execute="@this" limitRender="true" />
+					<f:selectItems value="#{billingSimulation.simulationTypes}" />
+				</h:selectOneMenu>
+
+				<h:commandButton value="#{msg.label_simulation_start}" action="#{billingSimulation.startSimulation()}" reRender="simulationForm" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
