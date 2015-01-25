@@ -16,11 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("propertyMapService")
 @Transactional
-public class PropertyMapServiceImpl extends AbstractServiceImpl<PropertyMap> implements PropertyMapService {
+public class PropertyMapServiceImpl extends AbstractServiceImpl<PropertyMap, Long> implements PropertyMapService {
     @Autowired
     private PropertyMapDao propertyMapDao;
     @Override
-    protected AbstractDao<PropertyMap> getDao() {
+    protected AbstractDao<PropertyMap, Long> getDao() {
         return propertyMapDao;
     }
 }

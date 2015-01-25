@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class ReleaseDaoImpl extends AbstractDaoImpl<Release> implements ReleaseDao {
+public class ReleaseDaoImpl extends AbstractDaoImpl<Release, Long> implements ReleaseDao {
     public ReleaseDaoImpl() {
         super(Release.class);
     }

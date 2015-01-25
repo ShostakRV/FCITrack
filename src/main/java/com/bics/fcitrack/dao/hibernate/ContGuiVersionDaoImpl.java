@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
  */
 @Repository
 @Transactional
-public class ContGuiVersionDaoImpl extends AbstractDaoImpl<ContGuiVersion> implements ContGuiVersionDao {
+public class ContGuiVersionDaoImpl extends AbstractDaoImpl<ContGuiVersion, Long> implements ContGuiVersionDao {
     public ContGuiVersionDaoImpl() {
         super(ContGuiVersion.class);
     }

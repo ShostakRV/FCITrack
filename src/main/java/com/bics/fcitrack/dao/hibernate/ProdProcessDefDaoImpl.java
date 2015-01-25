@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class ProdProcessDefDaoImpl extends AbstractDaoImpl<ProdProcessDef> implements ProdProcessDefDao {
+public class ProdProcessDefDaoImpl extends AbstractDaoImpl<ProdProcessDef, Long> implements ProdProcessDefDao {
     public ProdProcessDefDaoImpl() {
         super(ProdProcessDef.class);
     }

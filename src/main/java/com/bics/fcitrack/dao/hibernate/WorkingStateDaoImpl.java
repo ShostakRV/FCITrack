@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class WorkingStateDaoImpl extends AbstractDaoImpl<WorkingState> implements WorkingStateDao {
+public class WorkingStateDaoImpl extends AbstractDaoImpl<WorkingState, Long> implements WorkingStateDao {
     public WorkingStateDaoImpl() {
         super(WorkingState.class);
     }

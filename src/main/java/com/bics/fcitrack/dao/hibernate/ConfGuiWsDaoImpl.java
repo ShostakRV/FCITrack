@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class ConfGuiWsDaoImpl extends AbstractDaoImpl<ConfGuiWs> implements ConfGuiWsDao {
+public class ConfGuiWsDaoImpl extends AbstractDaoImpl<ConfGuiWs, Long> implements ConfGuiWsDao {
     public ConfGuiWsDaoImpl() {
         super(ConfGuiWs.class);
     }

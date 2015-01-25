@@ -17,11 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("releaseService")
 @Transactional
-public class ReleaseServiceImpl extends AbstractServiceImpl<Release> implements ReleaseService {
+public class ReleaseServiceImpl extends AbstractServiceImpl<Release, Long> implements ReleaseService {
     @Autowired
     private ReleaseDao releaseDao;
     @Override
-    protected AbstractDao<Release> getDao() {
+    protected AbstractDao<Release, Long> getDao() {
         return releaseDao;
     }
 

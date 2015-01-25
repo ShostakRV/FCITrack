@@ -16,11 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("contGuiWsPropertyService")
 @Transactional
-public class ContGuiWsPropertyServiceImpl extends AbstractServiceImpl<ContGuiWsProperty> implements ContGuiWsPropertyService {
+public class ContGuiWsPropertyServiceImpl extends AbstractServiceImpl<ContGuiWsProperty, Long> implements ContGuiWsPropertyService {
     @Autowired
     private ContGuiWsPropertyDao contGuiWsPropertyDao;
     @Override
-    protected AbstractDao<ContGuiWsProperty> getDao() {
+    protected AbstractDao<ContGuiWsProperty, Long> getDao() {
         return contGuiWsPropertyDao;
     }
 }

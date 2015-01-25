@@ -16,11 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("contGuiVersionService")
 @Transactional
-public class ContGuiVersionServiceImpl extends AbstractServiceImpl<ContGuiVersion> implements ContGuiVersionService {
+public class ContGuiVersionServiceImpl extends AbstractServiceImpl<ContGuiVersion, Long> implements ContGuiVersionService {
     @Autowired
     private ContGuiVersionDao contGuiVersionDao;
     @Override
-    protected AbstractDao<ContGuiVersion> getDao() {
+    protected AbstractDao<ContGuiVersion, Long> getDao() {
         return contGuiVersionDao;
     }
 }

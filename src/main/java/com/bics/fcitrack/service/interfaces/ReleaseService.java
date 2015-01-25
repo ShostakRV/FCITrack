@@ -5,6 +5,6 @@ import com.bics.fcitrack.model.Release;
 /**
  * Created by godex_000 on 20.01.2015.
  */
-public interface ReleaseService extends AbstractService<Release> {
+public interface ReleaseService extends AbstractService<Release, Long> {
     Release findFull(long id);
 }

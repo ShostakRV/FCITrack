@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class TechnicalWorkDaoImpl extends AbstractDaoImpl<TechnicalWork> implements TechnicalWorkDao {
+public class TechnicalWorkDaoImpl extends AbstractDaoImpl<TechnicalWork, Long> implements TechnicalWorkDao {
     public TechnicalWorkDaoImpl() {
         super(TechnicalWork.class);
     }

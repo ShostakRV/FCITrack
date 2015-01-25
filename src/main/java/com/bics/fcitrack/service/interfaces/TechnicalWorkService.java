@@ -5,5 +5,5 @@ import com.bics.fcitrack.model.TechnicalWork;
 /**
  * Created by godex_000 on 20.01.2015.
  */
-public interface TechnicalWorkService extends AbstractService<TechnicalWork> {
+public interface TechnicalWorkService extends AbstractService<TechnicalWork, Long> {
 }
