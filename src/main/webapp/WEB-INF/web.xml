@@ -47,6 +47,11 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+<!-- resources -->
+    <context-param>
+        <param-name>facelets.LIBRARIES</param-name>
+        <param-value>/WEB-INF/fcitrack.taglib.xml</param-value>
+    </context-param>
 
     <resource-ref>
         <res-ref-name>jdbc/fcitrackds</res-ref-name>
