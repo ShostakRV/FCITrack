@@ -16,11 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("prodProcessDefService")
 @Transactional
-public class ProdProcessDefServiceImpl extends AbstractServiceImpl<ProdProcessDef, Long> implements ProdProcessDefService {
+public class ProdProcessDefServiceImpl extends AbstractServiceImpl<ProdProcessDef, String> implements ProdProcessDefService {
     @Autowired
     private ProdProcessDefDao prodProcessDefDao;
     @Override
-    protected AbstractDao<ProdProcessDef, Long> getDao() {
+    protected AbstractDao<ProdProcessDef, String> getDao() {
         return prodProcessDefDao;
     }
 }

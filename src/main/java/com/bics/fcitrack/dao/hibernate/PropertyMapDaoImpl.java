@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class PropertyMapDaoImpl extends AbstractDaoImpl<PropertyMap, Long> implements PropertyMapDao {
+public class PropertyMapDaoImpl extends AbstractDaoImpl<PropertyMap, String> implements PropertyMapDao {
     public PropertyMapDaoImpl() {
         super(PropertyMap.class);
     }
