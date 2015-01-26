@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "WORKING_STATE")
 public class WorkingState {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
     private Integer id;
 

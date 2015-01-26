@@ -20,8 +20,6 @@ public class ReleaseBean {
     private ReleaseService releaseService;
     private Release selectedRelease;
 
-
-
     @PostConstruct
     public void init() {
         selectedRelease = new Release();

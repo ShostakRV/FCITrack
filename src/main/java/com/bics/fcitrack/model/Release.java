@@ -14,8 +14,6 @@ import java.util.List;
 public class Release {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RELEASE_SEQ_GENERATOR")
-    //@SequenceGenerator(name = "RELEASE_SEQ_GENERATOR", sequenceName = "RELEASE_SEQ")
     @Column(name = "ID")
     private Long id;
 
