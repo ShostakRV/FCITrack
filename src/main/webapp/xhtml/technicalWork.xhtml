@@ -29,7 +29,7 @@
                     <a4j:commandButton value="send" type="submit" actionListener="#{technicalWorkBean.save()}" immediate="true" render="pnl_productTable"/>
                 </h:panelGrid>
 
-                <rich:dataTable sortMode="single" value="#{technicalWorkBean.products}" var="item">
+                <rich:dataTable sortMode="single" value="#{technicalWorkBean.technicalWorks}" var="item">
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
                     </f:facet>
@@ -43,7 +43,7 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">TW_TYPE</f:facet>
-                        <h:outputText value="#{item.seq}"/>
+                        <h:outputText value="#{item.type}"/>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">RELEASE</f:facet>

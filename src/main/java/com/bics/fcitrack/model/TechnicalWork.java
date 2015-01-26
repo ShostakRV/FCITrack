@@ -18,7 +18,7 @@ public class TechnicalWork {
     @Column(name = "TW_TYPE")
     private String type;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_RELEASE")
     private Release release;
 

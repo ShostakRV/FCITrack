@@ -9,18 +9,23 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 import java.util.List;
 
 /**
  * Created by godex_000
  * on 23.01.2015.
  */
-@Controller
-@Scope(value = "session")
+@ManagedBean
+@ViewScoped
 public class TechnicalWorkBean {
-    @Autowired
+
+    @ManagedProperty(value = "#{releaseService}")
     private ReleaseService releaseService;
-    @Autowired
+
+    @ManagedProperty(value = "#{technicalWorkService}")
     private TechnicalWorkService technicalWorkService;
     private TechnicalWork selectedTechnicalWork;
 
@@ -39,7 +44,7 @@ public class TechnicalWorkBean {
         }
     }
 
-    public List<TechnicalWork> getProducts() {
+    public List<TechnicalWork> getTechnicalWorks() {
         return technicalWorkService.findAll();
     }
 
@@ -49,5 +54,13 @@ public class TechnicalWorkBean {
 
     public TechnicalWork getSelectedTechnicalWork() {
         return selectedTechnicalWork;
+    }
+
+    public void setTechnicalWorkService(TechnicalWorkService technicalWorkService) {
+        this.technicalWorkService = technicalWorkService;
+    }
+
+    public void setReleaseService(ReleaseService releaseService) {
+        this.releaseService = releaseService;
     }
 }
