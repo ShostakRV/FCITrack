@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "COMMON_CONFIG")
 public class CommonConfig {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
     private Integer id;
 
