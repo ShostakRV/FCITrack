@@ -6,6 +6,7 @@
       xmlns:rich="http://richfaces.org/rich">
 
 
+<!--todo -в табличке продукты менять имя продукта, помечать активными-->
 <ui:composition template="template/template.xhtml">
     <ui:define name="title">
         <h:outputText value="Product"/>
@@ -30,10 +31,6 @@
 
                     <h:selectOneMenu value="#{productBean.selectedProduct.release}" converter="#{releaseConverter}">
                         <f:selectItem value="#{null}" itemLabel="Select release"/>
-                        <!---->
-                        <!--onchange="submit()"-->
-                        <!--<f:ajax event="change" execute="@this"/>-->
-                        <!--<f:ajax  listener="# {productBean.valueChangeMethod}"/> &lt;!&ndash;execute="@form" &ndash;&gt;-->
                         <a4j:ajax event="change" execute="@this" limitRender="true" />
                         <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                     </h:selectOneMenu>
@@ -44,12 +41,6 @@
 
 
                 </h:panelGrid>
-                <!--<f:selectItem value="# {null}" itemLabel="Select release"/>-->
-                <!--<h:selectOneMenu value="# {productBean.selectedProduct.release}" immediate="true">-->
-                <!--<f:selectItem value="# {null}" itemLabel="Select release"/>-->
-                <!--<f:selectItems value="# {productBean.releases}" var="r" itemLabel="# {r.name}"/>-->
-                <!--&lt;!&ndash;<f:ajax immediate="true" listener="# {productBean.valueChangeMethod}"/>&ndash;&gt;-->
-                <!--</h:selectOneMenu>-->
                 <rich:dataTable sortMode="single" value="#{productBean.products}" var="item">
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
@@ -68,7 +59,6 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">ACTIVE</f:facet>
-
                         <h:selectBooleanCheckbox value="#{item.active}" disabled="true"/>
                     </rich:column>
                     <rich:column>
