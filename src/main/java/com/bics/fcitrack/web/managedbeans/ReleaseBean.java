@@ -20,6 +20,7 @@ public class ReleaseBean {
     private ReleaseService releaseService;
     private Release selectedRelease;
 
+    private Release editedRelease;
 
 
     @PostConstruct
@@ -27,30 +28,26 @@ public class ReleaseBean {
         selectedRelease = new Release();
     }
 
-    public void edit(long id) {
-        selectedRelease = releaseService.read(id);
+    public void edit(Release r) {
+        editedRelease = r;
     }
 
     public void save() {
-        try {
-            if (selectedRelease.getId() == null) {
-                releaseService.create(selectedRelease);
-            } else {
-                releaseService.update(selectedRelease);
-            }
-            selectedRelease = new Release();
-        } catch (Exception e) {
-            selectedRelease = new Release();
-            e.printStackTrace();
-        }
+        releaseService.create(selectedRelease);
+        selectedRelease = new Release();
     }
 
     public void save(Release release) {
-        try {
+        if (editedRelease != null && editedRelease.equals(release)) {
             releaseService.update(release);
-        } catch (Exception e) {
-            e.printStackTrace();
+            editedRelease = null;
+        } else {
+            throw new RuntimeException("Some fuck happened.");
         }
+    }
+
+    public void cancelEdit() {
+        editedRelease = null;
     }
 
     public void delete(Release release) {
@@ -65,15 +62,12 @@ public class ReleaseBean {
         return releaseService.findAll();
     }
 
-
-    /*
-    * public List<SelectItem> getReleases() {
-        return Lists.transform(releaseService.findAll(), new Function<Release, SelectItem>() {
-            @Override
-            public SelectItem apply(Release release) {
-                return new SelectItem(release, release.getName());
-            }
-        });
+    public boolean isEdit(Release r) {
+        return editedRelease != null && editedRelease.equals(r);
     }
-    * */
+
+    public void setReleaseService(ReleaseService releaseService) {
+        this.releaseService = releaseService;
+    }
+
 }
