@@ -16,15 +16,11 @@ import java.util.List;
 @ManagedBean
 @ViewScoped
 public class ReleaseBean {
-    private String edit;
     @ManagedProperty(value = "#{releaseService}")
     private ReleaseService releaseService;
     private Release selectedRelease;
-    private String idAsString;
 
-    public void setReleaseService(ReleaseService releaseService) {
-        this.releaseService = releaseService;
-    }
+
 
     @PostConstruct
     public void init() {
@@ -36,7 +32,6 @@ public class ReleaseBean {
     }
 
     public void save() {
-
         try {
             if (selectedRelease.getId() == null) {
                 releaseService.create(selectedRelease);
@@ -57,7 +52,6 @@ public class ReleaseBean {
             e.printStackTrace();
         }
     }
-
 
     public void delete(Release release) {
         releaseService.delete(release);
