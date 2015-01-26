@@ -36,6 +36,7 @@ public class Release {
         return id;
     }
 
+
     public String getName() {
         return name;
     }

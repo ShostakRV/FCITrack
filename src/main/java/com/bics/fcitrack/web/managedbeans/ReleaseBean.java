@@ -7,9 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by godex_000
@@ -18,34 +16,48 @@ import java.util.Map;
 @ManagedBean
 @ViewScoped
 public class ReleaseBean {
+    private String edit;
+    @ManagedProperty(value = "#{releaseService}")
+    private ReleaseService releaseService;
+    private Release selectedRelease;
+    private String idAsString;
+
     public void setReleaseService(ReleaseService releaseService) {
         this.releaseService = releaseService;
     }
-
-
-    @ManagedProperty(value = "#{releaseService}")
-    private ReleaseService releaseService;
-
-    private Release selectedRelease;
-
 
     @PostConstruct
     public void init() {
         selectedRelease = new Release();
     }
 
+    public void edit(long id) {
+        selectedRelease = releaseService.read(id);
+    }
+
     public void save() {
 
-        Map<String, String> requestMap = FacesContext.getCurrentInstance()
-                .getExternalContext().getRequestParameterMap();
         try {
-            releaseService.create(selectedRelease);
+            if (selectedRelease.getId() == null) {
+                releaseService.create(selectedRelease);
+            } else {
+                releaseService.update(selectedRelease);
+            }
             selectedRelease = new Release();
         } catch (Exception e) {
             selectedRelease = new Release();
             e.printStackTrace();
         }
     }
+
+    public void save(Release release) {
+        try {
+            releaseService.update(release);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void delete(Release release) {
         releaseService.delete(release);
@@ -58,6 +70,8 @@ public class ReleaseBean {
     public List<Release> getReleases() {
         return releaseService.findAll();
     }
+
+
     /*
     * public List<SelectItem> getReleases() {
         return Lists.transform(releaseService.findAll(), new Function<Release, SelectItem>() {
