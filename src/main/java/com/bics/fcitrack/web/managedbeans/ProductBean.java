@@ -26,6 +26,7 @@ public class ProductBean implements Serializable {
     private Product selectedProduct;
 
     private Object test;
+
     @PostConstruct
     public void init() {
         selectedProduct = new Product();
@@ -50,7 +51,7 @@ public class ProductBean implements Serializable {
     }
 
 
-//    public List<SelectItem> getReleases() {//todo use lambdas
+    //    public List<SelectItem> getReleases() {//todo use lambdas
 //        return Lists.transform(releaseService.findAll(), new Function<Release, SelectItem>() {
 //            @Override
 //            public SelectItem apply(Release release) {
@@ -58,6 +59,14 @@ public class ProductBean implements Serializable {
 //            }
 //        });
 //    }
+    public void delete(Product product) {
+        try {
+            productService.delete(product);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
     public Product getSelectedProduct() {

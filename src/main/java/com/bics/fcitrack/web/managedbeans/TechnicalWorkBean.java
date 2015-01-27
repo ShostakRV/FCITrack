@@ -2,16 +2,15 @@ package com.bics.fcitrack.web.managedbeans;
 
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.model.TechnicalWork;
+import com.bics.fcitrack.model.TwType;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
 import com.bics.fcitrack.service.interfaces.TechnicalWorkService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.util.EnumSet;
 import java.util.List;
 
 /**
@@ -29,20 +28,47 @@ public class TechnicalWorkBean {
     private TechnicalWorkService technicalWorkService;
     private TechnicalWork selectedTechnicalWork;
 
+    private TechnicalWork editedTechnicalWork;
+
+    private EnumSet<TwType> types;
+
     @PostConstruct
     public void init() {
+        types = TwType.all;
         selectedTechnicalWork = new TechnicalWork();
+
+    }
+
+    public void edit(TechnicalWork r) {
+        editedTechnicalWork = r;
     }
 
     public void save() {
-        try {
-            //productService.create(selectedProduct);
-            selectedTechnicalWork = new TechnicalWork();
-        } catch (Exception e) {
-            selectedTechnicalWork = new TechnicalWork();
-            e.printStackTrace();
+        technicalWorkService.create(selectedTechnicalWork);
+        selectedTechnicalWork = new TechnicalWork();
+    }
+
+    public void save(TechnicalWork technicalWork) {
+        if (editedTechnicalWork != null && editedTechnicalWork.equals(technicalWork)) {
+            technicalWorkService.update(technicalWork);
+            editedTechnicalWork = null;
+        } else {
+            throw new RuntimeException("Some fuck happened.");
         }
     }
+
+    public void cancelEdit() {
+        editedTechnicalWork = null;
+    }
+
+    public void delete(TechnicalWork technicalWork) {
+        technicalWorkService.delete(technicalWork);
+    }
+
+    public boolean isEdit(TechnicalWork r) {
+        return editedTechnicalWork != null && editedTechnicalWork.equals(r);
+    }
+
 
     public List<TechnicalWork> getTechnicalWorks() {
         return technicalWorkService.findAll();
@@ -62,5 +88,17 @@ public class TechnicalWorkBean {
 
     public void setReleaseService(ReleaseService releaseService) {
         this.releaseService = releaseService;
+    }
+
+    public TechnicalWork getEditedTechnicalWork() {
+        return editedTechnicalWork;
+    }
+
+    public void setEditedTechnicalWork(TechnicalWork editedTechnicalWork) {
+        this.editedTechnicalWork = editedTechnicalWork;
+    }
+
+    public EnumSet<TwType> getTypes() {
+        return types;
     }
 }

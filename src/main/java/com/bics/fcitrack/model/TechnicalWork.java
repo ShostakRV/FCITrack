@@ -1,10 +1,9 @@
 package com.bics.fcitrack.model;
 
+import org.hibernate.usertype.UserType;
+
 import javax.persistence.*;
 
-/**
- * Created by godex_000 on 19.01.2015.
- */
 @Entity
 @Table(name = "TECHNICAL_WORK")
 public class TechnicalWork {
@@ -15,8 +14,9 @@ public class TechnicalWork {
     @Column(name = "NAME")
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "TW_TYPE")
-    private String type;
+    private TwType type;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_RELEASE")
@@ -41,11 +41,11 @@ public class TechnicalWork {
         this.name = name;
     }
 
-    public String getType() {
+    public TwType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TwType type) {
         this.type = type;
     }
 
@@ -63,5 +63,20 @@ public class TechnicalWork {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TechnicalWork technicalWork = (TechnicalWork) o;
+
+        return !(code != null ? !code.equals(technicalWork.code) : technicalWork.code != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return code != null ? code.hashCode() : 0;
     }
 }

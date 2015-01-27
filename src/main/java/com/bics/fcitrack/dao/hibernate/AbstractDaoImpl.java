@@ -40,7 +40,9 @@ public abstract class AbstractDaoImpl<T, PK extends Serializable> extends Hibern
 
     @Override
     public T create(T t) {
-        getSessionFactory().getCurrentSession().persist(t);
+        //todo ya pomenyal
+        //getSessionFactory().getCurrentSession().persist(t);
+        getSessionFactory().getCurrentSession().saveOrUpdate(t);
         return t;
     }
 
@@ -49,9 +51,12 @@ public abstract class AbstractDaoImpl<T, PK extends Serializable> extends Hibern
         return (T) getSessionFactory().getCurrentSession().get(entityClass, id);//entityManager.find(entityClass, id);
     }
 
+    @Transactional
     @Override
     public T update(T t) {
-        getSessionFactory().getCurrentSession().update(t);
+        //todo ya pomenyal
+        //getSessionFactory().getCurrentSession().update(t);
+        getSessionFactory().getCurrentSession().saveOrUpdate(t);
         return t;
     }
 

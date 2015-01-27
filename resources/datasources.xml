@@ -8,4 +8,7 @@
           poolPreparedStatements="true"
           testOnBorrow="true" validationQuery="select 1 from dual"
           maxOpenPreparedStatements="100"
+          show_sql="true"
+          format_sql="true"
+
         />

@@ -4,20 +4,24 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:rich="http://richfaces.org/rich">
-<!--todo -в табличке релиза можно менять название релиза-->
+<!--
+todo -бага при редактировании при нажатии ентер пытаеться добавить новое значение
+-->
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
-        <h:form id="form_release">
-            <a4j:outputPanel ajaxRendered="true" id="pnl_releaseTable">
+        <a4j:outputPanel ajaxRendered="true" id="pnl_releaseTable">
+            <h:form id="form_release">
                 <h:panelGrid columns="2">
                     <h:outputText value="#{msg.release_name}"/>
                     <h:outputText value="#{msg.actions}"/>
                     <h:inputText id="edit_id" value="#{releaseBean.selectedRelease.id}" rendered="false"/>
                     <h:inputText id="edit_name" value="#{releaseBean.selectedRelease.name}" immediate="true"><f:ajax/></h:inputText>
-                    <h:commandButton value="Submit" action="#{releaseBean.save}">
-                        <f:ajax render="@form"/>
+                    <h:commandButton value="Submit" actionListener="#{releaseBean.save()}">
+                        <f:ajax render="@all"/>
                     </h:commandButton>
                 </h:panelGrid>
+            </h:form>
+            <h:form id="table_release">
                 <rich:dataTable id="releases_table" onrowclick="release_actions(#{item.id})" sortMode="single" value="#{releaseBean.releases}" var="item">
                     <f:facet name="header">
                         <h:outputText value="#{msg.release_head}"/>
@@ -30,35 +34,38 @@
                         <f:facet name="header">#{msg.release_name}</f:facet>
                         <a4j:outputPanel>
                             <h:outputText value="#{item.name}" rendered="#{not releaseBean.isEdit(item)}"/>
-                            <h:inputText value="#{item.name}" style="display: block" immediate="true" rendered="#{releaseBean.isEdit(item)}"/>
+                            <h:inputText value="#{item.name}" immediate="true" rendered="#{releaseBean.isEdit(item)}"/>
                         </a4j:outputPanel>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">#{msg.release_release_date}</f:facet>
-                        <h:outputText value="#{item.releaseDate}"/>
+                        <h:outputText value="#{item.releaseDate}" rendered="#{releaseBean.isReleased(item)}"/>
+                        <a4j:commandLink action="#{releaseBean.releas(item)}" rendered="#{not releaseBean.isReleased(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/success.png"/>
+                            <h:outputText value="reliz"/>
+                        </a4j:commandLink>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">#{msg.actions}</f:facet>
                         <a4j:commandLink action="#{releaseBean.edit(item)}" rendered="#{not releaseBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
                         </a4j:commandLink>
-                        <a4j:commandLink action="#{releaseBean.save(item)}" rendered="#{releaseBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
-                        </a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.delete(item)}" rendered="#{not releaseBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
+                        </a4j:commandLink>
+                        <a4j:commandLink action="#{releaseBean.save(item)}" rendered="#{releaseBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.cancelEdit()}" rendered="#{releaseBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png"/>
                         </a4j:commandLink>
-
                     </rich:column>
                     <f:facet name="footer">
                     </f:facet>
                 </rich:dataTable>
                 <br/>
-            </a4j:outputPanel>
-        </h:form>
+            </h:form>
+        </a4j:outputPanel>
     </ui:define>
 </ui:composition>
 

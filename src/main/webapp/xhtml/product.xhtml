@@ -30,13 +30,13 @@
                     <h:selectBooleanCheckbox value="#{productBean.selectedProduct.active}" immediate="true"><f:ajax/></h:selectBooleanCheckbox>
 
                     <h:selectOneMenu value="#{productBean.selectedProduct.release}" converter="#{releaseConverter}">
-                        <f:selectItem value="#{null}" itemLabel="Select release"/>
+                        <f:selectItem itemLabel="Select release"/>
                         <a4j:ajax event="change" execute="@this" limitRender="true" />
                         <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                     </h:selectOneMenu>
                     <h:selectBooleanCheckbox value="#{productBean.selectedProduct.deleted}" immediate="true"><f:ajax/></h:selectBooleanCheckbox>
                     <h:commandButton value="Submit" action="#{productBean.save}">
-                        <f:ajax render="@form"/>
+                        <f:ajax render="@all"/>
                     </h:commandButton>
 
 
@@ -71,8 +71,11 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">Actions</f:facet>
-                        <a4j:commandLink action="#{releaseBean.edit(item)}" render="pnl_productTable"><h:graphicImage style="height: 20px; width: 20px" value="../images/icon/edit.png"/></a4j:commandLink>
-                        <a4j:commandLink action="#{releaseBean.delete(item)}" render="pnl_productTable"><h:graphicImage style="height: 20px; width: 20px" value="../images/icon/delete.png"/></a4j:commandLink>
+                        <a4j:commandLink action="#{productBean.edit(item)}" render="pnl_productTable"><h:graphicImage style="height: 20px; width: 20px" value="../images/icon/edit.png"/></a4j:commandLink>
+                        <a4j:commandLink action="#{productBean.delete(item)}" render="pnl_productTable"><h:graphicImage style="height: 20px; width: 20px" value="../images/icon/delete.png"/></a4j:commandLink>
+                        <a4j:commandLink action="#{productBean.delete(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
+                        </a4j:commandLink>
                     </rich:column>
                     <f:facet name="footer">
                     </f:facet>

@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,6 +33,10 @@ public class ReleaseBean {
         editedRelease = r;
     }
 
+    public void releas(Release r){
+        r.setReleaseDate(new Date());
+        releaseService.update(r);
+    }
     public void save() {
         releaseService.create(selectedRelease);
         selectedRelease = new Release();
@@ -51,7 +56,17 @@ public class ReleaseBean {
     }
 
     public void delete(Release release) {
-        releaseService.delete(release);
+        try {
+            releaseService.delete(release);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public boolean isEdit(Release r) {
+        return editedRelease != null && editedRelease.equals(r);
+    }
+    public boolean isReleased(Release r) {
+        return r.getReleaseDate()!=null;
     }
 
     public Release getSelectedRelease() {
@@ -62,9 +77,7 @@ public class ReleaseBean {
         return releaseService.findAll();
     }
 
-    public boolean isEdit(Release r) {
-        return editedRelease != null && editedRelease.equals(r);
-    }
+
 
     public void setReleaseService(ReleaseService releaseService) {
         this.releaseService = releaseService;
