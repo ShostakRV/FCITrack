@@ -34,7 +34,6 @@ public class ProductBean extends AbstractBean<Product> {
         return new Product();
     }
 
-
     @Override
     public AbstractService getService() {
         return productService;

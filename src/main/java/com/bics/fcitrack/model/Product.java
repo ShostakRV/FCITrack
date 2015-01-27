@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "PRODUCT")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "CODE")
     private String code;
 
