@@ -88,7 +88,7 @@
                         <a4j:commandLink action="#{productBean.delete(item)}" rendered="#{not productBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
                         </a4j:commandLink>
-                        <a4j:commandLink action="#{productBean.save(item)}" rendered="#{productBean.isEdit(item)}">
+                        <a4j:commandLink action="#{productBean.save()}" rendered="#{productBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{productBean.cancelEdit()}" rendered="#{productBean.isEdit(item)}">
