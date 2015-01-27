@@ -10,16 +10,10 @@ import java.util.List;
  * Created by godex_000
  * on 27.01.2015.
  */
-public interface AbstractBean<T,S> {
+public interface AbstractBean<T> {
     void create (T t);
 
-    void save ();
-
     void save (T t);
-
-    boolean isEdit(T t);
-
-    void cancelEdit();
 
     void delete(T t);
 }
