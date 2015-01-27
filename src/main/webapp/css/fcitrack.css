@@ -439,3 +439,9 @@ a.linkdisabled {
     font-weight: bold;
     width: 100%;
 }
+
+.action-icon{
+    width: 20pt;
+    height: 20pt;
+    border-radius: 5px;
+}

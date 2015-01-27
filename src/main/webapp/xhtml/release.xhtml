@@ -40,15 +40,18 @@
                     <rich:column>
                         <f:facet name="header">#{msg.actions}</f:facet>
                         <a4j:commandLink action="#{releaseBean.edit(item)}" rendered="#{not releaseBean.isEdit(item)}">
-                            <h:graphicImage style="height: 20px; width: 20px" value="../images/edit.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.save(item)}" rendered="#{releaseBean.isEdit(item)}">
-                            <h:outputLabel value="Save"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.delete(item)}" rendered="#{not releaseBean.isEdit(item)}">
-                            <h:graphicImage style="height: 20px; width: 20px" value="../images/delete.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
                         </a4j:commandLink>
-                        <a4j:commandLink action="#{releaseBean.cancelEdit()}" rendered="#{releaseBean.isEdit(item)}" value="Cancel"/>
+                        <a4j:commandLink action="#{releaseBean.cancelEdit()}" rendered="#{releaseBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png"/>
+                        </a4j:commandLink>
+
                     </rich:column>
                     <f:facet name="footer">
                     </f:facet>
