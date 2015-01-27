@@ -1,6 +1,7 @@
 package com.bics.fcitrack.web.managedbeans;
 
 import com.bics.fcitrack.model.Release;
+import com.bics.fcitrack.service.interfaces.AbstractService;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
 
 import javax.annotation.PostConstruct;
@@ -8,7 +9,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by godex_000
@@ -16,71 +16,34 @@ import java.util.List;
  */
 @ManagedBean
 @ViewScoped
-public class ReleaseBean {
+public class ReleaseBean extends AbstractBean<Release> {
     @ManagedProperty(value = "#{releaseService}")
-    private ReleaseService releaseService;
-    private Release selectedRelease;
-
-    private Release editedRelease;
-
-
+    protected ReleaseService releaseServiceOwn;
     @PostConstruct
     public void init() {
-        selectedRelease = new Release();
+        selectedDto = new Release();
     }
 
-    public void edit(Release r) {
-        editedRelease = r;
-    }
-
-    public void releas(Release r){
+    public void releas(Release r) {
         r.setReleaseDate(new Date());
         releaseService.update(r);
     }
-    public void save() {
-        releaseService.create(selectedRelease);
-        selectedRelease = new Release();
+
+    @Override
+    protected Release getNewDto() {
+        return new Release();
     }
 
-    public void save(Release release) {
-        if (editedRelease != null && editedRelease.equals(release)) {
-            releaseService.update(release);
-            editedRelease = null;
-        } else {
-            throw new RuntimeException("Some fuck happened.");
-        }
+    @Override
+    public AbstractService getService() {
+        return releaseService;
     }
 
-    public void cancelEdit() {
-        editedRelease = null;
+    public void setReleaseServiceOwn(ReleaseService releaseService) {
+        this.releaseServiceOwn = releaseService;
     }
 
-    public void delete(Release release) {
-        try {
-            releaseService.delete(release);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    public boolean isEdit(Release r) {
-        return editedRelease != null && editedRelease.equals(r);
-    }
     public boolean isReleased(Release r) {
-        return r.getReleaseDate()!=null;
+        return r.getReleaseDate() != null;
     }
-
-    public Release getSelectedRelease() {
-        return selectedRelease;
-    }
-
-    public List<Release> getReleases() {
-        return releaseService.findAll();
-    }
-
-
-
-    public void setReleaseService(ReleaseService releaseService) {
-        this.releaseService = releaseService;
-    }
-
 }

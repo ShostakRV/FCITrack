@@ -16,24 +16,22 @@
         <h:form>
             <a4j:outputPanel ajaxRendered="true" id="pnl_productTable">
                 <h:form id="form_product">
-                    <h:panelGrid columns="6">
+                    <h:panelGrid columns="5">
                         <h:outputText value="CODE"/>
                         <h:outputText value="NAME"/>
                         <h:outputText value="SEQ"/>
                         <h:outputText value="ACTIVE"/>
                         <h:outputText value="RELEASE"/>
-                        <h:outputText value="DELETED"/>
-                        <h:inputText value="#{productBean.selectedProduct.code}" immediate="true"><f:ajax/></h:inputText>
-                        <h:inputText value="#{productBean.selectedProduct.name}" immediate="true"><f:ajax/></h:inputText>
-                        <h:inputText value="#{productBean.selectedProduct.seq}" immediate="true"><f:ajax/></h:inputText>
-                        <h:selectBooleanCheckbox value="#{productBean.selectedProduct.active}" immediate="true"><f:ajax/></h:selectBooleanCheckbox>
-                        <h:selectOneMenu value="#{productBean.selectedProduct.release}" converter="#{releaseConverter}">
+                        <h:inputText value="#{productBean.selectedDto.code}" immediate="true"><f:ajax/></h:inputText>
+                        <h:inputText value="#{productBean.selectedDto.name}" immediate="true"><f:ajax/></h:inputText>
+                        <h:inputText value="#{productBean.selectedDto.seq}" immediate="true"><f:ajax/></h:inputText>
+                        <h:selectBooleanCheckbox value="#{productBean.selectedDto.active}" immediate="true"><f:ajax/></h:selectBooleanCheckbox>
+                        <h:selectOneMenu value="#{productBean.selectedDto.release}" converter="#{releaseConverter}">
                             <f:selectItem itemLabel="Select release"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:selectBooleanCheckbox value="#{productBean.selectedProduct.deleted}" immediate="true"><f:ajax/></h:selectBooleanCheckbox>
-                        <h:commandButton value="Submit" actionListener="#{productBean.save()}">
+                        <h:commandButton value="Submit" actionListener="#{productBean.createNew()}">
                             <f:ajax render="@all"/>
                         </h:commandButton>
                     </h:panelGrid>
@@ -48,31 +46,29 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">NAME</f:facet>
-                        <h:outputText value="#{item.name}"/>
                         <h:outputText value="#{item.name}" rendered="#{not productBean.isEdit(item)}"/>
-                        <h:inputText value="#{productBean.editedProduct.name}" immediate="true" rendered="#{productBean.isEdit(item)}">
+                        <h:inputText value="#{productBean.editedDto.name}" immediate="true" rendered="#{productBean.isEdit(item)}">
                             <f:ajax/>
                         </h:inputText>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">SEQ</f:facet>
-                        <h:outputText value="#{item.seq}"/>
                         <h:outputText value="#{item.seq}" rendered="#{not productBean.isEdit(item)}"/>
-                        <h:inputText value="#{productBean.editedProduct.seq}" immediate="true" rendered="#{productBean.isEdit(item)}">
+                        <h:inputText value="#{productBean.editedDto.seq}" immediate="true" rendered="#{productBean.isEdit(item)}">
                             <f:ajax/>
                         </h:inputText>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">ACTIVE</f:facet>
                         <h:selectBooleanCheckbox value="#{item.active}" disabled="true" rendered="#{not productBean.isEdit(item)}"/>
-                        <h:selectBooleanCheckbox value="#{productBean.editedProduct.active}" immediate="true" rendered="#{productBean.isEdit(item)}">
+                        <h:selectBooleanCheckbox value="#{productBean.editedDto.active}" immediate="true" rendered="#{productBean.isEdit(item)}">
                             <f:ajax/>
                         </h:selectBooleanCheckbox>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">RELEASE</f:facet>
                         <h:outputText value="#{item.release.name}" rendered="#{not productBean.isEdit(item)}"/>
-                        <h:selectOneMenu value="#{productBean.editedProduct.release}" converter="#{releaseConverter}" rendered="#{productBean.isEdit(item)}">
+                        <h:selectOneMenu value="#{productBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{productBean.isEdit(item)}">
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/>
                         </h:selectOneMenu>
@@ -80,7 +76,7 @@
                     <rich:column>
                         <f:facet name="header">DELETED</f:facet>
                         <h:selectBooleanCheckbox value="#{item.deleted}" disabled="true" rendered="#{not productBean.isEdit(item)}"/>
-                        <h:selectBooleanCheckbox value="#{productBean.editedProduct.deleted}" immediate="true" rendered="#{productBean.isEdit(item)}">
+                        <h:selectBooleanCheckbox value="#{productBean.editedDto.deleted}" immediate="true" rendered="#{productBean.isEdit(item)}">
                             <f:ajax/>
                         </h:selectBooleanCheckbox>
                     </rich:column>

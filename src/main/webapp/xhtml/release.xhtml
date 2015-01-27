@@ -14,9 +14,9 @@ todo -бага при редактировании при нажатии ент�
                 <h:panelGrid columns="2">
                     <h:outputText value="#{msg.release_name}"/>
                     <h:outputText value="#{msg.actions}"/>
-                    <h:inputText id="edit_id" value="#{releaseBean.selectedRelease.id}" rendered="false"/>
-                    <h:inputText id="edit_name" value="#{releaseBean.selectedRelease.name}" immediate="true"><f:ajax/></h:inputText>
-                    <h:commandButton value="Submit" actionListener="#{releaseBean.save()}">
+                    <h:inputText id="edit_id" value="#{releaseBean.selectedDto.id}" rendered="false"/>
+                    <h:inputText id="edit_name" value="#{releaseBean.selectedDto.name}" immediate="true"><f:ajax/></h:inputText>
+                    <h:commandButton value="Submit" actionListener="#{releaseBean.createNew()}">
                         <f:ajax render="@all"/>
                     </h:commandButton>
                 </h:panelGrid>
@@ -34,16 +34,13 @@ todo -бага при редактировании при нажатии ент�
                         <f:facet name="header">#{msg.release_name}</f:facet>
                         <a4j:outputPanel>
                             <h:outputText value="#{item.name}" rendered="#{not releaseBean.isEdit(item)}"/>
-                            <h:inputText value="#{item.name}" immediate="true" rendered="#{releaseBean.isEdit(item)}"/>
+                            <h:inputText value="#{releaseBean.editedDto.name}" immediate="true" rendered="#{releaseBean.isEdit(item)}"/>
                         </a4j:outputPanel>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">#{msg.release_release_date}</f:facet>
                         <h:outputText value="#{item.releaseDate}" rendered="#{releaseBean.isReleased(item)}"/>
-                        <a4j:commandLink action="#{releaseBean.releas(item)}" rendered="#{not releaseBean.isReleased(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/success.png"/>
-                            <h:outputText value="reliz"/>
-                        </a4j:commandLink>
+                        <a4j:commandButton action="#{releaseBean.releas(item)}" rendered="#{not releaseBean.isReleased(item)}" value="Do release."/>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">#{msg.actions}</f:facet>
@@ -53,7 +50,7 @@ todo -бага при редактировании при нажатии ент�
                         <a4j:commandLink action="#{releaseBean.delete(item)}" rendered="#{not releaseBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
                         </a4j:commandLink>
-                        <a4j:commandLink action="#{releaseBean.save(item)}" rendered="#{releaseBean.isEdit(item)}">
+                        <a4j:commandLink action="#{releaseBean.save()}" rendered="#{releaseBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.cancelEdit()}" rendered="#{releaseBean.isEdit(item)}">
