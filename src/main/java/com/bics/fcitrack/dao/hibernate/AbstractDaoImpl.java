@@ -40,7 +40,7 @@ public abstract class AbstractDaoImpl<T, PK extends Serializable> extends Hibern
 
     @Override
     public T create(T t) {
-        getSessionFactory().getCurrentSession().saveOrUpdate(t);
+        getSessionFactory().getCurrentSession().persist(t);
         return t;
     }
 
