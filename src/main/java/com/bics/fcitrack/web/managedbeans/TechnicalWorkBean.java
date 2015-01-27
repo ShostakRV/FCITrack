@@ -51,6 +51,8 @@ public class TechnicalWorkBean {
     public void save(TechnicalWork technicalWork) {
         if (editedTechnicalWork != null && editedTechnicalWork.equals(technicalWork)) {
             technicalWorkService.update(technicalWork);
+            //technicalWorkService.save(technicalWork);
+            //technicalWorkService.saveUpdate(technicalWork);
             editedTechnicalWork = null;
         } else {
             throw new RuntimeException("Some fuck happened.");

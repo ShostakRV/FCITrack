@@ -15,5 +15,9 @@ public interface AbstractService<T,PK> {
 
     T update(T t);
 
+    T save(T t);
+
     void delete(T t);
+
+    T saveUpdate(T t);
 }

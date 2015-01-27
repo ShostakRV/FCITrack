@@ -1,7 +1,6 @@
 package com.bics.fcitrack.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created by morfi_000
@@ -53,6 +52,7 @@ public class Product {
     }
 
     public void setSeq(Integer seq) {
+
         this.seq = seq;
     }
 
@@ -78,5 +78,18 @@ public class Product {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return !(code != null ? !code.equals(product.code) : product.code != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return code != null ? code.hashCode() : 0;
     }
 }

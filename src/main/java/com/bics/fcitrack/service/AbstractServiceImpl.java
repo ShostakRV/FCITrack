@@ -38,6 +38,15 @@ public abstract class AbstractServiceImpl<T, PK extends Serializable> implements
     }
 
     @Transactional
+    public T save(T t) {
+        return getDao().save(t);
+    }
+    @Transactional
+    public T saveUpdate(T t) {
+        return getDao().saveUpdate(t);
+    }
+
+    @Transactional
     public void delete(T t) {
         getDao().delete(t);
     }

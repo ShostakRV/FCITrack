@@ -4,6 +4,7 @@ import com.bics.fcitrack.model.Product;
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.ProductService;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
+import org.springframework.dao.ConcurrencyFailureException;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -25,21 +26,42 @@ public class ProductBean implements Serializable {
     private ProductService productService;
     private Product selectedProduct;
 
-    private Object test;
+    private Product editedProduct;
+
 
     @PostConstruct
     public void init() {
         selectedProduct = new Product();
     }
 
+    public void create(Product technicalWork) {
+
+    }
+
     public void save() {
         try {
             productService.create(selectedProduct);
             selectedProduct = new Product();
-        } catch (Exception e) {
+        } catch (ConcurrencyFailureException e) {
             selectedProduct = new Product();
             e.printStackTrace();
         }
+    }
+
+    public void save(Product product) {
+        productService.save(product);
+    }
+
+    public boolean isEdit(Product r) {
+        return editedProduct != null && editedProduct.equals(r);
+    }
+
+    public void cancelEdit() {
+        editedProduct = null;
+    }
+
+    public void delete(Product product) {
+        productService.delete(product);
     }
 
     public List<Product> getProducts() {
@@ -49,25 +71,6 @@ public class ProductBean implements Serializable {
     public List<Release> getReleases() {
         return releaseService.findAll();
     }
-
-
-    //    public List<SelectItem> getReleases() {//todo use lambdas
-//        return Lists.transform(releaseService.findAll(), new Function<Release, SelectItem>() {
-//            @Override
-//            public SelectItem apply(Release release) {
-//                return new SelectItem(release, release.getName());
-//            }
-//        });
-//    }
-    public void delete(Product product) {
-        try {
-            productService.delete(product);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
 
     public Product getSelectedProduct() {
         return selectedProduct;
@@ -84,14 +87,6 @@ public class ProductBean implements Serializable {
 
     public void setProductService(ProductService productService) {
         this.productService = productService;
-    }
-
-    public Object getTest() {
-        return test;
-    }
-
-    public void setTest(Object test) {
-        this.test = test;
     }
 }
 

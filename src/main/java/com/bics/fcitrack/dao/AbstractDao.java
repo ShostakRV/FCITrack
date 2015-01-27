@@ -16,5 +16,9 @@ public interface AbstractDao<T,PK> {
 
     T update(T t);
 
+    T save(T t);
+
+    T saveUpdate(T t);
+
     void delete(T t);
 }
