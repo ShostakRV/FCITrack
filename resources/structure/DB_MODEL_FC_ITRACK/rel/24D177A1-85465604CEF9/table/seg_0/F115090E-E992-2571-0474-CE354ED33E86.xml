@@ -47,6 +47,12 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<listOfValues>
+<valueDef value="ACTION" description=""/>
+<valueDef value="INPUT" description=""/>
+<valueDef value="LABEL" description=""/>
+<valueDef value="PANEL" description=""/>
+</listOfValues>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ACTIVE" id="2B71CD0D-6BDE-D98F-294C-37C605AB270A">
