@@ -18,7 +18,7 @@ public class ProdProcessDef {
     @Column(name = "VERSION")
     private Integer version;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_RELEASE")
     private Release release;
 

@@ -5,6 +5,8 @@ import com.bics.fcitrack.model.TechnicalWork;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by godex_000 on 20.01.2015.
  */
@@ -15,4 +17,9 @@ public class TechnicalWorkDaoImpl extends AbstractDaoImpl<TechnicalWork, String>
         super(TechnicalWork.class);
     }
 
+    @Override
+    public List<TechnicalWork> findNoDeleted() {
+        String hql="FROM TechnicalWork T WHERE T.deleted = false OR T.deleted IS null";
+        return getSessionFactory().getCurrentSession().createQuery(hql).list();
+    }
 }

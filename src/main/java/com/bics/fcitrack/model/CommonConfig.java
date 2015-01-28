@@ -35,7 +35,7 @@ public class CommonConfig {
     @Column(name = "SEQUENCE")
     private Integer sequence;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_RELEASE")
     private Release release;
 

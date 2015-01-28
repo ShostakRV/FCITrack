@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by morfi_000
  * Date: 18-Jan-15.
@@ -21,5 +23,10 @@ public class ProductServiceImpl extends AbstractServiceImpl<Product, String> imp
     @Override
     protected AbstractDao<Product, String> getDao() {
         return productDao;
+    }
+
+    @Override
+    public List<Product> findNoDeleted() {
+        return productDao.findNoDeleted();
     }
 }

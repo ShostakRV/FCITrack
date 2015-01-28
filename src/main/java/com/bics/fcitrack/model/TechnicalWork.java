@@ -3,10 +3,17 @@ package com.bics.fcitrack.model;
 import org.hibernate.usertype.UserType;
 
 import javax.persistence.*;
+import java.util.EnumSet;
+
 
 @Entity
 @Table(name = "TECHNICAL_WORK")
 public class TechnicalWork {
+    public enum TwType {
+        DISCONNECTED, STANDART, TEST
+    }
+    public static final EnumSet<TwType> allTypes = EnumSet.of(TwType.DISCONNECTED, TwType.STANDART, TwType.TEST);
+
     @Id
     @Column(name = "CODE")
     private String code;
@@ -24,6 +31,7 @@ public class TechnicalWork {
 
     @Column(name = "DELETED")
     private Boolean deleted;
+
 
     public String getCode() {
         return code;

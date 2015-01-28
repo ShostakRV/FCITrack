@@ -7,9 +7,10 @@
 
 
 <!--
-todo -в табличке продукты менять имя продукта, помечать активными
-todo- delit маркало как удаленые и в табличке
-todo-не показывать помеченые как удаленые
+todo +в табличке продукты менять имя продукта, помечать активными
+todo + delit маркало как удаленые и в табличке
+todo +не показывать помеченые как удаленые
+todo -bug при пометке как удаленый в поле seq появляеться 0
 -->
 <ui:composition template="template/template.xhtml">
     <ui:define name="title">
@@ -78,18 +79,11 @@ todo-не показывать помеченые как удаленые
                         </h:selectOneMenu>
                     </rich:column>
                     <rich:column>
-                        <f:facet name="header">DELETED</f:facet>
-                        <h:selectBooleanCheckbox value="#{item.deleted}" disabled="true" rendered="#{not productBean.isEdit(item)}"/>
-                        <h:selectBooleanCheckbox value="#{productBean.editedDto.deleted}" immediate="true" rendered="#{productBean.isEdit(item)}">
-                            <f:ajax/>
-                        </h:selectBooleanCheckbox>
-                    </rich:column>
-                    <rich:column>
                         <f:facet name="header">#{msg.actions}</f:facet>
                         <a4j:commandLink action="#{productBean.edit(item)}" rendered="#{not productBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
                         </a4j:commandLink>
-                        <a4j:commandLink action="#{productBean.delete(item)}" rendered="#{not productBean.isEdit(item)}">
+                        <a4j:commandLink action="#{productBean.markDeleted(item)}" rendered="#{not productBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{productBean.save()}" rendered="#{productBean.isEdit(item)}">

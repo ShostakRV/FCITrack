@@ -6,8 +6,8 @@
       xmlns:rich="http://richfaces.org/rich">
 <!--
 todo -техникал ворк сделать страничку управления ими(удаление, редактирование, добавление)
-todo- delit маркало как удаленые и в табличке
-todo-не показывать помеченые как удаленые
+todo+ delit маркало как удаленые и в табличке
+todo+не показывать помеченые как удаленые
 -->
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
@@ -75,18 +75,11 @@ todo-не показывать помеченые как удаленые
                         </h:selectOneMenu>
                     </rich:column>
                     <rich:column>
-                        <f:facet name="header">DELETED</f:facet>
-                        <h:selectBooleanCheckbox value="#{item.deleted}" disabled="true" rendered="#{not technicalWorkBean.isEdit(item)}"/>
-                        <h:selectBooleanCheckbox value="#{technicalWorkBean.editedDto.deleted}" immediate="true" rendered="#{technicalWorkBean.isEdit(item)}">
-                            <f:ajax/>
-                        </h:selectBooleanCheckbox>
-                    </rich:column>
-                    <rich:column>
                         <f:facet name="header">#{msg.actions}</f:facet>
                         <a4j:commandLink action="#{technicalWorkBean.edit(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
                         </a4j:commandLink>
-                        <a4j:commandLink action="#{technicalWorkBean.delete(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
+                        <a4j:commandLink action="#{technicalWorkBean.markDeleted(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{technicalWorkBean.save()}" rendered="#{technicalWorkBean.isEdit(item)}">
