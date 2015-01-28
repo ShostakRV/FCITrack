@@ -9,6 +9,11 @@ import java.util.EnumSet;
 @Entity
 @Table(name = "PROPERTY_MAP")
 public class PropertyMap {
+    public enum  PmType  {
+        PANEL, INPUT, LABEL, ACTION
+    }
+
+    public static final EnumSet<PmType> allTypes = EnumSet.of(PmType.PANEL, PmType.INPUT, PmType.LABEL,PmType.ACTION);
 
     @Id
     @Column(name = "CODE")
@@ -28,11 +33,7 @@ public class PropertyMap {
     @Column(name = "ACTIVE")
     private Boolean active;
 
-    public enum  PmType  {
-        PANEL, INPUT, LABEL, ACTION
-    }
 
-    public static final EnumSet<PmType> allTypes = EnumSet.of(PmType.PANEL, PmType.INPUT, PmType.LABEL,PmType.ACTION);
 
     public String getCode() {
         return code;

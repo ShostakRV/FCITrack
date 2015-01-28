@@ -23,7 +23,6 @@ public class Product {
     @Column(name = "ACTIVE")
     private Boolean active;
 
-    //TODO change EAGER to LAZY
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_RELEASE")
     private Release release;
