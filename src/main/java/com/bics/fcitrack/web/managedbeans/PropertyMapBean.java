@@ -4,9 +4,12 @@ import com.bics.fcitrack.model.PropertyMap;
 import com.bics.fcitrack.service.interfaces.AbstractService;
 import com.bics.fcitrack.service.interfaces.PropertyMapService;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.util.EnumSet;
+import java.util.List;
 
 /**
  * Created by godex_000
@@ -17,7 +20,9 @@ import javax.faces.bean.ViewScoped;
 public class PropertyMapBean extends AbstractBean<PropertyMap> {
     @ManagedProperty(value = "#{propertyMapService}")
     private PropertyMapService propertyMapService;
+
     @Override
+    @PostConstruct
     public void init() {
         selectedDto=new PropertyMap();
     }
@@ -30,5 +35,17 @@ public class PropertyMapBean extends AbstractBean<PropertyMap> {
     @Override
     public AbstractService getService() {
         return propertyMapService;
+    }
+
+    public List<PropertyMap> getPropertyMaps() {
+        return propertyMapService.findAll();
+    }
+
+    public void setPropertyMapService(PropertyMapService propertyMapService) {
+        this.propertyMapService = propertyMapService;
+    }
+
+    public EnumSet<PropertyMap.PmType> getTypes() {
+        return PropertyMap.allTypes;
     }
 }

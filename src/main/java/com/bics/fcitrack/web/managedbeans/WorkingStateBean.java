@@ -4,6 +4,7 @@ import com.bics.fcitrack.model.WorkingState;
 import com.bics.fcitrack.service.interfaces.AbstractService;
 import com.bics.fcitrack.service.interfaces.WorkingStateService;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -19,6 +20,7 @@ public class WorkingStateBean extends AbstractBean<WorkingState>{
     private WorkingStateService workingStateService;
 
     @Override
+    @PostConstruct
     public void init() {
         selectedDto=new WorkingState();
     }

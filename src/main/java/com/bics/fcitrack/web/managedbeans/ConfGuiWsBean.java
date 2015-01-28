@@ -4,6 +4,7 @@ import com.bics.fcitrack.model.ConfGuiWs;
 import com.bics.fcitrack.service.interfaces.AbstractService;
 import com.bics.fcitrack.service.interfaces.ConfGuiWsService;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -19,6 +20,7 @@ public class ConfGuiWsBean extends AbstractBean<ConfGuiWs>{
     private ConfGuiWsService confGuiWsService;
 
     @Override
+    @PostConstruct
     public void init() {
         selectedDto=new ConfGuiWs();
     }

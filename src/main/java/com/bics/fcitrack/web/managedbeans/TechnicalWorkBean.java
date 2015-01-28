@@ -1,17 +1,13 @@
 package com.bics.fcitrack.web.managedbeans;
 
-import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.model.TechnicalWork;
-import com.bics.fcitrack.model.TwType;
 import com.bics.fcitrack.service.interfaces.AbstractService;
-import com.bics.fcitrack.service.interfaces.ReleaseService;
 import com.bics.fcitrack.service.interfaces.TechnicalWorkService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import java.io.Serializable;
 import java.util.EnumSet;
 import java.util.List;
 
@@ -24,11 +20,10 @@ import java.util.List;
 public class TechnicalWorkBean extends AbstractBean<TechnicalWork> {
     @ManagedProperty(value = "#{technicalWorkService}")
     private TechnicalWorkService technicalWorkService;
-    private EnumSet<TwType> types;
 
+    @Override
     @PostConstruct
     public void init() {
-        types = TwType.all;
         selectedDto = new TechnicalWork();
     }
 
@@ -37,20 +32,24 @@ public class TechnicalWorkBean extends AbstractBean<TechnicalWork> {
         return new TechnicalWork();
     }
 
+    public void markDeleted(TechnicalWork technicalWork){
+        technicalWork.setDeleted(true);
+        getService().saveUpdate(technicalWork);
+    }
     @Override
     public AbstractService getService() {
         return technicalWorkService;
     }
 
     public List<TechnicalWork> getTechnicalWorks() {
-        return technicalWorkService.findAll();
+        return technicalWorkService.findNoDeleted();
     }
 
     public void setTechnicalWorkService(TechnicalWorkService technicalWorkService) {
         this.technicalWorkService = technicalWorkService;
     }
 
-    public EnumSet<TwType> getTypes() {
-        return types;
+    public EnumSet<TechnicalWork.TwType> getTypes() {
+        return TechnicalWork.allTypes;
     }
 }

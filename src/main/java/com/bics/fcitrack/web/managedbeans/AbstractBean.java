@@ -27,8 +27,8 @@ public abstract class AbstractBean<T> implements Serializable {
     }
 
     public void createNew() {
-        getService().create(selectedDto);
-        selectedDto=getNewDto();
+            getService().create(selectedDto);
+            selectedDto = getNewDto();
     }
 
     protected abstract T getNewDto();
@@ -45,8 +45,6 @@ public abstract class AbstractBean<T> implements Serializable {
     public void delete(T t) {
         getService().delete(t);
     }
-
-
 
     public boolean isEdit(T t) {
         return editedDto != null && editedDto.equals(t);

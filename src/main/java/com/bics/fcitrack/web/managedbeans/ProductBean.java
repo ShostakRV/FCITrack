@@ -24,6 +24,7 @@ public class ProductBean extends AbstractBean<Product> {
     @ManagedProperty(value = "#{productService}")
     private ProductService productService;
 
+    @Override
     @PostConstruct
     public void init() {
         selectedDto = new Product();
@@ -34,13 +35,17 @@ public class ProductBean extends AbstractBean<Product> {
         return new Product();
     }
 
+    public void markDeleted(Product product){
+        product.setDeleted(true);
+        getService().saveUpdate(product);
+    }
     @Override
     public AbstractService getService() {
         return productService;
     }
 
     public List<Product> getProducts() {
-        return productService.findAll();
+        return productService.findNoDeleted();
     }
 
     public void setProductService(ProductService productService) {
