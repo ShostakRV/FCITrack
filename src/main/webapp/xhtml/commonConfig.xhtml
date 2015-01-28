@@ -1,17 +1,105 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:rich="http://richfaces.org/rich"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:a4j="http://richfaces.org/a4j"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:rich="http://richfaces.org/rich">
+<!--
+todo -commpn config  сделать страничку
+-->
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
+        <h3>commonConfig</h3>
         <h:form>
+            <a4j:outputPanel ajaxRendered="true" id="pnl_technicalWorkTable">
+                <h:form id="form_technicalWork">
+                    <h:panelGrid columns="4">
+                        <h:outputText value="CODE"/>
+                        <h:outputText value="NAME"/>
+                        <h:outputText value="TW_TYPE"/>
+                        <h:outputText value="RELEASE"/>
+                        <h:inputText value="#{technicalWorkBean.selectedDto.code}" immediate="true">
+                            <f:ajax/>
+                        </h:inputText>
+                        <h:inputText value="#{technicalWorkBean.selectedDto.name}" immediate="true">
+                            <f:ajax/>
+                        </h:inputText>
+                        <h:selectOneMenu value="#{technicalWorkBean.selectedDto.type}" immediate="true">
+                            <f:selectItem value="#{null}" itemLabel="Select type"/>
+                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                            <f:selectItems value="#{technicalWorkBean.types}"/>
+                        </h:selectOneMenu>
+                        <h:selectOneMenu value="#{technicalWorkBean.selectedDto.release}" converter="#{releaseConverter}">
+                            <f:selectItem itemLabel="Select release"/>
+                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                            <f:selectItems value="#{technicalWorkBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                        </h:selectOneMenu>
+                        <h:commandButton value="Submit" actionListener="#{technicalWorkBean.createNew()}">
+                            <f:ajax render="@all"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                </h:form>
 
+                <rich:dataTable sortMode="single" value="#{technicalWorkBean.technicalWorks}" var="item">
+                    <f:facet name="header">
+                        <h:outputText value="Releases"/>
+                    </f:facet>
+                    <rich:column>
+                        <f:facet name="header">CODE</f:facet>
+                        <h:outputText value="#{item.code}"/>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">NAME</f:facet>
+                        <h:outputText value="#{item.name}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
+                        <h:inputText value="#{technicalWorkBean.editedDto.name}" immediate="true" rendered="#{technicalWorkBean.isEdit(item)}">
+                            <f:ajax/>
+                        </h:inputText>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">TW_TYPE</f:facet>
+                        <h:outputText value="#{item.type}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
+                        <h:selectOneMenu value="#{technicalWorkBean.editedDto.type}" immediate="true" rendered="#{technicalWorkBean.isEdit(item)}">
+                            <f:selectItem value="#{null}" itemLabel="Select type"/>
+                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                            <f:selectItems value="#{technicalWorkBean.types}"/>
+                        </h:selectOneMenu>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">RELEASE</f:facet>
+                        <h:outputText value="#{item.release.name}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
+                        <h:selectOneMenu value="#{technicalWorkBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{technicalWorkBean.isEdit(item)}">
+                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                            <f:selectItems value="#{technicalWorkBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                        </h:selectOneMenu>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">DELETED</f:facet>
+                        <h:selectBooleanCheckbox value="#{item.deleted}" disabled="true" rendered="#{not technicalWorkBean.isEdit(item)}"/>
+                        <h:selectBooleanCheckbox value="#{technicalWorkBean.editedDto.deleted}" immediate="true" rendered="#{technicalWorkBean.isEdit(item)}">
+                            <f:ajax/>
+                        </h:selectBooleanCheckbox>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">#{msg.actions}</f:facet>
+                        <a4j:commandLink action="#{technicalWorkBean.edit(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
+                        </a4j:commandLink>
+                        <a4j:commandLink action="#{technicalWorkBean.delete(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
+                        </a4j:commandLink>
+                        <a4j:commandLink action="#{technicalWorkBean.save()}" rendered="#{technicalWorkBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
+                        </a4j:commandLink>
+                        <a4j:commandLink action="#{technicalWorkBean.cancelEdit()}" rendered="#{technicalWorkBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png"/>
+                        </a4j:commandLink>
+                    </rich:column>
+                    <f:facet name="footer">
+                    </f:facet>
+                </rich:dataTable>
+                <br/>
+            </a4j:outputPanel>
         </h:form>
-
     </ui:define>
 </ui:composition>
 </html>
