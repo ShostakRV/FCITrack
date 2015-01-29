@@ -3,6 +3,7 @@ package com.bics.fcitrack.web.managedbeans;
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.AbstractService;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
+import com.bics.fcitrack.utils.FacesUtils;
 
 import javax.faces.bean.ManagedProperty;
 import java.io.Serializable;
@@ -27,7 +28,11 @@ public abstract class AbstractBean<T> implements Serializable {
     }
 
     public void createNew() {
+        try {
             getService().create(selectedDto);
+        }catch (Exception e){
+            FacesUtils.error("Error. Entity was not created.");
+        }
             selectedDto = getNewDto();
     }
 

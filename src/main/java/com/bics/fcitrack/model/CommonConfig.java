@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "COMMON_CONFIG")
-public class CommonConfig {
+public class CommonConfig extends AbstractModel {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
