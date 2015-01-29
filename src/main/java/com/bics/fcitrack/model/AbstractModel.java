@@ -1,14 +1,12 @@
 package com.bics.fcitrack.model;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Created by godex_000
  * on 29.01.2015.
  */
+@MappedSuperclass
 public abstract class AbstractModel {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_RELEASE")

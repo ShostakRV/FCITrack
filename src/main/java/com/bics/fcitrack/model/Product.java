@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product  extends AbstractModel{
     @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "CODE")
@@ -22,10 +22,6 @@ public class Product {
 
     @Column(name = "ACTIVE")
     private Boolean active;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_RELEASE")
-    private Release release;
 
     @Column(name = "DELETED")
     private Boolean deleted;
@@ -61,14 +57,6 @@ public class Product {
 
     public void setActive(Boolean active) {
         this.active = active;
-    }
-
-    public Release getRelease() {
-        return release;
-    }
-
-    public void setRelease(Release release) {
-        this.release = release;
     }
 
     public Boolean getDeleted() {

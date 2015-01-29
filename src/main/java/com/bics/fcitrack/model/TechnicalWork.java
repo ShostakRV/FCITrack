@@ -8,7 +8,7 @@ import java.util.EnumSet;
 
 @Entity
 @Table(name = "TECHNICAL_WORK")
-public class TechnicalWork {
+public class TechnicalWork  extends AbstractModel{
     public enum TwType {
         DISCONNECTED, STANDART, TEST
     }
@@ -24,10 +24,6 @@ public class TechnicalWork {
     @Enumerated(EnumType.STRING)
     @Column(name = "TW_TYPE")
     private TwType type;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_RELEASE")
-    private Release release;
 
     @Column(name = "DELETED")
     private Boolean deleted;
@@ -55,14 +51,6 @@ public class TechnicalWork {
 
     public void setType(TwType type) {
         this.type = type;
-    }
-
-    public Release getRelease() {
-        return release;
-    }
-
-    public void setRelease(Release release) {
-        this.release = release;
     }
 
     public Boolean getDeleted() {

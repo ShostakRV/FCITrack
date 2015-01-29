@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "PROD_PROCESS_DEF")
-public class ProdProcessDef {
+public class ProdProcessDef extends AbstractModel{
     @Id
     @Column(name = "CODE")
     private String code;
@@ -18,9 +18,6 @@ public class ProdProcessDef {
     @Column(name = "VERSION")
     private Integer version;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_RELEASE")
-    private Release release;
 
     public String getCode() {
         return code;
@@ -44,14 +41,6 @@ public class ProdProcessDef {
 
     public void setVersion(Integer version) {
         this.version = version;
-    }
-
-    public Release getRelease() {
-        return release;
-    }
-
-    public void setRelease(Release release) {
-        this.release = release;
     }
 
     @Override

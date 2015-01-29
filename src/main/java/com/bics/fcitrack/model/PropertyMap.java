@@ -47,14 +47,6 @@ public class PropertyMap extends AbstractModel {
         this.name = name;
     }
 
-    public Release getRelease() {
-        return release;
-    }
-
-    public void setRelease(Release release) {
-        this.release = release;
-    }
-
     public PmType getType() {
         return type;
     }

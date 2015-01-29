@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.util.List;
 
 /**
  * Created by godex_000
@@ -33,6 +34,10 @@ public class CommonConfigBean extends AbstractBean<CommonConfig> {
     @Override
     public AbstractService getService() {
         return commonConfigService;
+    }
+
+    public List<CommonConfig> getCommonConfigs() {
+        return commonConfigService.findAll();
     }
 
     public void setCommonConfigService(CommonConfigService commonConfigService) {
