@@ -40,4 +40,19 @@ public class ContGuiWsProperty {
     public void setPropertyMap(PropertyMap propertyMap) {
         this.propertyMap = propertyMap;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ContGuiWsProperty contGuiWsProperty = (ContGuiWsProperty) o;
+
+        return !(id != null ? !id.equals(contGuiWsProperty.id) : contGuiWsProperty.id != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

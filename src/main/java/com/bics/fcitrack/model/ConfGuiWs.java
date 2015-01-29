@@ -40,4 +40,19 @@ public class ConfGuiWs {
     public void setContGuiVersion(ContGuiVersion contGuiVersion) {
         this.contGuiVersion = contGuiVersion;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ConfGuiWs confGuiWs = (ConfGuiWs) o;
+
+        return !(id != null ? !id.equals(confGuiWs.id) : confGuiWs.id != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

@@ -53,4 +53,19 @@ public class ProdProcessDef {
     public void setRelease(Release release) {
         this.release = release;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ProdProcessDef prodProcessDef = (ProdProcessDef) o;
+
+        return !(code != null ? !code.equals(prodProcessDef.code) : prodProcessDef.code != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return code != null ? code.hashCode() : 0;
+    }
 }
