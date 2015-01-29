@@ -8,7 +8,7 @@ import java.util.EnumSet;
  */
 @Entity
 @Table(name = "PROPERTY_MAP")
-public class PropertyMap {
+public class PropertyMap extends AbstractModel {
     public enum  PmType  {
         PANEL, INPUT, LABEL, ACTION
     }
@@ -21,10 +21,6 @@ public class PropertyMap {
 
     @Column(name = "NAME")
     private String name;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_RELEASE")
-    private Release release;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "TYPE")

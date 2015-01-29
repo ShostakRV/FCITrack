@@ -35,9 +35,7 @@ public class CommonConfig {
     @Column(name = "SEQUENCE")
     private Integer sequence;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_RELEASE")
-    private Release release;
+
 
     @Column(name = "OUTPHASE")
     private Boolean outphase;
@@ -93,14 +91,6 @@ public class CommonConfig {
 
     public void setSequence(Integer sequence) {
         this.sequence = sequence;
-    }
-
-    public Release getRelease() {
-        return release;
-    }
-
-    public void setRelease(Release release) {
-        this.release = release;
     }
 
     public Boolean getOutphase() {
