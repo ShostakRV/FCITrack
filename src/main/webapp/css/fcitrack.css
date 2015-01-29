@@ -445,3 +445,10 @@ a.linkdisabled {
     height: 20pt;
     border-radius: 5px;
 }
+
+.view_table{
+    background-color: #aeecaa;
+}
+.view_table tr :hover{
+    background-color: brown;
+}

@@ -74,4 +74,19 @@ public class PropertyMap {
     public void setActive(Boolean active) {
         this.active = active;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PropertyMap propertyMap = (PropertyMap) o;
+
+        return !(code != null ? !code.equals(propertyMap.code) : propertyMap.code != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return code != null ? code.hashCode() : 0;
+    }
 }

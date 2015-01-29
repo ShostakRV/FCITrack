@@ -8,6 +8,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
 <!--
+todo -редактирование
 -->
 <ui:composition template="template/template.xhtml">
     <ui:define name="title">
@@ -43,7 +44,7 @@
                         </h:commandButton>
                     </h:panelGrid>
                 </h:form>
-                <rich:dataTable sortMode="single" value="#{propertyMapBean.propertyMaps}" var="item">
+                <rich:dataTable styleClass="view_table" sortMode="single" value="#{propertyMapBean.propertyMaps}" var="item">
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
                     </f:facet>
@@ -69,9 +70,10 @@
                     <rich:column>
                         <f:facet name="header">TYPE</f:facet>
                         <h:outputText value="#{item.type}" rendered="#{not propertyMapBean.isEdit(item)}"/>
-                        <h:inputText value="#{propertyMapBean.editedDto.type}" immediate="true" rendered="#{propertyMapBean.isEdit(item)}">
-                            <f:ajax/>
-                        </h:inputText>
+                        <h:selectOneMenu value="#{propertyMapBean.editedDto.type}" immediate="true" rendered="#{propertyMapBean.isEdit(item)}">
+                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                            <f:selectItems value="#{propertyMapBean.types}"/>
+                        </h:selectOneMenu>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">ACTIVE</f:facet>

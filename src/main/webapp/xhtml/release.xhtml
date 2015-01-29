@@ -23,7 +23,7 @@ todo -бага при релизе срабатывает с 2 нажатия
                 </h:panelGrid>
             </h:form>
             <h:form id="table_release">
-                <rich:dataTable id="releases_table" onrowclick="release_actions(#{item.id})" sortMode="single" value="#{releaseBean.releases}" var="item">
+                <rich:dataTable styleClass="view_table" id="releases_table" onrowclick="release_actions(#{item.id})" sortMode="single" value="#{releaseBean.releases}" var="item">
                     <f:facet name="header">
                         <h:outputText value="#{msg.release_head}"/>
                     </f:facet>

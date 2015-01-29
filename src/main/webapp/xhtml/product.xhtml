@@ -38,7 +38,7 @@ todo -bug при пометке как удаленый в поле seq появ
                         </h:commandButton>
                     </h:panelGrid>
                 </h:form>
-                <rich:dataTable sortMode="single" value="#{productBean.products}" var="item">
+                <rich:dataTable  styleClass="view_table" sortMode="single" value="#{productBean.products}" var="item">
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
                     </f:facet>
