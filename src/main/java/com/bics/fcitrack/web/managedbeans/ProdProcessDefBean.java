@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.util.List;
 
 /**
  * Created by godex_000
@@ -33,6 +34,9 @@ public class ProdProcessDefBean extends AbstractBean<ProdProcessDef>{
     @Override
     public AbstractService getService() {
         return prodProcessDefService;
+    }
+    public List<ProdProcessDef> getProdProcessDef() {
+        return prodProcessDefService.findAll();
     }
 
     public void setProdProcessDefService(ProdProcessDefService prodProcessDefService) {

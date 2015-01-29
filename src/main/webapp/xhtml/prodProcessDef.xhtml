@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+<ui:composition template="template/template.xhtml">
+    <ui:define name="content">
+        <h3>tecjwork</h3>
+        <h:form>
+            <a4j:outputPanel ajaxRendered="true" id="pnl_technicalWorkTable">
+                <h:form id="form_technicalWork">
+                    <h:panelGrid columns="4">
+                        <h:outputText value="CODE"/>
+                        <h:outputText value="NAME"/>
+                        <h:outputText value="VERSION"/>
+                        <h:outputText value="RELEASE"/>
+                        <h:inputText value="#{prodProcessDefBean.selectedDto.code}" immediate="true">
+                            <f:ajax/>
+                        </h:inputText>
+                        <h:inputText value="#{prodProcessDefBean.selectedDto.name}" immediate="true">
+                            <f:ajax/>
+                        </h:inputText>
+                        <h:inputText value="#{prodProcessDefBean.selectedDto.version}" immediate="true">
+                            <f:ajax/>
+                        </h:inputText>
+                        <h:selectOneMenu value="#{prodProcessDefBean.selectedDto.release}" converter="#{releaseConverter}">
+                            <f:selectItem itemLabel="Select release"/>
+                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                            <f:selectItems value="#{prodProcessDefBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                        </h:selectOneMenu>
+                        <h:commandButton value="Submit" actionListener="#{prodProcessDefBean.createNew()}">
+                            <f:ajax render="@all"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+                </h:form>
+
+                <rich:dataTable styleClass="view_table" sortMode="single" value="#{prodProcessDefBean.prodProcessDef}" var="item">
+                    <f:facet name="header">
+                        <h:outputText value="Releases"/>
+                    </f:facet>
+                    <rich:column>
+                        <f:facet name="header">CODE</f:facet>
+                        <h:outputText value="#{item.code}"/>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">NAME</f:facet>
+                        <h:outputText value="#{item.name}" rendered="#{not prodProcessDefBean.isEdit(item)}"/>
+                        <h:inputText value="#{prodProcessDefBean.editedDto.name}" immediate="true" rendered="#{prodProcessDefBean.isEdit(item)}">
+                            <f:ajax/>
+                        </h:inputText>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">VERSION</f:facet>
+                        <h:outputText value="#{item.version}" rendered="#{not prodProcessDefBean.isEdit(item)}"/>
+                        <h:inputText value="#{prodProcessDefBean.editedDto.version}" immediate="true" rendered="#{prodProcessDefBean.isEdit(item)}">
+                            <f:ajax/>
+                        </h:inputText>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">RELEASE</f:facet>
+                        <h:outputText value="#{item.release.name}" rendered="#{not prodProcessDefBean.isEdit(item)}"/>
+                        <h:selectOneMenu value="#{prodProcessDefBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{prodProcessDefBean.isEdit(item)}">
+                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                            <f:selectItems value="#{prodProcessDefBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                        </h:selectOneMenu>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">#{msg.actions}</f:facet>
+                        <a4j:commandLink action="#{prodProcessDefBean.edit(item)}" rendered="#{not prodProcessDefBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
+                        </a4j:commandLink>
+                        <a4j:commandLink action="#{prodProcessDefBean.delete(item)}" rendered="#{not prodProcessDefBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
+                        </a4j:commandLink>
+                        <a4j:commandLink action="#{prodProcessDefBean.save()}" rendered="#{prodProcessDefBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
+                        </a4j:commandLink>
+                        <a4j:commandLink action="#{prodProcessDefBean.cancelEdit()}" rendered="#{prodProcessDefBean.isEdit(item)}">
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png"/>
+                        </a4j:commandLink>
+                    </rich:column>
+                    <f:facet name="footer">
+                    </f:facet>
+                </rich:dataTable>
+                <br/>
+            </a4j:outputPanel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
