@@ -1,7 +1,7 @@
 package com.bics.fcitrack.dao.hibernate;
 
 import com.bics.fcitrack.dao.ContGuiVersionDao;
-import com.bics.fcitrack.model.ContGuiVersion;
+import com.bics.fcitrack.model.ConfGuiVersion;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -11,9 +11,9 @@ import javax.transaction.Transactional;
  */
 @Repository
 @Transactional
-public class ContGuiVersionDaoImpl extends AbstractDaoImpl<ContGuiVersion, Long> implements ContGuiVersionDao {
+public class ContGuiVersionDaoImpl extends AbstractDaoImpl<ConfGuiVersion, Long> implements ContGuiVersionDao {
     public ContGuiVersionDaoImpl() {
-        super(ContGuiVersion.class);
+        super(ConfGuiVersion.class);
     }
 
 }

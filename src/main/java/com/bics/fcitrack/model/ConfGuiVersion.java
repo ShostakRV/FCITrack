@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "CONT_GUI_VERSION")
-public class ContGuiVersion extends AbstractModel{
+public class ConfGuiVersion extends AbstractModel{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
@@ -55,9 +55,9 @@ public class ContGuiVersion extends AbstractModel{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ContGuiVersion contGuiVersion = (ContGuiVersion) o;
+        ConfGuiVersion confGuiVersion = (ConfGuiVersion) o;
 
-        return !(id != null ? !id.equals(contGuiVersion.id) : contGuiVersion.id != null);
+        return !(id != null ? !id.equals(confGuiVersion.id) : confGuiVersion.id != null);
     }
 
     @Override

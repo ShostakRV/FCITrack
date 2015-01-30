@@ -29,7 +29,7 @@ public class CommonConfig extends AbstractModel {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_GUI")
-    private ContGuiVersion contGuiVersion;
+    private ConfGuiVersion confGuiVersion;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_EMAIL")
@@ -69,12 +69,12 @@ public class CommonConfig extends AbstractModel {
         this.technicalWork = technicalWork;
     }
 
-    public ContGuiVersion getContGuiVersion() {
-        return contGuiVersion;
+    public ConfGuiVersion getConfGuiVersion() {
+        return confGuiVersion;
     }
 
-    public void setContGuiVersion(ContGuiVersion contGuiVersion) {
-        this.contGuiVersion = contGuiVersion;
+    public void setConfGuiVersion(ConfGuiVersion confGuiVersion) {
+        this.confGuiVersion = confGuiVersion;
     }
 
     public Email getEmail() {

@@ -15,7 +15,7 @@ public class ConfGuiWs {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_COUNT_GUI")
-    private ContGuiVersion contGuiVersion;
+    private ConfGuiVersion confGuiVersion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_WS")
@@ -33,12 +33,12 @@ public class ConfGuiWs {
         this.workingState = workingState;
     }
 
-    public ContGuiVersion getContGuiVersion() {
-        return contGuiVersion;
+    public ConfGuiVersion getConfGuiVersion() {
+        return confGuiVersion;
     }
 
-    public void setContGuiVersion(ContGuiVersion contGuiVersion) {
-        this.contGuiVersion = contGuiVersion;
+    public void setConfGuiVersion(ConfGuiVersion confGuiVersion) {
+        this.confGuiVersion = confGuiVersion;
     }
 
     @Override

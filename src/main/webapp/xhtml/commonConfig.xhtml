@@ -34,10 +34,10 @@
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.technicalWorks}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.contGuiVersion}" converter="#{contGuiVersionConverter}">
-                            <f:selectItem itemLabel="Bug"/>
+                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.confGuiVersion}" converter="#{confGuiVersionConverter}">
+                            <f:selectItem itemLabel="Bug1"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.contGuiVersions}" var="r" itemLabel="#{r.prodProcessDef.name}|V.#{r.prodProcessDef.version}" itemValue="#{r}"/> <!--   -->
+                            <f:selectItems value="#{commonConfigBean.confGuiVersions}" var="r" itemLabel="#{r.flow.code}_#{r.flow.version}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.email}" converter="#{emailConverter}">
                             <f:selectItem itemLabel="Select email"/>
@@ -65,7 +65,14 @@
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
                     </f:facet>
-                    <h:outputText value="FK_FLOW(prodProcessDef)"/>
+                    <rich:column>
+                        <f:facet name="header">FK_PRODUCT</f:facet>
+                        <h:outputText value="#{item.prodProcessDef.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
+                        <h:selectOneMenu value="#{commonConfigBean.editedDto.product}" converter="#{productConverter}" rendered="#{commonConfigBean.isEdit(item)}">
+                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                            <f:selectItems value="#{commonConfigBean.flows}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                        </h:selectOneMenu>
+                    </rich:column>
                     <rich:column>
                         <f:facet name="header">FK_PRODUCT</f:facet>
                         <h:outputText value="#{item.product.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
@@ -84,10 +91,10 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">FK_GUI</f:facet>
-                        <h:outputText value="#{item.contGuiVersion.flow.name}|V.#{item.contGuiVersion.version}" rendered="#{not commonConfigBean.isEdit(item)}"/>
-                        <h:selectOneMenu value="#{commonConfigBean.editedDto.contGuiVersion}" converter="#{contGuiVersionConverter}" rendered="#{commonConfigBean.isEdit(item)}">
+                        <h:outputText value="#{item.confGuiVersion.flow.code}_#{item.confGuiVersion.flow.version}" rendered="#{not commonConfigBean.isEdit(item)}"/>
+                        <h:selectOneMenu value="#{commonConfigBean.editedDto.confGuiVersion}" converter="#{confGuiVersionConverter}" rendered="#{commonConfigBean.isEdit(item)}">
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.contGuiVersions}" var="r" itemLabel="#{item.contGuiVersion.flow.name}|V.#{item.contGuiVersion.version}" itemValue="#{r}"/> <!--   -->
+                            <f:selectItems value="#{commonConfigBean.confGuiVersions}" var="r" itemLabel="#{item.confGuiVersion.flow.code}_#{item.confGuiVersion.flow.version}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
                     </rich:column>
                     <rich:column>

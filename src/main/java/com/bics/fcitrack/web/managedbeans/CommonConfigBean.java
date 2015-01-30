@@ -3,7 +3,6 @@ package com.bics.fcitrack.web.managedbeans;
 import com.bics.fcitrack.model.*;
 import com.bics.fcitrack.service.interfaces.*;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -28,8 +27,8 @@ public class CommonConfigBean extends AbstractBean<CommonConfig> {
     @ManagedProperty(value = "#{technicalWorkService}")
     private TechnicalWorkService technicalWorkService;
 
-    @ManagedProperty(value = "#{contGuiVersionService}")
-    private ContGuiVersionService contGuiVersionService;
+    @ManagedProperty(value = "#{confGuiVersionService}")
+    private ConfGuiVersionService confGuiVersionService;
 
     @ManagedProperty(value = "#{emailService}")
     private EmailService emailService;
@@ -62,8 +61,8 @@ public class CommonConfigBean extends AbstractBean<CommonConfig> {
         return technicalWorkService.findNoDeleted();
     }
 
-    public List<ContGuiVersion> getContGuiVersions() {
-        return contGuiVersionService.findAll();
+    public List<ConfGuiVersion> getConfGuiVersions() {
+        return confGuiVersionService.findAll();
     }
 
     public List<Email> getEmails() {
@@ -78,8 +77,8 @@ public class CommonConfigBean extends AbstractBean<CommonConfig> {
         this.emailService = emailService;
     }
 
-    public void setContGuiVersionService(ContGuiVersionService contGuiVersionService) {
-        this.contGuiVersionService = contGuiVersionService;
+    public void setConfGuiVersionService(ConfGuiVersionService confGuiVersionService) {
+        this.confGuiVersionService = confGuiVersionService;
     }
 
     public void setTechnicalWorkService(TechnicalWorkService technicalWorkService) {
