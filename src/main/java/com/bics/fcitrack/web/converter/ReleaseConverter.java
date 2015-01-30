@@ -23,12 +23,6 @@ public class ReleaseConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        //todo add
-        try {
-            Long.parseLong(value);
-        } catch (Exception e) {
-            return null;
-        }
         if (StringUtils.isNotBlank(value)) {
             return releaseService.read(Long.parseLong(value));
         }

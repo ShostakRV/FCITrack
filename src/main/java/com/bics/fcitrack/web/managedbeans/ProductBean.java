@@ -25,12 +25,6 @@ public class ProductBean extends AbstractBean<Product> {
     private ProductService productService;
 
     @Override
-    @PostConstruct
-    public void init() {
-        selectedDto = new Product();
-    }
-
-    @Override
     protected Product getNewDto() {
         return new Product();
     }

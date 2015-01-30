@@ -19,11 +19,6 @@ public class ContGuiWsPropertyBean extends AbstractBean<ContGuiWsProperty>{
     @ManagedProperty(value = "#{contGuiWsPropertyService}")
     private ContGuiWsPropertyService contGuiWsPropertyService;
 
-    @Override
-    @PostConstruct
-    public void init() {
-        selectedDto=new ContGuiWsProperty();
-    }
 
     @Override
     protected ContGuiWsProperty getNewDto() {

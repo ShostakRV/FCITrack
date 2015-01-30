@@ -152,10 +152,7 @@
 }
 .tab-container .tab-blanc{
     float:left;
-    padding-top:8px;
-    padding-right:10px;
-    padding-left:6px;
-    padding-bottom: 0px;
+    padding: 8px 10px 0px 6px;
     border:1px solid white;
 
     -moz-border-radius:10px 0 0 0;
@@ -168,10 +165,7 @@
 }
 .tab-container .tab-selected{
     float:left;
-    padding-top:10px;
-    padding-right:10px;
-    padding-left:6px;
-    padding-bottom: 0px;
+    padding: 10px 10px 0px 6px;
     border:1px solid grey;
 
     -moz-border-radius:10px 0 0 0;
@@ -451,8 +445,11 @@ a.linkdisabled {
     background-color: #aeecaa;
 }
 .view_table tr :hover{
-    background-color: brown;
 }
 .view_table tr {
     text-align: center;
+}
+td :hover{
+
+    !important;background-color: #00a503;
 }

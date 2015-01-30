@@ -21,12 +21,6 @@ public class WorkingStateBean extends AbstractBean<WorkingState>{
     private WorkingStateService workingStateService;
 
     @Override
-    @PostConstruct
-    public void init() {
-        selectedDto=new WorkingState();
-    }
-
-    @Override
     protected WorkingState getNewDto() {
         return new WorkingState();
     }

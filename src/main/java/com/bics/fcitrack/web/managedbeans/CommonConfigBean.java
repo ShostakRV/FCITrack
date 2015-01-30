@@ -34,11 +34,7 @@ public class CommonConfigBean extends AbstractBean<CommonConfig> {
     @ManagedProperty(value = "#{emailService}")
     private EmailService emailService;
 
-    @Override
-    @PostConstruct
-    public void init() {
-        selectedDto = new CommonConfig();
-    }
+
 
     @Override
     protected CommonConfig getNewDto() {

@@ -1,10 +1,12 @@
 package com.bics.fcitrack.web.managedbeans;
 
+import com.bics.fcitrack.model.Email;
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.AbstractService;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
 import com.bics.fcitrack.utils.FacesUtils;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedProperty;
 import java.io.Serializable;
 import java.util.List;
@@ -21,7 +23,11 @@ public abstract class AbstractBean<T> implements Serializable {
     protected T selectedDto;
     protected T editedDto;
 
-    public abstract void init();
+
+    @PostConstruct
+    public void init() {
+        selectedDto= getNewDto();
+    }
 
     public void edit(T t) {
         editedDto = t;

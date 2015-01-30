@@ -4,10 +4,6 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:rich="http://richfaces.org/rich">
-<!--
-todo -commpn config  сделать страничку
-todo -нужны конверторы
--->
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
         <h3>commonConfig</h3>
@@ -88,10 +84,10 @@ todo -нужны конверторы
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">FK_GUI</f:facet>
-                        <h:outputText value="#{item.contGuiVersion.prodProcessDef.name}|V.#{item.contGuiVersion.version}" rendered="#{not commonConfigBean.isEdit(item)}"/>
+                        <h:outputText value="#{item.contGuiVersion.flow.name}|V.#{item.contGuiVersion.version}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                         <h:selectOneMenu value="#{commonConfigBean.editedDto.contGuiVersion}" converter="#{contGuiVersionConverter}" rendered="#{commonConfigBean.isEdit(item)}">
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.contGuiVersions}" var="r" itemLabel="#{item.contGuiVersion.prodProcessDef.name}|V.#{item.contGuiVersion.version}" itemValue="#{r}"/> <!--   -->
+                            <f:selectItems value="#{commonConfigBean.contGuiVersions}" var="r" itemLabel="#{item.contGuiVersion.flow.name}|V.#{item.contGuiVersion.version}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
                     </rich:column>
                     <rich:column>

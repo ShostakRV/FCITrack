@@ -20,12 +20,6 @@ public class ContGuiVersionBean extends AbstractBean<ContGuiVersion>{
     private ContGuiVersionService contGuiVersionService;
 
     @Override
-    @PostConstruct
-    public void init() {
-        selectedDto=new ContGuiVersion();
-    }
-
-    @Override
     protected ContGuiVersion getNewDto() {
         return new ContGuiVersion();
     }

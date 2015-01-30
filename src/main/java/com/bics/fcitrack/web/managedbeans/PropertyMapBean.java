@@ -22,12 +22,6 @@ public class PropertyMapBean extends AbstractBean<PropertyMap> {
     private PropertyMapService propertyMapService;
 
     @Override
-    @PostConstruct
-    public void init() {
-        selectedDto=new PropertyMap();
-    }
-
-    @Override
     protected PropertyMap getNewDto() {
         return new PropertyMap();
     }

@@ -21,12 +21,6 @@ public class ProdProcessDefBean extends AbstractBean<ProdProcessDef>{
     private ProdProcessDefService prodProcessDefService;
 
     @Override
-    @PostConstruct
-    public void init() {
-        selectedDto=new ProdProcessDef();
-    }
-
-    @Override
     protected ProdProcessDef getNewDto() {
         return new ProdProcessDef();
     }

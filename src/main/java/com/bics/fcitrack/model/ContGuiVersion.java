@@ -15,8 +15,7 @@ public class ContGuiVersion extends AbstractModel{
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_FLOW_CODE")
-    //todo rename or alias prodProces def to flow
-    private ProdProcessDef prodProcessDef;
+    private ProdProcessDef flow;
 
     @Column(name = "VERSION")
     private Integer version;
@@ -35,12 +34,12 @@ public class ContGuiVersion extends AbstractModel{
         this.version = version;
     }
 
-    public ProdProcessDef getProdProcessDef() {
-        return prodProcessDef;
+    public ProdProcessDef getFlow() {
+        return flow;
     }
 
-    public void setProdProcessDef(ProdProcessDef prodProcessDef) {
-        this.prodProcessDef = prodProcessDef;
+    public void setFlow(ProdProcessDef prodProcessDef) {
+        this.flow = prodProcessDef;
     }
 
     public Release getRelease() {

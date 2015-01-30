@@ -21,13 +21,6 @@ public class EmailBean  extends AbstractBean<Email>{
     private EmailService emailService;
 
     @Override
-    @PostConstruct
-    //todo инициализацыю можно вынести в абстрактный и там написать selectedDto=getNewDto();
-    public void init() {
-        selectedDto=new Email();
-    }
-
-    @Override
     protected Email getNewDto() {
         return new Email();
     }

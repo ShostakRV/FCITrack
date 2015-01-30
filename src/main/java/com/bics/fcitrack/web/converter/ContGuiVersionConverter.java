@@ -22,11 +22,6 @@ public class ContGuiVersionConverter  implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        try {
-            Long.parseLong(value);
-        } catch (Exception e) {
-            return null;
-        }
         if (StringUtils.isNotBlank(value)) {
             return contGuiVersionService.read(Long.parseLong(value));
         }

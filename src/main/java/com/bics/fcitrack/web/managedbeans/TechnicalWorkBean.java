@@ -22,12 +22,6 @@ public class TechnicalWorkBean extends AbstractBean<TechnicalWork> {
     private TechnicalWorkService technicalWorkService;
 
     @Override
-    @PostConstruct
-    public void init() {
-        selectedDto = new TechnicalWork();
-    }
-
-    @Override
     protected TechnicalWork getNewDto() {
         return new TechnicalWork();
     }

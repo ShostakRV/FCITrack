@@ -22,12 +22,6 @@ public class EmailConverter  implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        //toto обезатильно ли проверка число ли это
-        try {
-            Long.parseLong(value);
-        } catch (Exception e) {
-            return null;
-        }
         if (StringUtils.isNotBlank(value)) {
             return emailService.read(Long.parseLong(value));
         }

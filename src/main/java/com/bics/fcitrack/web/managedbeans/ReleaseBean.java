@@ -20,12 +20,6 @@ public class ReleaseBean extends AbstractBean<Release> {
     @ManagedProperty(value = "#{releaseService}")
     protected ReleaseService releaseServiceOwn;
 
-    @Override
-    @PostConstruct
-    public void init() {
-        selectedDto = new Release();
-    }
-
     public void releas(Release r) {
         r.setReleaseDate(new Date());
         releaseService.update(r);
