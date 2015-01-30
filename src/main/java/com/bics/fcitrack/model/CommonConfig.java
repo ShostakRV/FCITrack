@@ -29,13 +29,12 @@ public class CommonConfig extends AbstractModel {
     @JoinColumn(name = "FK_GUI")
     private ContGuiVersion contGuiVersion;
 
-    @Column(name = "FK_EMAIL")
-    private Integer email;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_EMAIL")
+    private Email email;
 
     @Column(name = "SEQUENCE")
     private Integer sequence;
-
-
 
     @Column(name = "OUTPHASE")
     private Boolean outphase;
@@ -77,11 +76,11 @@ public class CommonConfig extends AbstractModel {
         this.contGuiVersion = contGuiVersion;
     }
 
-    public Integer getEmail() {
+    public Email getEmail() {
         return email;
     }
 
-    public void setEmail(Integer email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 
