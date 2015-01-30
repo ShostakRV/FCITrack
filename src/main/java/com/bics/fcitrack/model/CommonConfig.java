@@ -11,7 +11,7 @@ public class CommonConfig extends AbstractModel {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_FLOW")
@@ -39,7 +39,7 @@ public class CommonConfig extends AbstractModel {
     @Column(name = "OUTPHASE")
     private Boolean outphase;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

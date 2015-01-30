@@ -11,7 +11,7 @@ public class ContGuiWsProperty {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_CONF_VERSION")
@@ -21,7 +21,7 @@ public class ContGuiWsProperty {
     @JoinColumn(name = "FK_PROPERTY")
     private PropertyMap propertyMap;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

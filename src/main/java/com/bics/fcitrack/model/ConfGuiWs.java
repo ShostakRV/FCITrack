@@ -11,7 +11,7 @@ public class ConfGuiWs {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_COUNT_GUI")
@@ -21,7 +21,7 @@ public class ConfGuiWs {
     @JoinColumn(name = "FK_WS")
     private WorkingState workingState;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

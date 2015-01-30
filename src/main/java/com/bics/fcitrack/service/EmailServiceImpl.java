@@ -6,11 +6,13 @@ import com.bics.fcitrack.model.Email;
 import com.bics.fcitrack.service.interfaces.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by godex_000
  * on 30.01.2015.
  */
+@Transactional
 @Service("emailService")
 public class EmailServiceImpl extends AbstractServiceImpl<Email, Long> implements EmailService {
     @Autowired

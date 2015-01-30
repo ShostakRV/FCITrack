@@ -6,6 +6,7 @@
       xmlns:rich="http://richfaces.org/rich">
 <!--
 todo -commpn config  сделать страничку
+todo -нужны конверторы
 -->
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
@@ -14,41 +15,40 @@ todo -commpn config  сделать страничку
             <a4j:outputPanel ajaxRendered="true" id="pnl_technicalWorkTable">
                 <h:form id="form_technicalWork">
                     <h:panelGrid columns="8">
-                        <h:outputText value="ID"/>
-                        <h:outputText value="FK_FLOW"/>
+                        <h:outputText value="FK_FLOW(prodProcessDef)"/>
                         <h:outputText value="FK_PRODUCT"/>
-                        <h:outputText value="FK_TW"/>
+                        <h:outputText value="FK_technicalWork"/>
                         <h:outputText value="FK_GUI"/>
                         <h:outputText value="FK_EMAIL"/>
                         <h:outputText value="SEQUENCE"/>
-                        <h:outputText value="FK_RELEASE"/>
+                        <h:outputText value="RELEASE"/>
                         <h:outputText value="OUTPHASE"/>
-                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.}" >
-                            <f:selectItem itemLabel="Select release"/>
+                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.prodProcessDef}" converter="#{prodProcessDefConverter}" >
+                            <f:selectItem itemLabel="Select flow"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                            <f:selectItems value="#{commonConfigBean.flows}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.release}" >
-                            <f:selectItem itemLabel="Select release"/>
+                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.product}"  converter="#{productConverter}">
+                            <f:selectItem itemLabel="Select product"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                            <f:selectItems value="#{commonConfigBean.products}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.release}" converter="#{releaseConverter}">
-                            <f:selectItem itemLabel="Select release"/>
+                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.technicalWork}" converter="#{technicalWorkConverter}">
+                            <f:selectItem itemLabel="Select tw"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                            <f:selectItems value="#{commonConfigBean.technicalWorks}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.release}" converter="#{releaseConverter}">
-                            <f:selectItem itemLabel="Select release"/>
+                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.contGuiVersion}" converter="#{contGuiVersionConverter}">
+                            <f:selectItem itemLabel="Select gui"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                            <f:selectItems value="#{commonConfigBean.contGuiVersions}" var="r" itemLabel="#{r.prodProcessDef.name}|V.#{r.prodProcessDef.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.release}" converter="#{releaseConverter}">
-                            <f:selectItem itemLabel="Select release"/>
+                        <h:selectOneMenu value="#{commonConfigBean.selectedDto.email}" converter="#{emailConverter}">
+                            <f:selectItem itemLabel="Select email"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                            <f:selectItems value="#{commonConfigBean.emails}" var="r" itemLabel="#{r.address}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:inputText value="#{commonConfigBean.selectedDto.code}" immediate="true">
+                        <h:inputText value="#{commonConfigBean.selectedDto.sequence}" immediate="true">
                             <f:ajax/>
                         </h:inputText>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.release}" converter="#{releaseConverter}">
@@ -56,9 +56,9 @@ todo -commpn config  сделать страничку
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:inputText value="#{commonConfigBean.selectedDto.code}" immediate="true">
+                        <h:selectBooleanCheckbox value="#{commonConfigBean.selectedDto.outphase}" immediate="true">
                             <f:ajax/>
-                        </h:inputText>
+                        </h:selectBooleanCheckbox>
 
 
 

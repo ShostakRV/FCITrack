@@ -11,12 +11,12 @@ public class WorkingState {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
-    private Integer id;
+    private Long id;
 
     @Column(name = "NAME")
     private String name;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

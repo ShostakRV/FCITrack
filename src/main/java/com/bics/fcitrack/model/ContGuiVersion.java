@@ -11,7 +11,7 @@ public class ContGuiVersion extends AbstractModel{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_FLOW_CODE")
@@ -22,7 +22,7 @@ public class ContGuiVersion extends AbstractModel{
     private Integer version;
 
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
