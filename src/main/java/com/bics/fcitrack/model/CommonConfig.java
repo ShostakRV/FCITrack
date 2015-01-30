@@ -3,7 +3,9 @@ package com.bics.fcitrack.model;
 import javax.persistence.*;
 
 /**
- * Created by godex_000 on 19.01.2015.
+ * Created by godex_000
+ * on 30.01.2015.
+ * for FCITrack
  */
 @Entity
 @Table(name = "COMMON_CONFIG")
@@ -13,23 +15,23 @@ public class CommonConfig extends AbstractModel {
     @Column(name = "ID")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_FLOW")
     private ProdProcessDef prodProcessDef;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_PRODUCT")
     private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_TW")
     private TechnicalWork  technicalWork;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_GUI")
     private ContGuiVersion contGuiVersion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_EMAIL")
     private Email email;
 

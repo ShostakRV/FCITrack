@@ -13,6 +13,7 @@ import javax.faces.convert.Converter;
 /**
  * Created by godex_000
  * on 30.01.2015.
+ * for FCITrack
  */
 @Component
 public class EmailConverter  implements Converter {

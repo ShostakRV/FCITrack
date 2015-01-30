@@ -447,8 +447,12 @@ a.linkdisabled {
 }
 
 .view_table{
+    min-width: 80%;
     background-color: #aeecaa;
 }
 .view_table tr :hover{
     background-color: brown;
+}
+.view_table tr {
+    text-align: center;
 }

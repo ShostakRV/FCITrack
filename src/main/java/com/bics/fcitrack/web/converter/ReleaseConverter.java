@@ -14,6 +14,7 @@ import javax.faces.convert.FacesConverter;
 /**
  * Created by morfi_000
  * Date: 24-Jan-15.
+ * for FCITrack
  */
 @Component
 public class ReleaseConverter implements Converter {
