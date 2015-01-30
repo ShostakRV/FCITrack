@@ -74,6 +74,11 @@
             <to-view-id>/xhtml/actionAndFields.xhtml</to-view-id>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>email</from-outcome>
+            <to-view-id>/xhtml/email.xhtml</to-view-id>
+        </navigation-case>
+
     </navigation-rule>
 
 
