@@ -43,7 +43,6 @@ public class CommonConfig extends AbstractModel {
         return id;
     }
 
-
     public ProdProcessDef getProdProcessDef() {
         return prodProcessDef;
     }
@@ -95,7 +94,6 @@ public class CommonConfig extends AbstractModel {
     public Boolean getOutphase() {
         return outphase;
     }
-
 
     public void setOutphase(Boolean outphase) {
         this.outphase = outphase;

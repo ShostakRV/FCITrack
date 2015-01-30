@@ -13,8 +13,9 @@ public class ContGuiVersion extends AbstractModel{
     @Column(name = "ID")
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_FLOW_CODE")
+    //todo rename or alias prodProces def to flow
     private ProdProcessDef prodProcessDef;
 
     @Column(name = "VERSION")
