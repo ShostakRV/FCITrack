@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "CONT_GUI_WS_PROPERTY")
-public class ContGuiWsProperty {
+public class ConfGuiWsProperty {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
@@ -46,7 +46,7 @@ public class ContGuiWsProperty {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ContGuiWsProperty contGuiWsProperty = (ContGuiWsProperty) o;
+        ConfGuiWsProperty contGuiWsProperty = (ConfGuiWsProperty) o;
 
         return !(id != null ? !id.equals(contGuiWsProperty.id) : contGuiWsProperty.id != null);
     }

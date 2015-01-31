@@ -64,8 +64,9 @@
                 <rich:dataTable styleClass="view_table"  sortMode="single" value="#{commonConfigBean.commonConfigs}" var="item">
                     <f:facet name="header">
                         <h:outputText value="Releases"/>
+                        <rich:dataScroller/>
                     </f:facet>
-                    <rich:column>
+                    <rich:column >
                         <f:facet name="header">FK_PRODUCT</f:facet>
                         <h:outputText value="#{item.prodProcessDef.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                         <h:selectOneMenu value="#{commonConfigBean.editedDto.product}" converter="#{productConverter}" rendered="#{commonConfigBean.isEdit(item)}">

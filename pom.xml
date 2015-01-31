@@ -135,6 +135,29 @@
             <version>2.2</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>org.richfaces</groupId>-->
+            <!--<artifactId>richfaces-a4j</artifactId>-->
+            <!--<version>4.5.2.Final</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.richfaces</groupId>-->
+            <!--<artifactId>richfaces</artifactId>-->
+            <!--<version>4.5.2.Final</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.richfaces</groupId>-->
+            <!--<artifactId>richfaces-page-fragments</artifactId>-->
+            <!--<version>4.5.2.Final</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.ajax4jsf</groupId>-->
+            <!--<artifactId>ajax4jsf</artifactId>-->
+            <!--<version>1.0.5</version>-->
+        <!--</dependency>-->
+
+
         <dependency>
             <groupId>org.richfaces.core</groupId>
             <artifactId>richfaces-core-api</artifactId>
@@ -156,22 +179,6 @@
             <artifactId>richfaces-core-impl</artifactId>
             <version>${richFaces.version}</version>
         </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>org.richfaces.framework</groupId>-->
-        <!--<artifactId>richfaces-api</artifactId>-->
-        <!--<version>${richFaces.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.richfaces.ui</groupId>-->
-            <!--<artifactId>richfaces-ui</artifactId>-->
-            <!--<version>${richFaces.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.richfaces.framework</groupId>-->
-            <!--<artifactId>richfaces-impl</artifactId>-->
-            <!--<version>${richFaces.version}</version>-->
-        <!--</dependency>-->
 
         <!-- EL -->
         <dependency>
