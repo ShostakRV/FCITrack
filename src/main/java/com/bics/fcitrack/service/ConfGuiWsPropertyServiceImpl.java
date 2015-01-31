@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by godex_000 on 20.01.2015.
  */
-@Service("contGuiWsPropertyService")
+@Service("confGuiWsPropertyService")
 @Transactional
 public class ConfGuiWsPropertyServiceImpl extends AbstractServiceImpl<ConfGuiWsProperty, Long> implements ConfGuiWsPropertyService {
     @Autowired

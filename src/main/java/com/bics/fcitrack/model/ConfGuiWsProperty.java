@@ -46,9 +46,9 @@ public class ConfGuiWsProperty {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ConfGuiWsProperty contGuiWsProperty = (ConfGuiWsProperty) o;
+        ConfGuiWsProperty confGuiWsProperty = (ConfGuiWsProperty) o;
 
-        return !(id != null ? !id.equals(contGuiWsProperty.id) : contGuiWsProperty.id != null);
+        return !(id != null ? !id.equals(confGuiWsProperty.id) : confGuiWsProperty.id != null);
     }
 
     @Override
