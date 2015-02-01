@@ -21,6 +21,10 @@ public class ConfGuiWs {
     @JoinColumn(name = "FK_WS")
     private WorkingState workingState;
 
+    @Column(name = "ROLE")
+    private String role;
+
+
     public Long getId() {
         return id;
     }
@@ -39,6 +43,14 @@ public class ConfGuiWs {
 
     public void setConfGuiVersion(ConfGuiVersion confGuiVersion) {
         this.confGuiVersion = confGuiVersion;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override

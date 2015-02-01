@@ -35,9 +35,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <delegate>1044DA80-DB16-6D27-40A3-47EA5A092045</delegate>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="091EAB15-2019-DF98-F051-C69C91AFD414" referredColumn="1044DA80-DB16-6D27-40A3-47EA5A092045"/>
-</associations>
 </Column>
 <Column name="TYPE" id="9E6BBA24-FF97-F80A-8CF0-57D511DAE05C">
 <createdBy>godex_000</createdBy>

@@ -43,6 +43,23 @@
 <colAssociation fkAssociation="D9A3370D-FE0F-21C6-A9D9-7EF001F3EE7B" referredColumn="B8E416EB-6819-F60E-50B7-F7AFABF96469"/>
 </associations>
 </Column>
+<Column name="VALUE" id="CBDD79AF-9EFE-4D57-B14F-55ABCDE04C7B">
+<createdBy>morfi_000</createdBy>
+<createdTime>2015-02-01 20:11:33 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<listOfValues>
+<valueDef value="EDITABLE" description=""/>
+<valueDef value="MANDATORY" description=""/>
+<valueDef value="NONE" description=""/>
+<valueDef value="VISIBLE" description=""/>
+</listOfValues>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="3C87C258-6543-92E4-0E2E-910E65C7BBBB" name="CONT_GUI_WS_PROPERTY_PK">

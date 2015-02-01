@@ -65,11 +65,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>55394DAF-B584-3C00-D8AF-1F14B4B9CC6D</delegate>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="7DD1D16E-C816-EE19-7AC9-FA457D6D789F" referredColumn="55394DAF-B584-3C00-D8AF-1F14B4B9CC6D"/>
-</associations>
 </Column>
 <Column name="FK_EMAIL" id="83805042-876F-880D-AF7E-C4212700EFC8">
 <createdBy>godex_000</createdBy>
@@ -78,11 +74,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>16E402D4-1F5C-F041-2052-83D27394443C</delegate>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="841C5BA2-E514-30CD-EF6D-8CBABF17EF2F" referredColumn="16E402D4-1F5C-F041-2052-83D27394443C"/>
-</associations>
 </Column>
 <Column name="SEQUENCE" id="BDC10248-0876-8DAC-9327-3D5DBE434C84">
 <createdBy>godex_000</createdBy>
@@ -131,6 +123,26 @@
 <colUsage columnID="1BF19E0E-CA9E-AF18-530E-945200EC573A"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="B8A13496-07A0-EEAB-CA01-7E739D0844AF" name="COM_CONF_EMAIL_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-30 12:04:18 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="83805042-876F-880D-AF7E-C4212700EFC8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E3622BAA-857F-2A5C-6D7A-32E87996F2AA" name="COM_CONF_CONT_GUI_VERSION_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-30 12:50:36 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F8C811D7-1DDA-D9ED-16FE-787EED1777A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="72F0194F-6E3C-5A11-4B18-B64E6B182BAC" name="COM_CONF_PRODUCT_FK">
 <createdBy>godex_000</createdBy>
 <createdTime>2015-01-18 16:56:09 UTC</createdTime>
@@ -169,26 +181,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="719BD762-C68C-FD94-9FD0-EE9447BC5A76"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="B8A13496-07A0-EEAB-CA01-7E739D0844AF" name="COM_CONF_EMAIL_FK">
-<createdBy>godex_000</createdBy>
-<createdTime>2015-01-30 12:04:18 UTC</createdTime>
-<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="83805042-876F-880D-AF7E-C4212700EFC8"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="E3622BAA-857F-2A5C-6D7A-32E87996F2AA" name="COM_CONF_CONT_GUI_VERSION_FK">
-<createdBy>godex_000</createdBy>
-<createdTime>2015-01-30 12:50:36 UTC</createdTime>
-<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="F8C811D7-1DDA-D9ED-16FE-787EED1777A9"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

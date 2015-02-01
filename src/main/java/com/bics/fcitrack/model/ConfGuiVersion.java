@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "CONT_GUI_VERSION")
-public class ConfGuiVersion extends AbstractModel{
+public class ConfGuiVersion extends AbstractModel {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
@@ -20,11 +20,21 @@ public class ConfGuiVersion extends AbstractModel{
     @Column(name = "VERSION")
     private Integer version;
 
+    @Column(name = "NAME")
+    private String name;
+
 
     public Long getId() {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getVersion() {
         return version;

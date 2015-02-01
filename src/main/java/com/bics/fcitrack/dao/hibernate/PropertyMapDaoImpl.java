@@ -5,6 +5,8 @@ import com.bics.fcitrack.model.PropertyMap;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by godex_000 on 20.01.2015.
  */
@@ -15,4 +17,9 @@ public class PropertyMapDaoImpl extends AbstractDaoImpl<PropertyMap, String> imp
         super(PropertyMap.class);
     }
 
+    @Override
+    public List<PropertyMap> findAllActive() {
+        String hql = "from PropertyMap pm where pm.active = true or pm.active is null ";
+        return getSessionFactory().getCurrentSession().createQuery(hql).list();
+    }
 }

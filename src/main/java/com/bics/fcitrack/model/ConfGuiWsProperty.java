@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "CONT_GUI_WS_PROPERTY")
 public class ConfGuiWsProperty {
+    public static enum ValueType {MANDATORY, EDITABLE, VISIBLE, NONE}
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
@@ -21,8 +23,20 @@ public class ConfGuiWsProperty {
     @JoinColumn(name = "FK_PROPERTY")
     private PropertyMap propertyMap;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "VALUE")
+    private ValueType value;
+
     public Long getId() {
         return id;
+    }
+
+    public ValueType getValue() {
+        return value;
+    }
+
+    public void setValue(ValueType value) {
+        this.value = value;
     }
 
     public ConfGuiWs getConfGuiWs() {

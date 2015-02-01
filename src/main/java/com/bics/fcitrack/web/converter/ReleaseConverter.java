@@ -2,6 +2,7 @@ package com.bics.fcitrack.web.converter;
 
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.ReleaseService;
+import com.bics.fcitrack.utils.FacesUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,8 +24,12 @@ public class ReleaseConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        if (StringUtils.isNotBlank(value)) {
-            return releaseService.read(Long.parseLong(value));
+        try {
+            if (StringUtils.isNotBlank(value)) {
+                return releaseService.read(Long.parseLong(value));
+            }
+        } catch (Exception e) {
+//                FacesUtils.error(e); //todo should be fixed.
         }
         return null;
     }
