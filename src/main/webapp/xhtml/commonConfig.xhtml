@@ -99,10 +99,10 @@
                     </rich:column>
                     <!--<rich:column>-->
                         <!--<f:facet name="header">FK_EMAIL</f:facet>-->
-                        <!--<h:outputText value="#{item.email.address}" rendered="#{not commonConfigBean.isEdit(item)}"/>-->
-                        <!--<h:selectOneMenu value="#{commonConfigBean.editedDto.email}" converter="#{emailConverter}" rendered="#{commonConfigBean.isEdit(item)}">-->
+                        <!--<h:outputText value="# {item.email.address}" rendered="# {not commonConfigBean.isEdit(item)}"/>-->
+                        <!--<h:selectOneMenu value="# {commonConfigBean.editedDto.email}" converter="# {emailConverter}" rendered="# {commonConfigBean.isEdit(item)}">-->
                             <!--<a4j:ajax event="change" execute="@this" limitRender="true"/>-->
-                            <!--<f:selectItems value="#{commonConfigBean.emails}" var="mail" itemLabel="#{mail.address}" itemValue="#{mail}"/> &lt;!&ndash;   &ndash;&gt;-->
+                            <!--<f:selectItems value="# {commonConfigBean.emails}" var="mail" itemLabel="# {mail.address}" itemValue="# {mail}"/> &lt;!&ndash;   &ndash;&gt;-->
                         <!--</h:selectOneMenu>-->
                     <!--</rich:column>-->
                     <rich:column>

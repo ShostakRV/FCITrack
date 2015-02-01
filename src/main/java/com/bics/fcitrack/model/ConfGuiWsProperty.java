@@ -1,6 +1,7 @@
 package com.bics.fcitrack.model;
 
 import javax.persistence.*;
+import java.util.EnumSet;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -9,6 +10,8 @@ import javax.persistence.*;
 @Table(name = "CONT_GUI_WS_PROPERTY")
 public class ConfGuiWsProperty {
     public static enum ValueType {MANDATORY, EDITABLE, VISIBLE, NONE}
+
+    public static final EnumSet<ValueType> values = EnumSet.of(ValueType.MANDATORY, ValueType.EDITABLE, ValueType.VISIBLE, ValueType.NONE);
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

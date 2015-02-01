@@ -10,17 +10,68 @@
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
         <h:form>
-            <h:panelGrid>
-            <h:outputText value=""/>
-            </h:panelGrid>
+            <rich:collapsiblePanel style="width: 100%">
+                <h:panelGrid columns="4">
+                    <h:outputText value="Configuration name"/>
+                    <h:outputText value="Flow"/>
+                    <h:outputText value="Release"/>
+                    <h:outputText value="Actions"/>
+                    <h:inputText value="#{actionsAndFieldsBean.selectedDto.name}"><f:ajax immediate="true"/></h:inputText>
+                    <h:selectOneMenu value="#{actionsAndFieldsBean.selectedDto.flow}" converter="#{prodProcessDefConverter}">
+                        <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                        <f:selectItems value="#{actionsAndFieldsBean.flows}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/>
+                    </h:selectOneMenu>
+                    <h:selectOneMenu value="#{actionsAndFieldsBean.selectedDto.release}" converter="#{releaseConverter}">
+                        <f:selectItem itemLabel="Select release"/>
+                        <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                        <f:selectItems value="#{actionsAndFieldsBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                    </h:selectOneMenu>
+                    <h:commandButton value="Create new" actionListener="#{actionsAndFieldsBean.createNew()}">
+                        <f:ajax render="@all"/>
+                    </h:commandButton>
+                </h:panelGrid>
+            </rich:collapsiblePanel>
+
+            <rich:collapsiblePanel>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Configuration name"/>
+                    <h:outputText value="Actions"/>
+                    <a4j:outputPanel>
+                        <rich:autocomplete value="#{actionsAndFieldsBean.selectedConfiguration}" rendered="#{actionsAndFieldsBean.noneState}">
+                            <f:selectItems value="#{actionsAndFieldsBean.availableConfGuiVersions}" var="confVersion" itemLabel="#{confVersion.name}" itemValue="#{confVersion}"/>
+                        </rich:autocomplete>
+                        <h:inputText value="#{actionsAndFieldsBean.editedDto.name}" rendered="#{actionsAndFieldsBean.editedDto != null }"/>
+                    </a4j:outputPanel>
+                    <h:commandButton value="Rename" actionListener="#{propertyMapBean.createNew()}">
+                        <f:ajax render="@all"/>
+                    </h:commandButton>
+                </h:panelGrid>
 
 
-            <rich:dataTable>
-                <f:facet name="header">
-                    <rich:dataScroller />
-                </f:facet>
-                <c:forEach var="col" items="#{}"
-            </rich:dataTable>
+                <rich:dataTable>
+                    <f:facet name="header">
+                        <rich:dataScroller/>
+                    </f:facet>
+                    <rich:column>
+                        <f:facet name="header">
+                            <h:outputText value="Working state"/>
+                        </f:facet>
+                    </rich:column>
+                    <rich:column>
+                        <f:facet name="header">
+                            <h:outputText value="Role"/>
+                        </f:facet>
+                    </rich:column>
+                    <c:forEach var="col" items="#{actionsAndFieldsBean.propertyColumns}">
+                        <rich:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{col.name}"/>
+                            </f:facet>
+
+                        </rich:column>
+                    </c:forEach>
+                </rich:dataTable>
+            </rich:collapsiblePanel>
         </h:form>
     </ui:define>
 </ui:composition>
