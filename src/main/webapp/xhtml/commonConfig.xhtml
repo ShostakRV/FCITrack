@@ -63,19 +63,18 @@
 
                 <rich:dataTable styleClass="view_table"  sortMode="single" value="#{commonConfigBean.commonConfigs}" var="item">
                     <f:facet name="header">
-                        <h:outputText value="Releases"/>
                         <rich:dataScroller/>
                     </f:facet>
                     <rich:column >
-                        <f:facet name="header">FK_PRODUCT</f:facet>
+                        <f:facet name="header">Flow</f:facet>
                         <h:outputText value="#{item.prodProcessDef.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
-                        <h:selectOneMenu value="#{commonConfigBean.editedDto.product}" converter="#{productConverter}" rendered="#{commonConfigBean.isEdit(item)}">
+                        <h:selectOneMenu value="#{commonConfigBean.editedDto.prodProcessDef}" converter="#{prodProcessDefConverter}" rendered="#{commonConfigBean.isEdit(item)}">
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.flows}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
                     </rich:column>
                     <rich:column>
-                        <f:facet name="header">FK_PRODUCT</f:facet>
+                        <f:facet name="header">Product</f:facet>
                         <h:outputText value="#{item.product.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                         <h:selectOneMenu value="#{commonConfigBean.editedDto.product}" converter="#{productConverter}" rendered="#{commonConfigBean.isEdit(item)}">
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
@@ -83,7 +82,7 @@
                         </h:selectOneMenu>
                     </rich:column>
                     <rich:column>
-                        <f:facet name="header">FK_technicalWork</f:facet>
+                        <f:facet name="header">Technical Work</f:facet>
                         <h:outputText value="#{item.technicalWork.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                         <h:selectOneMenu value="#{commonConfigBean.editedDto.technicalWork}" converter="#{technicalWorkConverter}" rendered="#{commonConfigBean.isEdit(item)}">
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
@@ -91,30 +90,30 @@
                         </h:selectOneMenu>
                     </rich:column>
                     <rich:column>
-                        <f:facet name="header">FK_GUI</f:facet>
+                        <f:facet name="header">GUI Configuration</f:facet>
                         <h:outputText value="#{item.confGuiVersion.flow.code}_#{item.confGuiVersion.flow.version}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                         <h:selectOneMenu value="#{commonConfigBean.editedDto.confGuiVersion}" converter="#{confGuiVersionConverter}" rendered="#{commonConfigBean.isEdit(item)}">
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.confGuiVersions}" var="r" itemLabel="#{item.confGuiVersion.flow.code}_#{item.confGuiVersion.flow.version}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
                     </rich:column>
+                    <!--<rich:column>-->
+                        <!--<f:facet name="header">FK_EMAIL</f:facet>-->
+                        <!--<h:outputText value="#{item.email.address}" rendered="#{not commonConfigBean.isEdit(item)}"/>-->
+                        <!--<h:selectOneMenu value="#{commonConfigBean.editedDto.email}" converter="#{emailConverter}" rendered="#{commonConfigBean.isEdit(item)}">-->
+                            <!--<a4j:ajax event="change" execute="@this" limitRender="true"/>-->
+                            <!--<f:selectItems value="#{commonConfigBean.emails}" var="mail" itemLabel="#{mail.address}" itemValue="#{mail}"/> &lt;!&ndash;   &ndash;&gt;-->
+                        <!--</h:selectOneMenu>-->
+                    <!--</rich:column>-->
                     <rich:column>
-                        <f:facet name="header">FK_EMAIL</f:facet>
-                        <h:outputText value="#{item.email.address}" rendered="#{not commonConfigBean.isEdit(item)}"/>
-                        <h:selectOneMenu value="#{commonConfigBean.editedDto.email}" converter="#{emailConverter}" rendered="#{commonConfigBean.isEdit(item)}">
-                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{commonConfigBean.emails}" var="r" itemLabel="#{r.address}" itemValue="#{r}"/> <!--   -->
-                        </h:selectOneMenu>
-                    </rich:column>
-                    <rich:column>
-                        <f:facet name="header">SEQUENCE</f:facet>
+                        <f:facet name="header">Sequence</f:facet>
                         <h:outputText value="#{item.sequence}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                         <h:inputText value="#{commonConfigBean.editedDto.sequence}" immediate="true" rendered="#{commonConfigBean.isEdit(item)}">
                             <f:ajax/>
                         </h:inputText>
                     </rich:column>
                     <rich:column>
-                        <f:facet name="header">RELEASE</f:facet>
+                        <f:facet name="header">Release</f:facet>
                         <h:outputText value="#{item.release.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                         <h:selectOneMenu value="#{commonConfigBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{commonConfigBean.isEdit(item)}">
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
@@ -122,7 +121,7 @@
                         </h:selectOneMenu>
                     </rich:column>
                     <rich:column>
-                        <f:facet name="header">OUTPHASE</f:facet>
+                        <f:facet name="header">Outphase</f:facet>
                         <h:selectBooleanCheckbox value="#{item.outphase}" disabled="true" rendered="#{not commonConfigBean.isEdit(item)}"/>
                         <h:selectBooleanCheckbox value="#{commonConfigBean.editedDto.outphase}" immediate="true" rendered="#{commonConfigBean.isEdit(item)}">
                             <f:ajax/>
