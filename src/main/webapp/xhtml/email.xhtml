@@ -14,11 +14,13 @@
             <a4j:outputPanel ajaxRendered="true" id="pnl_technicalWorkTable">
                 <h:form id="form_technicalWork">
                     <h:panelGrid columns="1">
-                        <h:outputText value="address"/>
-                        <h:inputText value="#{emailBean.selectedDto.address}" immediate="true">
-                            <f:ajax/>
+                        <h:outputText value="#{msg.email_address}"/>
+                        <h:inputText value="#{emailBean.selectedDto.address}" validator="EmailValidator" validatorMessage="itrack-messages-filters" required="true" immediate="true" >
+                            <f:validator validatorId="EmailValidator"/>
+                            <f:ajax event="mouseout"  render="@all"/>
+                            <f:ajax event="blur"  render="@all"/>
                         </h:inputText>
-                        <h:commandButton value="Submit" actionListener="#{emailBean.createNew()}">
+                        <h:commandButton value="#{msg.submit}" actionListener="#{emailBean.createNew()}">
                             <f:ajax render="@all"/>
                         </h:commandButton>
                     </h:panelGrid>
@@ -26,14 +28,14 @@
 
                 <rich:dataTable styleClass="view_table" sortMode="single" value="#{emailBean.emails}" var="item">
                     <f:facet name="header">
-                        <h:outputText value="Releases"/>
+                        <h:outputText value="#{msg.email_head}"/>
                     </f:facet>
                     <rich:column>
-                        <f:facet name="header">ID</f:facet>
+                        <f:facet name="header">#{msg.id}</f:facet>
                         <h:outputText value="#{item.id}"/>
                     </rich:column>
                     <rich:column>
-                        <f:facet name="header">NAME</f:facet>
+                        <f:facet name="header">#{msg.email_address}</f:facet>
                         <h:outputText value="#{item.address}" rendered="#{not emailBean.isEdit(item)}"/>
                         <h:inputText value="#{emailBean.editedDto.address}" immediate="true" rendered="#{emailBean.isEdit(item)}">
                             <f:ajax/>
@@ -42,20 +44,18 @@
                     <rich:column>
                         <f:facet name="header">#{msg.actions}</f:facet>
                         <a4j:commandLink action="#{emailBean.edit(item)}" rendered="#{not emailBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{emailBean.delete(item)}" rendered="#{not emailBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png" alt="#{msg.delete}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{emailBean.save()}" rendered="#{emailBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png" alt="#{msg.save}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{emailBean.cancelEdit()}" rendered="#{emailBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png" alt="#{msg.cancel}"/>
                         </a4j:commandLink>
                     </rich:column>
-                    <f:facet name="footer">
-                    </f:facet>
                 </rich:dataTable>
                 <br/>
             </a4j:outputPanel>

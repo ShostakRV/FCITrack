@@ -17,7 +17,7 @@
                         <h:outputText value="FK_GUI"/>
                         <h:outputText value="FK_EMAIL"/>
                         <h:outputText value="SEQUENCE"/>
-                        <h:outputText value="RELEASE"/>
+                        <h:outputText value="#{msg.release}"/>
                         <h:outputText value="OUTPHASE"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.prodProcessDef}" converter="#{prodProcessDefConverter}" >
                             <f:selectItem itemLabel="Select flow"/>
@@ -55,7 +55,7 @@
                         <h:selectBooleanCheckbox value="#{commonConfigBean.selectedDto.outphase}" immediate="true">
                             <f:ajax/>
                         </h:selectBooleanCheckbox>
-                        <h:commandButton value="Submit" actionListener="#{commonConfigBean.createNew()}">
+                        <h:commandButton value="#{msg.submit}" actionListener="#{commonConfigBean.createNew()}">
                             <f:ajax render="@all"/>
                         </h:commandButton>
                     </h:panelGrid>
@@ -130,16 +130,16 @@
                     <rich:column>
                         <f:facet name="header">#{msg.actions}</f:facet>
                         <a4j:commandLink action="#{commonConfigBean.edit(item)}" rendered="#{not commonConfigBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{commonConfigBean.delete(item)}" rendered="#{not commonConfigBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png" alt="#{msg.delete}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{commonConfigBean.save()}" rendered="#{commonConfigBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png" alt="#{msg.save}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{commonConfigBean.cancelEdit()}" rendered="#{commonConfigBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png" alt="#{msg.cancel}"/>
                         </a4j:commandLink>
                     </rich:column>
                     <f:facet name="footer">

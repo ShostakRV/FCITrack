@@ -17,7 +17,7 @@ todo -бага при релизе срабатывает с 2 нажатия
                     <h:outputText value="#{msg.actions}"/>
                     <h:inputText id="edit_id" value="#{releaseBean.selectedDto.id}" rendered="false"/>
                     <h:inputText id="edit_name" value="#{releaseBean.selectedDto.name}" immediate="true"><f:ajax/></h:inputText>
-                    <h:commandButton value="Submit" actionListener="#{releaseBean.createNew()}">
+                    <h:commandButton value="#{msg.submit}" actionListener="#{releaseBean.createNew()}">
                         <f:ajax render="@all"/>
                     </h:commandButton>
                 </h:panelGrid>
@@ -28,7 +28,7 @@ todo -бага при релизе срабатывает с 2 нажатия
                         <h:outputText value="#{msg.release_head}"/>
                     </f:facet>
                     <rich:column sortBy="#{item.id}" sortOrder="ascending" sortType="string">
-                        <f:facet name="header">#{msg.release_id}</f:facet>
+                        <f:facet name="header">#{msg.id}</f:facet>
                         <h:outputText value="#{item.id}"/>
                     </rich:column>
                     <rich:column>
@@ -41,21 +41,21 @@ todo -бага при релизе срабатывает с 2 нажатия
                     <rich:column>
                         <f:facet name="header">#{msg.release_release_date}</f:facet>
                         <h:outputText value="#{item.releaseDate}" rendered="#{releaseBean.isReleased(item)}"/>
-                        <a4j:commandButton action="#{releaseBean.releas(item)}" rendered="#{not releaseBean.isReleased(item)}" value="Do release."/>
+                        <a4j:commandButton action="#{releaseBean.releas(item)}" rendered="#{not releaseBean.isReleased(item)}" value="#{msg.release_do_release}"/>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">#{msg.actions}</f:facet>
                         <a4j:commandLink action="#{releaseBean.edit(item)}" rendered="#{not releaseBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.delete(item)}" rendered="#{not releaseBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png" alt="#{msg.delete}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.save()}" rendered="#{releaseBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png" alt="#{msg.save}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{releaseBean.cancelEdit()}" rendered="#{releaseBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png"/>
+                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png" alt="#{msg.cancel}"/>
                         </a4j:commandLink>
                     </rich:column>
                     <f:facet name="footer">
