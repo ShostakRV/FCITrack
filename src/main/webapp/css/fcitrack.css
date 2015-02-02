@@ -449,7 +449,3 @@ a.linkdisabled {
 .view_table tr {
     text-align: center;
 }
-td :hover{
-
-    !important;background-color: #00a503;
-}
