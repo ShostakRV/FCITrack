@@ -15,8 +15,10 @@
                 <h:form id="form_technicalWork">
                     <h:panelGrid columns="1">
                         <h:outputText value="#{msg.email_address}"/>
-                        <h:inputText value="#{emailBean.selectedDto.address}" immediate="true">
-                            <f:ajax/>
+                        <h:inputText value="#{emailBean.selectedDto.address}" validator="EmailValidator" validatorMessage="itrack-messages-filters" required="true" immediate="true" >
+                            <f:validator validatorId="EmailValidator"/>
+                            <f:ajax event="mouseout"  render="@all"/>
+                            <f:ajax event="blur"  render="@all"/>
                         </h:inputText>
                         <h:commandButton value="#{msg.submit}" actionListener="#{emailBean.createNew()}">
                             <f:ajax render="@all"/>
