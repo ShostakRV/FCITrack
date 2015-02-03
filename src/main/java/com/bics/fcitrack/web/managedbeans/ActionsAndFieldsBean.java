@@ -9,6 +9,7 @@ import com.bics.fcitrack.service.interfaces.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
  */
 @ManagedBean
 @ViewScoped
-public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion>{
+public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
     @ManagedProperty(value = "#{confGuiVersionService}")
     private ConfGuiVersionService confGuiVersionService;
     @ManagedProperty(value = "#{confGuiWsService}")
@@ -33,13 +34,18 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion>{
     private ConfGuiVersion selectedConfiguration;
     private String newConfigurationName;
     private State state = State.NONE;
-    ;
+
+    @Override
+    public void createNew() {
+        selectedDto.setVersion(selectedDto.getFlow().getVersion());
+        super.createNew();
+    }
 
     public List<PropertyMap> getPropertyColumns() {
         return propertyMapService.findAllActive();
     }
 
-    public List<ConfGuiVersion> getAvailableConfGuiVersions(){
+    public List<ConfGuiVersion> getAvailableConfGuiVersions() {
         return confGuiVersionService.findAll();
     }
 
@@ -74,8 +80,8 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion>{
         this.workingStateService = workingStateService;
     }
 
-    public void setSelectedConfiguration(ConfGuiVersion selectedConfiguration) {
-        this.selectedConfiguration = selectedConfiguration;
+    public void setSelectedConfiguration(Object selectedConfiguration) {
+        this.selectedConfiguration = (ConfGuiVersion) selectedConfiguration;
     }
 
     public ConfGuiVersion getSelectedConfiguration() {
@@ -108,5 +114,13 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion>{
         return confGuiVersionService;
     }
 
-    enum State {CREATE, NONE}
+    public List<String> autoCompleteConfGuiVersion(String filter) {
+        return Arrays.asList("Hello world.");
+    }
+
+    public void rename() {
+        state = State.RENAME;
+    }
+
+    enum State {CREATE, RENAME, NONE}
 }

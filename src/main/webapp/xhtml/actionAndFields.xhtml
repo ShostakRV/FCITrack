@@ -9,46 +9,64 @@
       xmlns:f="http://java.sun.com/jsf/core">
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
+        <h:outputScript>
+            function customFilter(subString, value) {
+                if (subString.length >= 1) {
+                    if (value.indexOf(subString) != -1)
+                        return true;
+                } else
+                    return false;
+            }
+        </h:outputScript>
+
         <h:form>
             <rich:collapsiblePanel style="width: 100%">
-                <h:panelGrid columns="4">
-                    <h:outputText value="Configuration name"/>
-                    <h:outputText value="Flow"/>
-                    <h:outputText value="Release"/>
-                    <h:outputText value="Actions"/>
-                    <h:inputText value="#{actionsAndFieldsBean.selectedDto.name}"><f:ajax immediate="true"/></h:inputText>
+                <h:panelGrid columns="2" columnClasses="alignRight,alignLeft">
+                    <h:outputText value="Flow: "/>
                     <h:selectOneMenu value="#{actionsAndFieldsBean.selectedDto.flow}" converter="#{prodProcessDefConverter}">
-                        <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                        <f:selectItem itemValue="#{null}" itemLabel=""/>
+                        <a4j:ajax event="change" execute="@this" render="@form"/>
                         <f:selectItems value="#{actionsAndFieldsBean.flows}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/>
                     </h:selectOneMenu>
+
+                    <h:outputText value="Configuration name: "/>
+                    <a4j:outputPanel style="min-width: 150px">
+                        <h:outputText value="#{actionsAndFieldsBean.selectedDto.flow.code}_" rendered="#{ actionsAndFieldsBean.selectedDto.flow != null }"/>
+                        <h:inputText value="#{actionsAndFieldsBean.selectedDto.name}" rendered="#{actionsAndFieldsBean.selectedDto.flow != null }" style="width: 50px">
+                            <f:ajax immediate="true"/>
+                        </h:inputText>
+                    </a4j:outputPanel>
+                    <h:outputText value="Release: "/>
                     <h:selectOneMenu value="#{actionsAndFieldsBean.selectedDto.release}" converter="#{releaseConverter}">
                         <f:selectItem itemLabel="Select release"/>
                         <a4j:ajax event="change" execute="@this" limitRender="true"/>
                         <f:selectItems value="#{actionsAndFieldsBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                     </h:selectOneMenu>
-                    <h:commandButton value="Create new" actionListener="#{actionsAndFieldsBean.createNew()}">
-                        <f:ajax render="@all"/>
-                    </h:commandButton>
                 </h:panelGrid>
+                <h:commandButton value="Create new" actionListener="#{actionsAndFieldsBean.createNew()}">
+                    <f:ajax render="@all"/>
+                </h:commandButton>
+
             </rich:collapsiblePanel>
 
-            <rich:collapsiblePanel>
+            <rich:collapsiblePanel style="width: 100%">
                 <h:panelGrid columns="2">
                     <h:outputText value="Configuration name"/>
                     <h:outputText value="Actions"/>
                     <a4j:outputPanel>
-                        <rich:autocomplete value="#{actionsAndFieldsBean.selectedConfiguration}" rendered="#{actionsAndFieldsBean.noneState}">
-                            <f:selectItems value="#{actionsAndFieldsBean.availableConfGuiVersions}" var="confVersion" itemLabel="#{confVersion.name}" itemValue="#{confVersion}"/>
-                        </rich:autocomplete>
+                        <!--<f:selectItems value="# {actionsAndFieldsBean.availableConfGuiVersions}" var="confVersion" itemLabel="# {confVersion.name}" itemValue="# {confVersion}"/>-->
+                        <rich:autocomplete value="#{actionsAndFieldsBean.selectedConfiguration}" autocompleteMethod="#{actionsAndFieldsBean.autoCompleteConfGuiVersion}"
+                                           rendered="#{actionsAndFieldsBean.noneState}" minChars="2" converter="#{confGuiVersionConverter}"/>
                         <h:inputText value="#{actionsAndFieldsBean.editedDto.name}" rendered="#{actionsAndFieldsBean.editedDto != null }"/>
                     </a4j:outputPanel>
-                    <h:commandButton value="Rename" actionListener="#{propertyMapBean.createNew()}">
+                    <h:commandButton value="Rename" actionListener="#{actionsAndFieldsBean.rename()}">
                         <f:ajax render="@all"/>
                     </h:commandButton>
                 </h:panelGrid>
 
 
                 <rich:dataTable>
+
                     <f:facet name="header">
                         <rich:dataScroller/>
                     </f:facet>

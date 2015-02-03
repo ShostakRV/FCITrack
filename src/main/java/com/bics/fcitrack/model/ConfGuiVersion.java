@@ -24,6 +24,7 @@ public class ConfGuiVersion extends AbstractModel {
     private String name;
 
 
+
     public Long getId() {
         return id;
     }
