@@ -27,9 +27,7 @@ public class PropertyMap extends AbstractModel {
     private PmType type;
 
     @Column(name = "ACTIVE")
-    private Boolean active;
-
-
+    private Boolean active=true;
 
     public String getCode() {
         return code;
