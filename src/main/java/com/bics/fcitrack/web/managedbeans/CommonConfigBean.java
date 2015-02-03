@@ -54,11 +54,11 @@ public class CommonConfigBean extends AbstractBean<CommonConfig> {
         return prodProcessDefService.findAll();
     }
     public List<Product> getProducts() {
-        return productService.findNoDeleted();
+        return productService.findAll();
     }
 
     public List<TechnicalWork> getTechnicalWorks() {
-        return technicalWorkService.findNoDeleted();
+        return technicalWorkService.findAll();
     }
 
     public List<ConfGuiVersion> getConfGuiVersions() {

@@ -25,8 +25,4 @@ public class ProductServiceImpl extends AbstractServiceImpl<Product, String> imp
         return productDao;
     }
 
-    @Override
-    public List<Product> findNoDeleted() {
-        return productDao.findNoDeleted();
-    }
 }

@@ -9,5 +9,5 @@ import java.util.List;
  * Date: 18-Jan-15.
  */
 public interface ProductService extends AbstractService<Product, String> {
-    List<Product> findNoDeleted();
+
 }

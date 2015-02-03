@@ -8,5 +8,5 @@ import java.util.List;
  * Created by godex_000 on 20.01.2015.
  */
 public interface TechnicalWorkService extends AbstractService<TechnicalWork, String> {
-    List<TechnicalWork> findNoDeleted();
+
 }

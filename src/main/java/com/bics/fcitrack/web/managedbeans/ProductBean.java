@@ -29,17 +29,13 @@ public class ProductBean extends AbstractBean<Product> {
         return new Product();
     }
 
-    public void markDeleted(Product product){
-        product.setDeleted(true);
-        getService().saveUpdate(product);
-    }
     @Override
     public AbstractService getService() {
         return productService;
     }
 
     public List<Product> getProducts() {
-        return productService.findNoDeleted();
+        return productService.findAll();
     }
 
     public void setProductService(ProductService productService) {

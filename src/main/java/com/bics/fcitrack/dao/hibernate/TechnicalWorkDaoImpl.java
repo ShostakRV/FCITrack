@@ -16,10 +16,4 @@ public class TechnicalWorkDaoImpl extends AbstractDaoImpl<TechnicalWork, String>
     public TechnicalWorkDaoImpl() {
         super(TechnicalWork.class);
     }
-
-    @Override
-    public List<TechnicalWork> findNoDeleted() {
-        String hql="FROM TechnicalWork T WHERE T.deleted = false OR T.deleted IS null";
-        return getSessionFactory().getCurrentSession().createQuery(hql).list();
-    }
 }

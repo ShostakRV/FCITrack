@@ -80,7 +80,7 @@ todo -bug при пометке как удаленый в поле seq появ
                         <a4j:commandLink action="#{productBean.edit(item)}" rendered="#{not productBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
                         </a4j:commandLink>
-                        <a4j:commandLink action="#{productBean.markDeleted(item)}" rendered="#{not productBean.isEdit(item)}">
+                        <a4j:commandLink action="#{productBean.delete(item)}" rendered="#{not productBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png" alt="#{msg.delete}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{productBean.save()}" rendered="#{productBean.isEdit(item)}">

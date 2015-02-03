@@ -18,12 +18,5 @@ public class ProductDaoImpl extends AbstractDaoImpl<Product, String> implements 
     public ProductDaoImpl() {
         super(Product.class);
     }
-
-    @Override
-    public List<Product> findNoDeleted() {
-        String hql="FROM Product P WHERE P.deleted = false OR P.deleted = null";
-        return getSessionFactory().getCurrentSession().createQuery(hql).list();
-    }
-
 }
 

@@ -26,17 +26,13 @@ public class TechnicalWorkBean extends AbstractBean<TechnicalWork> {
         return new TechnicalWork();
     }
 
-    public void markDeleted(TechnicalWork technicalWork){
-        technicalWork.setDeleted(true);
-        getService().saveUpdate(technicalWork);
-    }
     @Override
     public AbstractService getService() {
         return technicalWorkService;
     }
 
     public List<TechnicalWork> getTechnicalWorks() {
-        return technicalWorkService.findNoDeleted();
+        return technicalWorkService.findAll();
     }
 
     public void setTechnicalWorkService(TechnicalWorkService technicalWorkService) {

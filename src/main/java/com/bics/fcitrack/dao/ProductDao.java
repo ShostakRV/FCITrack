@@ -9,5 +9,4 @@ import java.util.List;
  * Date: 18-Jan-15.
  */
 public interface ProductDao extends AbstractDao<Product, String> {
-    List<Product> findNoDeleted();
 }

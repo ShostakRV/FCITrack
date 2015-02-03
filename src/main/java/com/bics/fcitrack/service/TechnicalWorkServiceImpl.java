@@ -27,8 +27,5 @@ public class TechnicalWorkServiceImpl extends AbstractServiceImpl<TechnicalWork,
         return technicalWorkDao;
     }
 
-    @Override
-    public List<TechnicalWork> findNoDeleted() {
-        return technicalWorkDao.findNoDeleted();
-    }
+
 }

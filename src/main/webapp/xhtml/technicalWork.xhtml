@@ -76,7 +76,7 @@
                         <a4j:commandLink action="#{technicalWorkBean.edit(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
                         </a4j:commandLink>
-                        <a4j:commandLink action="#{technicalWorkBean.markDeleted(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
+                        <a4j:commandLink action="#{technicalWorkBean.delete(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
                             <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png" alt="#{msg.delete}"/>
                         </a4j:commandLink>
                         <a4j:commandLink action="#{technicalWorkBean.save()}" rendered="#{technicalWorkBean.isEdit(item)}">
