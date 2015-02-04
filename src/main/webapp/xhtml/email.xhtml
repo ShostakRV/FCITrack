@@ -12,6 +12,8 @@
         <h3>emails</h3>
         <h:form>
             <a4j:outputPanel ajaxRendered="true" id="pnl_technicalWorkTable">
+
+                <rich:collapsiblePanel style="width: 100%">
                 <h:form id="form_technicalWork">
                     <h:panelGrid columns="1">
                         <h:outputText value="#{msg.email_address}"/>
@@ -25,10 +27,14 @@
                         </h:commandButton>
                     </h:panelGrid>
                 </h:form>
+                </rich:collapsiblePanel>
 
-                <rich:dataTable styleClass="view_table" sortMode="single" value="#{emailBean.emails}" var="item">
+                <rich:collapsiblePanel style="width: 100%">
+                <rich:dataTable styleClass="view_table" sortMode="single" value="#{emailBean.emails}" var="item" rows="15"
+                        reRender="ds">
                     <f:facet name="header">
-                        <h:outputText value="#{msg.email_head}"/>
+                        <h:outputText value="#{msg.email_head}"/><br/>
+                            <rich:dataScroller/>
                     </f:facet>
                     <rich:column>
                         <f:facet name="header">#{msg.id}</f:facet>
@@ -56,7 +62,11 @@
                             <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png" alt="#{msg.cancel}"/>
                         </a4j:commandLink>
                     </rich:column>
+                    <f:facet name="footer">
+                        <rich:dataScroller />
+                    </f:facet>
                 </rich:dataTable>
+                </rich:collapsiblePanel>
                 <br/>
             </a4j:outputPanel>
         </h:form>

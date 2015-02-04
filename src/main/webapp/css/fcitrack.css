@@ -441,7 +441,7 @@ a.linkdisabled {
 }
 
 .view_table{
-    min-width: 80%;
+    min-width: 100%;
     background-color: #aeecaa;
 }
 .view_table tr :hover{

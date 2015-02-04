@@ -10,7 +10,10 @@ todo -бага при релизе срабатывает с 2 нажатия
 -->
 <ui:composition template="template/template.xhtml">
     <ui:define name="content">
+
+        <h:form>
         <a4j:outputPanel ajaxRendered="true" id="pnl_releaseTable">
+            <rich:collapsiblePanel style="width: 100%">
             <h:form id="form_release">
                 <h:panelGrid columns="2">
                     <h:outputText value="#{msg.release_name}"/>
@@ -22,6 +25,8 @@ todo -бага при релизе срабатывает с 2 нажатия
                     </h:commandButton>
                 </h:panelGrid>
             </h:form>
+            </rich:collapsiblePanel>
+            <rich:collapsiblePanel style="width: 100%">
             <h:form id="table_release">
                 <rich:dataTable styleClass="view_table" id="releases_table" onrowclick="release_actions(#{item.id})" sortMode="single" value="#{releaseBean.releases}" var="item">
                     <f:facet name="header">
@@ -59,11 +64,14 @@ todo -бага при релизе срабатывает с 2 нажатия
                         </a4j:commandLink>
                     </rich:column>
                     <f:facet name="footer">
+                        <rich:dataScroller/>
                     </f:facet>
                 </rich:dataTable>
                 <br/>
             </h:form>
+            </rich:collapsiblePanel>
         </a4j:outputPanel>
+        </h:form>
     </ui:define>
 </ui:composition>
 

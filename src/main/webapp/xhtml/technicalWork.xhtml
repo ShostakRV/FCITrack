@@ -11,85 +11,86 @@
         <h3>tecjwork</h3>
         <h:form>
             <a4j:outputPanel ajaxRendered="true" id="pnl_technicalWorkTable">
-                <h:form id="form_technicalWork">
-                    <h:panelGrid columns="4">
-                        <h:outputText value="#{msg.code}"/>
-                        <h:outputText value="#{msg.name}"/>
-                        <h:outputText value="TW_TYPE"/>
-                        <h:outputText value="#{msg.release}"/>
-                        <h:inputText value="#{technicalWorkBean.selectedDto.code}" immediate="true">
-                            <f:ajax/>
-                        </h:inputText>
-                        <h:inputText value="#{technicalWorkBean.selectedDto.name}" immediate="true">
-                            <f:ajax/>
-                        </h:inputText>
-                        <h:selectOneMenu value="#{technicalWorkBean.selectedDto.type}" immediate="true">
-                            <f:selectItem value="#{null}" itemLabel="Select type"/>
-                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{technicalWorkBean.types}"/>
-                        </h:selectOneMenu>
-                        <h:selectOneMenu value="#{technicalWorkBean.selectedDto.release}" converter="#{releaseConverter}">
-                            <f:selectItem itemLabel="Select release"/>
-                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{technicalWorkBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
-                        </h:selectOneMenu>
-                        <h:commandButton value="#{msg.submit}" actionListener="#{technicalWorkBean.createNew()}">
-                            <f:ajax render="@all"/>
-                        </h:commandButton>
-                    </h:panelGrid>
-                </h:form>
 
-                <rich:dataTable styleClass="view_table" sortMode="single" value="#{technicalWorkBean.technicalWorks}" var="item">
-                    <f:facet name="header">
-                        <h:outputText value="#{msg.tech_work_head}"/>
-                    </f:facet>
-                    <rich:column>
-                        <f:facet name="header">#{msg.code}</f:facet>
-                        <h:outputText value="#{item.code}"/>
-                    </rich:column>
-                    <rich:column>
-                        <f:facet name="header">#{msg.name}</f:facet>
-                        <h:outputText value="#{item.name}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
-                        <h:inputText value="#{technicalWorkBean.editedDto.name}" immediate="true" rendered="#{technicalWorkBean.isEdit(item)}">
-                            <f:ajax/>
-                        </h:inputText>
-                    </rich:column>
-                    <rich:column>
-                        <f:facet name="header">TW_TYPE</f:facet>
-                        <h:outputText value="#{item.type}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
-                        <h:selectOneMenu value="#{technicalWorkBean.editedDto.type}" immediate="true" rendered="#{technicalWorkBean.isEdit(item)}">
-                            <f:selectItem value="#{null}" itemLabel="Select type"/>
-                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{technicalWorkBean.types}"/>
-                        </h:selectOneMenu>
-                    </rich:column>
-                    <rich:column>
-                        <f:facet name="header">#{msg.release}</f:facet>
-                        <h:outputText value="#{item.release.name}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
-                        <h:selectOneMenu value="#{technicalWorkBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{technicalWorkBean.isEdit(item)}">
-                            <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                            <f:selectItems value="#{technicalWorkBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
-                        </h:selectOneMenu>
-                    </rich:column>
-                    <rich:column>
-                        <f:facet name="header">#{msg.actions}</f:facet>
-                        <a4j:commandLink action="#{technicalWorkBean.edit(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
-                        </a4j:commandLink>
-                        <a4j:commandLink action="#{technicalWorkBean.delete(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png" alt="#{msg.delete}"/>
-                        </a4j:commandLink>
-                        <a4j:commandLink action="#{technicalWorkBean.save()}" rendered="#{technicalWorkBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/save.png" alt="#{msg.save}"/>
-                        </a4j:commandLink>
-                        <a4j:commandLink action="#{technicalWorkBean.cancelEdit()}" rendered="#{technicalWorkBean.isEdit(item)}">
-                            <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png" alt="#{msg.cancel}"/>
-                        </a4j:commandLink>
-                    </rich:column>
-                    <f:facet name="footer">
-                    </f:facet>
-                </rich:dataTable>
-                <br/>
+                <rich:collapsiblePanel style="width: 100%">
+                    <h:form id="form_technicalWork">
+                        <h:panelGrid columns="4">
+                            <h:outputText value="#{msg.code}"/>
+                            <h:outputText value="#{msg.name}"/>
+                            <h:outputText value="TW_TYPE"/>
+                            <h:outputText value="#{msg.release}"/>
+                            <h:inputText value="#{technicalWorkBean.selectedDto.code}" immediate="true">
+                                <f:ajax/>
+                            </h:inputText>
+                            <h:inputText value="#{technicalWorkBean.selectedDto.name}" immediate="true">
+                                <f:ajax/>
+                            </h:inputText>
+                            <h:selectOneMenu value="#{technicalWorkBean.selectedDto.type}" immediate="true">
+                                <f:selectItem value="#{null}" itemLabel="Select type"/>
+                                <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                                <f:selectItems value="#{technicalWorkBean.types}"/>
+                            </h:selectOneMenu>
+                            <h:selectOneMenu value="#{technicalWorkBean.selectedDto.release}" converter="#{releaseConverter}">
+                                <f:selectItem itemLabel="Select release"/>
+                                <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                                <f:selectItems value="#{technicalWorkBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                            </h:selectOneMenu>
+                            <h:commandButton value="#{msg.submit}" actionListener="#{technicalWorkBean.createNew()}">
+                                <f:ajax render="@all"/>
+                            </h:commandButton>
+                        </h:panelGrid>
+                    </h:form>
+                </rich:collapsiblePanel>
+
+                <rich:collapsiblePanel style="width: 100%">
+                    <rich:dataTable styleClass="view_table" sortMode="single" value="#{technicalWorkBean.technicalWorks}" var="item">
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.tech_work_head}"/>
+                        </f:facet>
+                        <rich:column>
+                            <f:facet name="header">#{msg.code}</f:facet>
+                            <h:outputText value="#{item.code}"/>
+                        </rich:column>
+                        <rich:column>
+                            <f:facet name="header">#{msg.name}</f:facet>
+                            <h:outputText value="#{item.name}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
+                            <h:inputText value="#{technicalWorkBean.editedDto.name}" immediate="true" rendered="#{technicalWorkBean.isEdit(item)}">
+                                <f:ajax/>
+                            </h:inputText>
+                        </rich:column>
+                        <rich:column>
+                            <f:facet name="header">TW_TYPE</f:facet>
+                            <h:outputText value="#{item.type}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
+                            <h:selectOneMenu value="#{technicalWorkBean.editedDto.type}" immediate="true" rendered="#{technicalWorkBean.isEdit(item)}">
+                                <f:selectItem value="#{null}" itemLabel="Select type"/>
+                                <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                                <f:selectItems value="#{technicalWorkBean.types}"/>
+                            </h:selectOneMenu>
+                        </rich:column>
+                        <rich:column>
+                            <f:facet name="header">#{msg.release}</f:facet>
+                            <h:outputText value="#{item.release.name}" rendered="#{not technicalWorkBean.isEdit(item)}"/>
+                            <h:selectOneMenu value="#{technicalWorkBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{technicalWorkBean.isEdit(item)}">
+                                <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                                <f:selectItems value="#{technicalWorkBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                            </h:selectOneMenu>
+                        </rich:column>
+                        <rich:column>
+                            <f:facet name="header">#{msg.actions}</f:facet>
+                            <a4j:commandLink action="#{technicalWorkBean.edit(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
+                                <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
+                            </a4j:commandLink>
+                            <a4j:commandLink action="#{technicalWorkBean.delete(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
+                                <h:graphicImage styleClass="action-icon" value="../images/icon/delete.png" alt="#{msg.delete}"/>
+                            </a4j:commandLink>
+                            <a4j:commandLink action="#{technicalWorkBean.save()}" rendered="#{technicalWorkBean.isEdit(item)}">
+                                <h:graphicImage styleClass="action-icon" value="../images/icon/save.png" alt="#{msg.save}"/>
+                            </a4j:commandLink>
+                            <a4j:commandLink action="#{technicalWorkBean.cancelEdit()}" rendered="#{technicalWorkBean.isEdit(item)}">
+                                <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png" alt="#{msg.cancel}"/>
+                            </a4j:commandLink>
+                        </rich:column>
+                        <f:facet name="footer"> <rich:dataScroller/> </f:facet> </rich:dataTable> </rich:collapsiblePanel> <br/>
             </a4j:outputPanel>
         </h:form>
     </ui:define>

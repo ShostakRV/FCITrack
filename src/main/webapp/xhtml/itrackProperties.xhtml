@@ -18,6 +18,8 @@ todo -редактирование
         <h3>Property(map) Mangement</h3>
         <h:form>
             <a4j:outputPanel ajaxRendered="true" id="pnl_productTable">
+
+                <rich:collapsiblePanel style="width: 100%">
                 <h:form id="form_product">
                     <h:panelGrid columns="5">
                         <h:outputText value="#{msg.code}"/>
@@ -44,7 +46,10 @@ todo -редактирование
                         </h:commandButton>
                     </h:panelGrid>
                 </h:form>
-                <rich:dataTable styleClass="view_table" sortMode="single" value="#{propertyMapBean.propertyMaps}" var="item">
+                </rich:collapsiblePanel>
+
+                <rich:collapsiblePanel style="width: 100%">
+                    <rich:dataTable styleClass="view_table" sortMode="single" value="#{propertyMapBean.propertyMaps}" var="item">
                     <f:facet name="header">
                         <h:outputText value="#{msg.properties_head}"/>
                     </f:facet>
@@ -97,10 +102,7 @@ todo -редактирование
                             <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png" alt="#{msg.cancel}"/>
                         </a4j:commandLink>
                     </rich:column>
-                    <f:facet name="footer">
-                    </f:facet>
-                </rich:dataTable>
-                <br/>
+                    <f:facet name="footer">                         <rich:dataScroller />                     </f:facet>                 </rich:dataTable>                 </rich:collapsiblePanel>                 <br/>
             </a4j:outputPanel>
         </h:form>
     </ui:define>
