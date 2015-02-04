@@ -13,18 +13,14 @@
         <h:form>
             <a4j:outputPanel ajaxRendered="true" id="pnl_technicalWorkTable">
                 <h:form id="form_technicalWork">
-                    <h:panelGrid columns="4">
+                    <h:panelGrid columns="3">
                         <h:outputText value="#{msg.code}"/>
                         <h:outputText value="#{msg.name}"/>
-                        <h:outputText value="#{msg.version}"/>
                         <h:outputText value="#{msg.release}"/>
                         <h:inputText value="#{prodProcessDefBean.selectedDto.code}" immediate="true">
                             <f:ajax/>
                         </h:inputText>
                         <h:inputText value="#{prodProcessDefBean.selectedDto.name}" immediate="true">
-                            <f:ajax/>
-                        </h:inputText>
-                        <h:inputText value="#{prodProcessDefBean.selectedDto.version}" immediate="true">
                             <f:ajax/>
                         </h:inputText>
                         <h:selectOneMenu value="#{prodProcessDefBean.selectedDto.release}" converter="#{releaseConverter}">
@@ -55,10 +51,7 @@
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">#{msg.version}</f:facet>
-                        <h:outputText value="#{item.version}" rendered="#{not prodProcessDefBean.isEdit(item)}"/>
-                        <h:inputText value="#{prodProcessDefBean.editedDto.version}" immediate="true" rendered="#{prodProcessDefBean.isEdit(item)}">
-                            <f:ajax/>
-                        </h:inputText>
+                        <h:outputText value="#{item.version}" />
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">#{msg.release}</f:facet>

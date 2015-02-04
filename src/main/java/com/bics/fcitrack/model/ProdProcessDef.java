@@ -16,8 +16,7 @@ public class ProdProcessDef extends AbstractModel{
     private String name;
 
     @Column(name = "VERSION")
-    private Integer version;
-
+    private Integer version=1;
 
     public String getCode() {
         return code;
