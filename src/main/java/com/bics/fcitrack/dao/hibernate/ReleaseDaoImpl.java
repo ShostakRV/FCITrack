@@ -5,6 +5,8 @@ import com.bics.fcitrack.model.Release;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by godex_000 on 20.01.2015.
  */
@@ -15,4 +17,9 @@ public class ReleaseDaoImpl extends AbstractDaoImpl<Release, Long> implements Re
         super(Release.class);
     }
 
+    @Override
+    public List<Release> findNoReleased() {
+        String hql = "from Release r where r.releaseDate is null";
+        return getSessionFactory().getCurrentSession().createQuery(hql).list();
+    }
 }

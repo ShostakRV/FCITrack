@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by godex_000
@@ -28,6 +29,11 @@ public class ReleaseBean extends AbstractBean<Release> {
     @Override
     protected Release getNewDto() {
         return new Release();
+    }
+
+    @Override
+    public List<Release> getReleases() {
+        return releaseServiceOwn.findAll();
     }
 
     @Override

@@ -70,7 +70,7 @@ public abstract class AbstractBean<T> implements Serializable {
 
     public List<Release> getReleases() {
 
-        return releaseService.findAll();
+        return releaseService.findNoReleased();
     }
 
     public T getEditedDto() {

@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by godex_000 on 20.01.2015.
  */
@@ -28,5 +30,10 @@ public class ReleaseServiceImpl extends AbstractServiceImpl<Release, Long> imple
     @Override
     public Release findFull(long id) {
         return EntytyUtils.initializeRelease(read(id));
+    }
+
+    @Override
+    public List<Release> findNoReleased() {
+        return releaseDao.findNoReleased();
     }
 }
