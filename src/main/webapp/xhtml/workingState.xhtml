@@ -35,10 +35,6 @@
                             <h:outputText value="#{msg.work_state_head}"/>
                         </f:facet>
                         <rich:column>
-                            <f:facet name="header">#{msg.id}</f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </rich:column>
-                        <rich:column>
                             <f:facet name="header">#{msg.name}</f:facet>
                             <h:outputText value="#{item.name}" rendered="#{not workingStateBean.isEdit(item)}"/>
                             <h:inputText value="#{workingStateBean.editedDto.name}" immediate="true" rendered="#{workingStateBean.isEdit(item)}">

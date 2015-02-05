@@ -35,9 +35,6 @@
                                     reRender="ds">
                         <f:facet name="header">
                             <rich:columnGroup>
-                                <rich:column breakBefore="true">
-                                    <h:outputText value="#{msg.id}"/>
-                                </rich:column>
                                 <rich:column>
                                     <h:outputText value="#{msg.email_address}"/>
                                 </rich:column>
@@ -46,9 +43,6 @@
                                 </rich:column>
                             </rich:columnGroup>
                         </f:facet>
-                        <rich:column filterBy="#{item.id}" filterEvent="onkeyup">
-                            <h:outputText value="#{item.id}"/>
-                        </rich:column>
                         <rich:column filterBy="#{item.address}" filterEvent="onkeyup" filterValue="#{emailBean.currentAddressFilterValue}">
                             <h:outputText value="#{item.address}" rendered="#{not emailBean.isEdit(item)}"/>
                             <h:inputText value="#{emailBean.editedDto.address}" immediate="true" rendered="#{emailBean.isEdit(item)}">

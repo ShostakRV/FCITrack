@@ -14,7 +14,7 @@
 
                 <rich:collapsiblePanel style="width: 100%">
                 <h:form id="form_technicalWork">
-                    <h:panelGrid columns="8">
+                    <h:panelGrid columns="7">
                         <h:outputText value="FK_FLOW(prodProcessDef)"/>
                         <h:outputText value="FK_PRODUCT"/>
                         <h:outputText value="FK_technicalWork"/>
@@ -22,7 +22,6 @@
                         <h:outputText value="FK_EMAIL"/>
                         <h:outputText value="SEQUENCE"/>
                         <h:outputText value="#{msg.release}"/>
-                        <h:outputText value="OUTPHASE"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.prodProcessDef}" converter="#{prodProcessDefConverter}">
                             <f:selectItem itemLabel="Select flow"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
@@ -56,9 +55,6 @@
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
-                        <h:selectBooleanCheckbox value="#{commonConfigBean.selectedDto.outphase}" immediate="true">
-                            <f:ajax/>
-                        </h:selectBooleanCheckbox>
                         <h:commandButton value="#{msg.submit}" actionListener="#{commonConfigBean.createNew()}">
                             <f:ajax render="@all"/>
                         </h:commandButton>
