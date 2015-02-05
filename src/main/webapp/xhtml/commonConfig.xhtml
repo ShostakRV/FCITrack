@@ -67,7 +67,7 @@
                 </rich:collapsiblePanel>
 
                 <rich:collapsiblePanel style="width: 100%">
-                    <rich:dataTable styleClass="view_table" sortMode="single" value="#{commonConfigBean.commonConfigs}" var="item">
+                    <rich:dataTable styleClass="view_table" rows="#{msg.rows_in_table}" sortMode="single" value="#{commonConfigBean.commonConfigs}" var="item">
                         <f:facet name="header">
                             <rich:dataScroller/>
                         </f:facet>

@@ -48,7 +48,7 @@ todo -редактирование
                 </rich:collapsiblePanel>
 
                 <rich:collapsiblePanel style="width: 100%">
-                    <rich:dataTable styleClass="view_table" sortMode="single" value="#{propertyMapBean.propertyMaps}" var="item">
+                    <rich:dataTable styleClass="view_table" rows="#{msg.rows_in_table}" sortMode="single" value="#{propertyMapBean.propertyMaps}" var="item">
                         <f:facet name="header">
                             <h:outputText value="#{msg.properties_head}"/>
                         </f:facet>
