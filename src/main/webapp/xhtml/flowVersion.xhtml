@@ -10,10 +10,9 @@
 
 <ui:composition template="template/template.xhtml">
     <ui:define name="title">
-        <h:outputText value="Flows"/>
+        <h:outputText value="#{msg.flowversion_head}"/>
     </ui:define>
     <ui:define name="content">
-        <h3>tecjwork</h3>
         <h:form>
             <a4j:outputPanel ajaxRendered="true" id="pnl_technicalWorkTable">
                 <rich:collapsiblePanel style="width: 100%">
@@ -41,7 +40,7 @@
                 </rich:collapsiblePanel>
                 <rich:collapsiblePanel style="width: 100%"> <rich:dataTable styleClass="view_table" sortMode="single" value="#{prodProcessDefBean.prodProcessDef}" var="item">
                     <f:facet name="header">
-                        <h:outputText value="flowVersion"/>
+                        <h:outputText value="#{msg.flowversion_head}"/>
                     </f:facet>
                     <rich:column>
                         <f:facet name="header">#{msg.code}</f:facet>
