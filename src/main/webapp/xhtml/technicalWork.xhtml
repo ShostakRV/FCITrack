@@ -7,6 +7,9 @@
 <!--
 -->
 <ui:composition template="template/template.xhtml">
+    <ui:define name="title">
+        <h:outputText value="tecjwork"/>
+    </ui:define>
     <ui:define name="content">
         <h3>tecjwork</h3>
         <h:form>
@@ -73,6 +76,7 @@
                             <h:selectOneMenu value="#{technicalWorkBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{technicalWorkBean.isEdit(item)}">
                                 <a4j:ajax event="change" execute="@this" limitRender="true"/>
                                 <f:selectItems value="#{technicalWorkBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                                <f:selectItem itemLabel="Select release"/>
                             </h:selectOneMenu>
                         </rich:column>
                         <rich:column>

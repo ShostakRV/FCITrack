@@ -8,6 +8,9 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:f="http://java.sun.com/jsf/core">
 <ui:composition template="template/template.xhtml">
+    <ui:define name="title">
+        <h:outputText value="actionsAndFields"/>
+    </ui:define>
     <ui:define name="content">
         <h:outputScript>
             function customFilter(subString, value) {
