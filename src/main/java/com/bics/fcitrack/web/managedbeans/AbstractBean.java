@@ -1,5 +1,6 @@
 package com.bics.fcitrack.web.managedbeans;
 
+import com.bics.fcitrack.model.AbstractModel;
 import com.bics.fcitrack.model.Email;
 import com.bics.fcitrack.model.Release;
 import com.bics.fcitrack.service.interfaces.AbstractService;
@@ -34,6 +35,9 @@ public abstract class AbstractBean<T> implements Serializable {
     }
 
     public void createNew() {
+        if(selectedDto instanceof AbstractModel&&((AbstractModel) selectedDto).getRelease()!=null){
+
+
         try {
             getService().create(selectedDto);
         }catch (Exception e){
@@ -41,6 +45,9 @@ public abstract class AbstractBean<T> implements Serializable {
             e.printStackTrace();
         }
             selectedDto = getNewDto();
+        }else {
+            FacesUtils.error("Realise is not selected.");
+        }
     }
 
     protected abstract T getNewDto();
