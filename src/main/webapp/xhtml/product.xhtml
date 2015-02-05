@@ -76,7 +76,7 @@ todo -bug при пометке как удаленый в поле seq появ
                             <h:outputText value="#{item.release.name}" rendered="#{not productBean.isEdit(item)}"/>
                             <h:selectOneMenu value="#{productBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{productBean.isEdit(item)}">
                                 <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                                <f:selectItems value="#{productBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/>
+                                <f:selectItems value="#{selectItemsBean.getReleases(productBean.editedDto.release)}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/>
                             </h:selectOneMenu>
                         </rich:column>
                         <rich:column>

@@ -115,7 +115,7 @@
                             <h:outputText value="#{item.release.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectOneMenu value="#{commonConfigBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{commonConfigBean.isEdit(item)}">
                                 <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                                <f:selectItems value="#{commonConfigBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
+                                <f:selectItems value="#{selectItemsBean.getReleases(commonConfigBean.editedDto.release)}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                             </h:selectOneMenu>
                         </rich:column>
                         <rich:column>
