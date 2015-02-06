@@ -73,7 +73,7 @@
                         <f:facet name="header">
                             <rich:dataScroller/>
                         </f:facet>
-                        <rich:column>
+                        <rich:column  style="width: 20%">
                             <f:facet name="header">#{msg.commonconfig_head}</f:facet>
                             <h:outputText value="#{item.prodProcessDef.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectOneMenu value="#{commonConfigBean.editedDto.prodProcessDef}" converter="#{prodProcessDefConverter}" rendered="#{commonConfigBean.isEdit(item)}">
@@ -81,7 +81,7 @@
                                 <f:selectItems value="#{commonConfigBean.flows}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                             </h:selectOneMenu>
                         </rich:column>
-                        <rich:column>
+                        <rich:column  style="width: 20%">
                             <f:facet name="header">Product</f:facet>
                             <h:outputText value="#{item.product.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectOneMenu value="#{commonConfigBean.editedDto.product}" converter="#{productConverter}" rendered="#{commonConfigBean.isEdit(item)}">
@@ -89,7 +89,7 @@
                                 <f:selectItems value="#{commonConfigBean.products}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                             </h:selectOneMenu>
                         </rich:column>
-                        <rich:column>
+                        <rich:column  style="width: 20%">
                             <f:facet name="header">Technical Work</f:facet>
                             <h:outputText value="#{item.technicalWork.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectOneMenu value="#{commonConfigBean.editedDto.technicalWork}" converter="#{technicalWorkConverter}" rendered="#{commonConfigBean.isEdit(item)}">
@@ -97,7 +97,7 @@
                                 <f:selectItems value="#{commonConfigBean.technicalWorks}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                             </h:selectOneMenu>
                         </rich:column>
-                        <rich:column>
+                        <rich:column  style="width: 20%">
                             <f:facet name="header">GUI Configuration</f:facet>
                             <h:outputText value="#{item.confGuiVersion.flow.code}_#{item.confGuiVersion.flow.version}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectOneMenu value="#{commonConfigBean.editedDto.confGuiVersion}" converter="#{confGuiVersionConverter}" rendered="#{commonConfigBean.isEdit(item)}">
@@ -112,7 +112,7 @@
                                 <f:ajax/>
                             </h:inputText>
                         </rich:column>
-                        <rich:column>
+                        <rich:column  style="width: 20%">
                             <f:facet name="header">Release</f:facet>
                             <h:outputText value="#{item.release.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectOneMenu value="#{commonConfigBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{commonConfigBean.isEdit(item)}">
@@ -120,14 +120,14 @@
                                 <f:selectItems value="#{selectItemsBean.getReleases(commonConfigBean.editedDto.release)}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                             </h:selectOneMenu>
                         </rich:column>
-                        <rich:column>
+                        <rich:column  style="width: 20%">
                             <f:facet name="header">Outphase</f:facet>
                             <h:selectBooleanCheckbox value="#{item.outphase}" disabled="true" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectBooleanCheckbox value="#{commonConfigBean.editedDto.outphase}" immediate="true" rendered="#{commonConfigBean.isEdit(item)}">
                                 <f:ajax/>
                             </h:selectBooleanCheckbox>
                         </rich:column>
-                        <rich:column>
+                        <rich:column  style="width: 5%">
                             <f:facet name="header">#{msg.actions}</f:facet>
                             <a4j:commandLink action="#{commonConfigBean.edit(item)}" rendered="#{not commonConfigBean.isEdit(item)}">
                                 <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>

@@ -43,13 +43,13 @@
                                 </rich:column>
                             </rich:columnGroup>
                         </f:facet>
-                        <rich:column filterBy="#{item.address}" filterEvent="onkeyup" filterValue="#{emailBean.currentAddressFilterValue}">
+                        <rich:column  style="width: 20%" filterBy="#{item.address}" filterEvent="onkeyup" filterValue="#{emailBean.currentAddressFilterValue}">
                             <h:outputText value="#{item.address}" rendered="#{not emailBean.isEdit(item)}"/>
                             <h:inputText value="#{emailBean.editedDto.address}" immediate="true" rendered="#{emailBean.isEdit(item)}">
                                 <f:ajax/>
                             </h:inputText>
                         </rich:column>
-                        <rich:column>
+                        <rich:column  style="width: 5%">
                             <a4j:commandLink action="#{emailBean.edit(item)}" rendered="#{not emailBean.isEdit(item)}">
                                 <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
                             </a4j:commandLink>
