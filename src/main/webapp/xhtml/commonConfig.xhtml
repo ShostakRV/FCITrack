@@ -14,42 +14,48 @@
 
                 <rich:collapsiblePanel style="width: 100%">
                 <h:form id="form_technicalWork">
-                    <h:panelGrid columns="7">
+                    <h:panelGrid columns="2" columnClasses="alignRight,alignLeft">
                         <h:outputText value="FK_FLOW(prodProcessDef)"/>
-                        <h:outputText value="FK_PRODUCT"/>
-                        <h:outputText value="FK_technicalWork"/>
-                        <h:outputText value="FK_GUI"/>
-                        <h:outputText value="FK_EMAIL"/>
-                        <h:outputText value="SEQUENCE"/>
-                        <h:outputText value="#{msg.release}"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.prodProcessDef}" converter="#{prodProcessDefConverter}">
                             <f:selectItem itemLabel="Select flow"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.flows}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
+
+                        <h:outputText value="FK_PRODUCT"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.product}" converter="#{productConverter}">
                             <f:selectItem itemLabel="Select product"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.products}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
+
+                        <h:outputText value="FK_technicalWork"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.technicalWork}" converter="#{technicalWorkConverter}">
                             <f:selectItem itemLabel="Select tw"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.technicalWorks}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
+
+                        <h:outputText value="FK_GUI"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.confGuiVersion}" converter="#{confGuiVersionConverter}">
                             <f:selectItem itemLabel="Bug1"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.confGuiVersions}" var="r" itemLabel="#{r.flow.code}_#{r.flow.version}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
+
+                        <h:outputText value="FK_EMAIL"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.email}" converter="#{emailConverter}">
                             <f:selectItem itemLabel="Select email"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.emails}" var="r" itemLabel="#{r.address}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
+
+                        <h:outputText value="SEQUENCE"/>
                         <h:inputText value="#{commonConfigBean.selectedDto.sequence}" immediate="true">
                             <f:ajax/>
                         </h:inputText>
+
+                        <h:outputText value="#{msg.release}"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.release}" converter="#{releaseConverter}">
                             <f:selectItem itemLabel="Select release"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>

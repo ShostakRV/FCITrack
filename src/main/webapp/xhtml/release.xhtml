@@ -18,10 +18,11 @@ todo -бага при релизе срабатывает с 2 нажатия
             <a4j:outputPanel ajaxRendered="true" id="pnl_releaseTable">
                 <rich:collapsiblePanel style="width: 100%">
                     <h:form id="form_release">
-                        <h:panelGrid columns="2">
+                        <h:panelGrid columns="2" columnClasses="alignRight,alignLeft">
                             <h:outputText value="#{msg.release_name}"/>
-                            <h:outputText value="#{msg.actions}"/>
                             <h:inputText id="edit_id" value="#{releaseBean.selectedDto.id}" rendered="false"/>
+
+                            <h:outputText value="#{msg.actions}"/>
                             <h:inputText id="edit_name" value="#{releaseBean.selectedDto.name}" immediate="true"><f:ajax/></h:inputText>
                             <h:commandButton value="#{msg.submit}" actionListener="#{releaseBean.createNew()}">
                                 <f:ajax render="@all"/>

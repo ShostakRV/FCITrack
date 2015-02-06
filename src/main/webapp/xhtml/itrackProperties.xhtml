@@ -20,26 +20,30 @@ todo -редактирование
 
                 <rich:collapsiblePanel style="width: 100%">
                     <h:form id="form_product">
-                        <h:panelGrid columns="5">
+                        <h:panelGrid columns="2" columnClasses="alignRight,alignLeft">
                             <h:outputText value="#{msg.code}"/>
-                            <h:outputText value="#{msg.name}"/>
-                            <h:outputText value="#{msg.release_head}"/>
-                            <h:outputText value="#{msg.type}"/>
-                            <h:outputText value="#{msg.active}"/>
                             <h:inputText value="#{propertyMapBean.selectedDto.code}" immediate="true"><f:ajax/></h:inputText>
+
+                            <h:outputText value="#{msg.name}"/>
                             <h:inputText value="#{propertyMapBean.selectedDto.name}" immediate="true"><f:ajax/></h:inputText>
+
+                            <h:outputText value="#{msg.release_head}"/>
                             <h:selectOneMenu value="#{propertyMapBean.selectedDto.release}" converter="#{releaseConverter}">
                                 <f:selectItem itemLabel="#{msg.select_release}"/>
                                 <a4j:ajax event="change" execute="@this" limitRender="true"/>
                                 <f:selectItems value="#{propertyMapBean.releases}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                             </h:selectOneMenu>
 
+                            <h:outputText value="#{msg.type}"/>
                             <h:selectOneMenu value="#{propertyMapBean.selectedDto.type}" immediate="true">
                                 <f:selectItem value="#{null}" itemLabel="#{msg.select_type}"/>
                                 <a4j:ajax event="change" execute="@this" limitRender="true"/>
                                 <f:selectItems value="#{propertyMapBean.types}"/>
                             </h:selectOneMenu>
+
+                            <h:outputText value="#{msg.active}"/>
                             <h:selectBooleanCheckbox value="#{propertyMapBean.selectedDto.active}" immediate="true"><f:ajax/></h:selectBooleanCheckbox>
+
                             <h:commandButton value="#{msg.submit}" actionListener="#{propertyMapBean.createNew()}">
                                 <f:ajax render="@all"/>
                             </h:commandButton>

@@ -16,22 +16,25 @@
 
                 <rich:collapsiblePanel style="width: 100%">
                     <h:form id="form_technicalWork">
-                        <h:panelGrid columns="4">
+                        <h:panelGrid columns="2" columnClasses="alignRight,alignLeft">
                             <h:outputText value="#{msg.code}"/>
-                            <h:outputText value="#{msg.name}"/>
-                            <h:outputText value="TW_TYPE"/>
-                            <h:outputText value="#{msg.release}"/>
                             <h:inputText value="#{technicalWorkBean.selectedDto.code}" immediate="true">
                                 <f:ajax/>
                             </h:inputText>
+
+                            <h:outputText value="#{msg.name}"/>
                             <h:inputText value="#{technicalWorkBean.selectedDto.name}" immediate="true">
                                 <f:ajax/>
                             </h:inputText>
+
+                            <h:outputText value="TW_TYPE"/>
                             <h:selectOneMenu value="#{technicalWorkBean.selectedDto.type}" immediate="true">
                                 <f:selectItem value="#{null}" itemLabel="Select type"/>
                                 <a4j:ajax event="change" execute="@this" limitRender="true"/>
                                 <f:selectItems value="#{technicalWorkBean.types}"/>
                             </h:selectOneMenu>
+
+                            <h:outputText value="#{msg.release}"/>
                             <h:selectOneMenu value="#{technicalWorkBean.selectedDto.release}" converter="#{releaseConverter}">
                                 <f:selectItem itemLabel="Select release"/>
                                 <a4j:ajax event="change" execute="@this" limitRender="true"/>
