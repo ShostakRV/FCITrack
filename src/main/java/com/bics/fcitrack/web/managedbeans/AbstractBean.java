@@ -27,7 +27,7 @@ public abstract class AbstractBean<T> implements Serializable {
 
     @PostConstruct
     public void init() {
-        selectedDto= getNewDto();
+        selectedDto = getNewDto();
     }
 
     public void edit(T t) {
@@ -35,19 +35,18 @@ public abstract class AbstractBean<T> implements Serializable {
     }
 
     public void createNew() {
-        if(selectedDto instanceof AbstractModel&&((AbstractModel) selectedDto).getRelease()!=null){
-
-
+        if (selectedDto instanceof AbstractModel && ((AbstractModel) selectedDto).getRelease() == null) {
+            FacesUtils.error("Realise is not selected.");
+            return;
+        }
         try {
             getService().create(selectedDto);
-        }catch (Exception e){
+        } catch (Exception e) {
             FacesUtils.error("Error. Entity was not created.");
             e.printStackTrace();
         }
-            selectedDto = getNewDto();
-        }else {
-            FacesUtils.error("Realise is not selected.");
-        }
+        selectedDto = getNewDto();
+
     }
 
     protected abstract T getNewDto();
