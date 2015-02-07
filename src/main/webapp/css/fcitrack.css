@@ -449,3 +449,8 @@ a.linkdisabled {
 .view_table tr {
     text-align: center;
 }
+
+
+.with50pc{
+    width: 50%;
+}

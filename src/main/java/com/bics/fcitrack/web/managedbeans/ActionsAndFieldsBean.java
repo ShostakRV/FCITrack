@@ -1,16 +1,13 @@
 package com.bics.fcitrack.web.managedbeans;
 
-import com.bics.fcitrack.model.ConfGuiVersion;
-import com.bics.fcitrack.model.ProdProcessDef;
-import com.bics.fcitrack.model.Product;
-import com.bics.fcitrack.model.PropertyMap;
+import com.bics.fcitrack.model.*;
 import com.bics.fcitrack.service.interfaces.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by morfi_000
@@ -41,6 +38,23 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
         super.createNew();
     }
 
+    public void addWorkingState() {
+
+    }
+
+    public void addRole() {
+
+    }
+
+
+    public void rename() {
+        state = State.RENAME;
+    }
+
+    public Object getTableValues(){
+        return null;
+    }
+
     public List<PropertyMap> getPropertyColumns() {
         return propertyMapService.findAllActive();
     }
@@ -55,33 +69,8 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
     }
 
 
-    // SETTERS FOR PROPERTY
-    public void setConfGuiVersionService(ConfGuiVersionService confGuiVersionService) {
-        this.confGuiVersionService = confGuiVersionService;
-    }
-
-    public void setProdProcessDefService(ProdProcessDefService prodProcessDefService) {
-        this.prodProcessDefService = prodProcessDefService;
-    }
-
-    public void setConfGuiWsService(ConfGuiWsService confGuiWsService) {
-        this.confGuiWsService = confGuiWsService;
-    }
-
-    public void setConfGuiWsPropertyService(ConfGuiWsPropertyService confGuiWsPropertyService) {
-        this.confGuiWsPropertyService = confGuiWsPropertyService;
-    }
-
-    public void setPropertyMapService(PropertyMapService propertyMapService) {
-        this.propertyMapService = propertyMapService;
-    }
-
-    public void setWorkingStateService(WorkingStateService workingStateService) {
-        this.workingStateService = workingStateService;
-    }
-
-    public void setSelectedConfiguration(Object selectedConfiguration) {
-        this.selectedConfiguration = (ConfGuiVersion) selectedConfiguration;
+    public void setSelectedConfiguration(ConfGuiVersion selectedConfiguration) {
+        this.selectedConfiguration = selectedConfiguration;
     }
 
     public ConfGuiVersion getSelectedConfiguration() {
@@ -114,13 +103,36 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
         return confGuiVersionService;
     }
 
-    public List<String> autoCompleteConfGuiVersion(String filter) {
-        return Arrays.asList("Hello world.");
+
+    // SETTERS FOR PROPERTY
+    public void setConfGuiVersionService(ConfGuiVersionService confGuiVersionService) {
+        this.confGuiVersionService = confGuiVersionService;
     }
 
-    public void rename() {
-        state = State.RENAME;
+    public void setProdProcessDefService(ProdProcessDefService prodProcessDefService) {
+        this.prodProcessDefService = prodProcessDefService;
     }
+
+    public void setConfGuiWsService(ConfGuiWsService confGuiWsService) {
+        this.confGuiWsService = confGuiWsService;
+    }
+
+    public void setConfGuiWsPropertyService(ConfGuiWsPropertyService confGuiWsPropertyService) {
+        this.confGuiWsPropertyService = confGuiWsPropertyService;
+    }
+
+    public void setPropertyMapService(PropertyMapService propertyMapService) {
+        this.propertyMapService = propertyMapService;
+    }
+
+    public void setWorkingStateService(WorkingStateService workingStateService) {
+        this.workingStateService = workingStateService;
+    }
+
+    public List<WorkingState> getAvailableWorkingStates() {
+        return workingStateService.findAll();
+    }
+
 
     enum State {CREATE, RENAME, NONE}
 }

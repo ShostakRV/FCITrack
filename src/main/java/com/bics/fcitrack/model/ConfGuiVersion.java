@@ -1,5 +1,7 @@
 package com.bics.fcitrack.model;
 
+import org.apache.commons.lang.StringUtils;
+
 import javax.persistence.*;
 
 /**
@@ -22,7 +24,6 @@ public class ConfGuiVersion extends AbstractModel {
 
     @Column(name = "NAME")
     private String name;
-
 
 
     public Long getId() {
@@ -74,5 +75,9 @@ public class ConfGuiVersion extends AbstractModel {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
+    }
+
+    public String getFullName() {
+        return flow.getCode() + (StringUtils.isNotBlank(name) ? "_" + name : "") + "_" + version;
     }
 }
