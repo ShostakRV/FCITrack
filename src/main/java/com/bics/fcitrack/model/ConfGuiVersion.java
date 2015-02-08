@@ -3,6 +3,7 @@ package com.bics.fcitrack.model;
 import org.apache.commons.lang.StringUtils;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -25,6 +26,8 @@ public class ConfGuiVersion extends AbstractModel {
     @Column(name = "NAME")
     private String name;
 
+    @OneToMany (targetEntity = ConfGuiWs.class,fetch = FetchType.LAZY)
+    private List<ConfGuiWs> confGuiWses;
 
     public Long getId() {
         return id;
@@ -79,5 +82,13 @@ public class ConfGuiVersion extends AbstractModel {
 
     public String getFullName() {
         return flow.getCode() + (StringUtils.isNotBlank(name) ? "_" + name : "") + "_" + version;
+    }
+
+    public List<ConfGuiWs> getConfGuiWses() {
+        return confGuiWses;
+    }
+
+    public void setConfGuiWses(List<ConfGuiWs> confGuiWses) {
+        this.confGuiWses = confGuiWses;
     }
 }

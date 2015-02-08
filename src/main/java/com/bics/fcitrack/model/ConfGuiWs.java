@@ -14,7 +14,7 @@ public class ConfGuiWs {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_COUNT_GUI")
+    @JoinColumn(name = "FK_CONT_GUI")
     private ConfGuiVersion confGuiVersion;
 
     @ManyToOne(fetch = FetchType.LAZY)

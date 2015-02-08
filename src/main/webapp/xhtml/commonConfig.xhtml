@@ -38,7 +38,7 @@
 
                         <h:outputText value="FK_GUI"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.confGuiVersion}" converter="#{confGuiVersionConverter}">
-                            <f:selectItem itemLabel="Bug1"/>
+                            <f:selectItem itemLabel="" itemValue="#{null}"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.confGuiVersions}" var="r" itemLabel="#{r.flow.code}_#{r.flow.version}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>

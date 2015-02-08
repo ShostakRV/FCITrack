@@ -47,9 +47,6 @@
                         <h:commandButton value="Add" actionListener="#{actionsAndFieldsBean.addRole()}">
                             <f:ajax render="@all"/>
                         </h:commandButton>
-
-
-
                     </h:panelGrid>
                 </rich:collapsiblePanel>
 
@@ -84,7 +81,7 @@
             </h:panelGrid>
             <rich:collapsiblePanel style="width: 100%">
 
-                <rich:dataTable id="tbl_actionAndFields">
+                <rich:dataTable id="tbl_actionAndFields" value="#{actionsAndFieldsBean.tableValues}">
                     <f:facet name="header">
                         <rich:dataScroller/>
                     </f:facet>
@@ -103,6 +100,11 @@
                             <f:facet name="header">
                                 <h:outputText value="#{col.name}"/>
                             </f:facet>
+
+                            <h:selectOneMenu  immediate="true">
+                                <a4j:ajax event="change" execute="@this" limitRender="true"/>
+                                <f:selectItems value="#{propertyMapBean.types}"/>
+                            </h:selectOneMenu>
                         </rich:column>
                     </c:forEach>
                 </rich:dataTable>

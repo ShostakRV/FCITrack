@@ -6,8 +6,8 @@ import com.bics.fcitrack.service.interfaces.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by morfi_000
@@ -32,6 +32,10 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
     private String newConfigurationName;
     private State state = State.NONE;
 
+//    private Map<>
+
+    private List<String> tableValues = new ArrayList<>();
+
     @Override
     public void createNew() {
         selectedDto.setVersion(selectedDto.getFlow().getVersion());
@@ -46,13 +50,16 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
 
     }
 
-
     public void rename() {
         state = State.RENAME;
     }
 
-    public Object getTableValues(){
-        return null;
+    public Object getTableValues() {
+        if (selectedConfiguration != null) {
+            confGuiVersionService.getTableViewMap(selectedConfiguration);
+        }
+        tableValues.add("ttt");
+        return tableValues;
     }
 
     public List<PropertyMap> getPropertyColumns() {
