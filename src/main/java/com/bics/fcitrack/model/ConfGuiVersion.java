@@ -26,7 +26,8 @@ public class ConfGuiVersion extends AbstractModel {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany (targetEntity = ConfGuiWs.class,fetch = FetchType.LAZY)
+    @OneToMany (targetEntity = ConfGuiWs.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_CONT_GUI")
     private List<ConfGuiWs> confGuiWses;
 
     public Long getId() {

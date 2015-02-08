@@ -20,7 +20,7 @@
                         <h:outputText value="#{msg.configuration_name}:"/>
                         <a4j:outputPanel>
                             <rich:select value="#{actionsAndFieldsBean.selectedConfiguration}" converter="#{confGuiVersionConverter}" rendered="#{actionsAndFieldsBean.noneState}" enableManualInput="true">
-                                <a4j:ajax event="change" execute="@form" limitRender="true"/>
+                                <a4j:ajax event="change" execute="@form" render="@form"/>
                                 <f:selectItem itemLabel="" itemValue="#{null}"/>
                                 <f:selectItems value="#{actionsAndFieldsBean.availableConfGuiVersions}" var="conf" itemLabel="#{conf.fullName}" itemValue="#{conf}"/>
                             </rich:select>
@@ -81,7 +81,7 @@
             </h:panelGrid>
             <rich:collapsiblePanel style="width: 100%">
 
-                <rich:dataTable id="tbl_actionAndFields" value="#{actionsAndFieldsBean.tableValues}">
+                <rich:dataTable id="tbl_actionAndFields" value="#{actionsAndFieldsBean.tableValues}" var="dto">
                     <f:facet name="header">
                         <rich:dataScroller/>
                     </f:facet>
@@ -89,11 +89,13 @@
                         <f:facet name="header">
                             <h:outputText value="Working state"/>
                         </f:facet>
+                        <h:outputText value="#{dto.confGuiWs.workingState.name}"/>
                     </rich:column>
                     <rich:column>
                         <f:facet name="header">
                             <h:outputText value="Role"/>
                         </f:facet>
+                        <h:outputText value="#{dto.confGuiWs.role}"/>
                     </rich:column>
                     <c:forEach var="col" items="#{actionsAndFieldsBean.propertyColumns}">
                         <rich:column>
@@ -101,9 +103,9 @@
                                 <h:outputText value="#{col.name}"/>
                             </f:facet>
 
-                            <h:selectOneMenu  immediate="true">
+                            <h:selectOneMenu value="#{dto.actionAndFields[col.code].value}"  immediate="true">
                                 <a4j:ajax event="change" execute="@this" limitRender="true"/>
-                                <f:selectItems value="#{propertyMapBean.types}"/>
+                                <f:selectItems value="#{actionsAndFieldsBean.valuesForProperty}"/>
                             </h:selectOneMenu>
                         </rich:column>
                     </c:forEach>

@@ -1,6 +1,7 @@
 package com.bics.fcitrack.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by godex_000 on 19.01.2015.
@@ -23,6 +24,11 @@ public class ConfGuiWs {
 
     @Column(name = "ROLE")
     private String role;
+
+    @OneToMany (targetEntity = ConfGuiWsProperty.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_CONF_VERSION_WS")
+    private List<ConfGuiWsProperty> confGuiWsProperties;
+
 
 
     public Long getId() {
@@ -66,5 +72,13 @@ public class ConfGuiWs {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
+    }
+
+    public List<ConfGuiWsProperty> getConfGuiWsProperties() {
+        return confGuiWsProperties;
+    }
+
+    public void setConfGuiWsProperties(List<ConfGuiWsProperty> confGuiWsProperties) {
+        this.confGuiWsProperties = confGuiWsProperties;
     }
 }

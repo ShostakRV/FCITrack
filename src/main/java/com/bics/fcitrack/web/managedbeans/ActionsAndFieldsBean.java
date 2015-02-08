@@ -1,5 +1,6 @@
 package com.bics.fcitrack.web.managedbeans;
 
+import com.bics.fcitrack.dto.ActionAndFieldDto;
 import com.bics.fcitrack.model.*;
 import com.bics.fcitrack.service.interfaces.*;
 
@@ -7,7 +8,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by morfi_000
@@ -34,7 +37,7 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
 
 //    private Map<>
 
-    private List<String> tableValues = new ArrayList<>();
+    private List<ActionAndFieldDto> tableValues = new ArrayList<>();
 
     @Override
     public void createNew() {
@@ -54,11 +57,7 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
         state = State.RENAME;
     }
 
-    public Object getTableValues() {
-        if (selectedConfiguration != null) {
-            confGuiVersionService.getTableViewMap(selectedConfiguration);
-        }
-        tableValues.add("ttt");
+    public List<ActionAndFieldDto> getTableValues() {
         return tableValues;
     }
 
@@ -77,6 +76,9 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
 
 
     public void setSelectedConfiguration(ConfGuiVersion selectedConfiguration) {
+        if (selectedConfiguration != null) {
+            tableValues = confGuiVersionService.getTableViewMap(selectedConfiguration);
+        }
         this.selectedConfiguration = selectedConfiguration;
     }
 
@@ -138,6 +140,10 @@ public class ActionsAndFieldsBean extends AbstractBean<ConfGuiVersion> {
 
     public List<WorkingState> getAvailableWorkingStates() {
         return workingStateService.findAll();
+    }
+
+    public EnumSet<ConfGuiWsProperty.ValueType> getValuesForProperty() {
+        return ConfGuiWsProperty.values;
     }
 
 

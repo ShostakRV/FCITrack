@@ -19,7 +19,7 @@ public class ConfGuiWsProperty {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_CONF_VERSION")
+    @JoinColumn(name = "FK_CONF_VERSION_WS")
     private ConfGuiWs confGuiWs;
 
     @ManyToOne(fetch = FetchType.LAZY)
