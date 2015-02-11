@@ -83,14 +83,14 @@ todo -редактирование
                                 <f:selectItems value="#{propertyMapBean.types}"/>
                             </h:selectOneMenu>
                         </rich:column>
-                        <rich:column  style="width: 20%">
+                        <rich:column  style="width: 5%">
                             <f:facet name="header">#{msg.active}</f:facet>
                             <h:selectBooleanCheckbox value="#{item.active}" disabled="true" rendered="#{not propertyMapBean.isEdit(item)}"/>
                             <h:selectBooleanCheckbox value="#{propertyMapBean.editedDto.active}" immediate="true" rendered="#{propertyMapBean.isEdit(item)}">
                                 <f:ajax/>
                             </h:selectBooleanCheckbox>
                         </rich:column>
-                        <rich:column  style="width: 5%">
+                        <rich:column  style="width: 20%">
                             <f:facet name="header">#{msg.actions}</f:facet>
                             <a4j:commandLink action="#{propertyMapBean.edit(item)}" rendered="#{not propertyMapBean.isEdit(item)}">
                                 <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>

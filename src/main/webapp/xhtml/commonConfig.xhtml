@@ -15,28 +15,28 @@
                 <rich:collapsiblePanel style="width: 100%">
                 <h:form id="form_technicalWork">
                     <h:panelGrid columns="2" columnClasses="alignRight,alignLeft">
-                        <h:outputText value="FK_FLOW(prodProcessDef)"/>
+                        <h:outputText value="#{msg.flow} :"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.prodProcessDef}" converter="#{prodProcessDefConverter}">
                             <f:selectItem itemLabel="Select flow"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.flows}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
 
-                        <h:outputText value="FK_PRODUCT"/>
+                        <h:outputText value="#{msg.product}:"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.product}" converter="#{productConverter}">
                             <f:selectItem itemLabel="Select product"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.products}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
 
-                        <h:outputText value="FK_technicalWork"/>
+                        <h:outputText value="#{msg.technicalWork}:"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.technicalWork}" converter="#{technicalWorkConverter}">
                             <f:selectItem itemLabel="Select tw"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
                             <f:selectItems value="#{commonConfigBean.technicalWorks}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
 
-                        <h:outputText value="FK_GUI"/>
+                        <h:outputText value="#{msg.guiConfiguration}"/>
                         <h:selectOneMenu value="#{commonConfigBean.selectedDto.confGuiVersion}" converter="#{confGuiVersionConverter}">
                             <f:selectItem itemLabel="" itemValue="#{null}"/>
                             <a4j:ajax event="change" execute="@this" limitRender="true"/>
@@ -50,7 +50,7 @@
                             <f:selectItems value="#{commonConfigBean.emails}" var="r" itemLabel="#{r.address}" itemValue="#{r}"/> <!--   -->
                         </h:selectOneMenu>
 
-                        <h:outputText value="SEQUENCE"/>
+                        <h:outputText value="#{msg.sequence}"/>
                         <h:inputText value="#{commonConfigBean.selectedDto.sequence}" immediate="true">
                             <f:ajax/>
                         </h:inputText>
@@ -112,7 +112,7 @@
                                 <f:ajax/>
                             </h:inputText>
                         </rich:column>
-                        <rich:column  style="width: 20%">
+                        <rich:column  style="width: 15%">
                             <f:facet name="header">Release</f:facet>
                             <h:outputText value="#{item.release.name}" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectOneMenu value="#{commonConfigBean.editedDto.release}" converter="#{releaseConverter}" rendered="#{commonConfigBean.isEdit(item)}">
@@ -120,14 +120,14 @@
                                 <f:selectItems value="#{selectItemsBean.getReleases(commonConfigBean.editedDto.release)}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                             </h:selectOneMenu>
                         </rich:column>
-                        <rich:column  style="width: 20%">
+                        <rich:column  style="width: 5%">
                             <f:facet name="header">Outphase</f:facet>
                             <h:selectBooleanCheckbox value="#{item.outphase}" disabled="true" rendered="#{not commonConfigBean.isEdit(item)}"/>
                             <h:selectBooleanCheckbox value="#{commonConfigBean.editedDto.outphase}" immediate="true" rendered="#{commonConfigBean.isEdit(item)}">
                                 <f:ajax/>
                             </h:selectBooleanCheckbox>
                         </rich:column>
-                        <rich:column  style="width: 5%">
+                        <rich:column  style="width: 20%; min-width: 100px">
                             <f:facet name="header">#{msg.actions}</f:facet>
                             <a4j:commandLink action="#{commonConfigBean.edit(item)}" rendered="#{not commonConfigBean.isEdit(item)}">
                                 <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
