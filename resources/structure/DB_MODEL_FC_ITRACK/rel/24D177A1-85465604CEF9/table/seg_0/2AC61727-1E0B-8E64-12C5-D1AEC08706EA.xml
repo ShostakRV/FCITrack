@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2AC61727-1E0B-8E64-12C5-D1AEC08706EA" name="EMAIL">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-30 11:59:24 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="16E402D4-1F5C-F041-2052-83D27394443C">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-30 12:03:21 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADDRESS" id="E6FD08C4-408F-96CB-7497-9DFE38A129E7">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-30 12:03:21 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FK_WS" id="C9F9EA30-1909-444D-47C2-B58BA9BA40DF">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-30 12:03:21 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="908DD3E9-08C3-AF8D-CC9A-B664957BC076" name="EMAIL_PK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-30 12:03:21 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="16E402D4-1F5C-F041-2052-83D27394443C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

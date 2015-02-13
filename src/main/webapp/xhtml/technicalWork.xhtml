@@ -81,7 +81,7 @@
                                 <f:selectItems value="#{selectItemsBean.getReleases(technicalWorkBean.editedDto.release)}" var="r" itemLabel="#{r.name}" itemValue="#{r}"/> <!--   -->
                             </h:selectOneMenu>
                         </rich:column>
-                        <rich:column style="width: 5%">
+                        <rich:column style="width: 5%;min-width:150px;">
                             <f:facet name="header">#{msg.actions}</f:facet>
                             <a4j:commandLink action="#{technicalWorkBean.edit(item)}" rendered="#{not technicalWorkBean.isEdit(item)}">
                                 <h:graphicImage styleClass="action-icon" value="../images/icon/edit.png" alt="#{msg.edit}"/>
@@ -95,7 +95,7 @@
                             <a4j:commandLink action="#{technicalWorkBean.cancelEdit()}" rendered="#{technicalWorkBean.isEdit(item)}">
                                 <h:graphicImage styleClass="action-icon" value="../images/icon/cancel.png" alt="#{msg.cancel}"/>
                             </a4j:commandLink>
-                            <h:graphicImage rendered="#{technicalWorkBean.UseMore2(item)}" styleClass="action-icon" title="#{technicalWorkBean.ProdNameWhoUse(item)}" value="../images/icon/warning.png"/>
+                            <h:graphicImage rendered="#{technicalWorkBean.useMore2(item)}" styleClass="action-icon" title="#{technicalWorkBean.prodNameWhoUse(item)}" value="../images/icon/warning.png"/>
                         </rich:column>
                         <f:facet name="footer">
                             <rich:dataScroller/>

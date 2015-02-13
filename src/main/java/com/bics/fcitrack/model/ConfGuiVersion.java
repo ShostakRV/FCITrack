@@ -81,6 +81,7 @@ public class ConfGuiVersion extends AbstractModel {
         return id != null ? id.hashCode() : 0;
     }
 
+    //todo this metod
     public String getFullName() {
         return flow.getCode() + (StringUtils.isNotBlank(name) ? "_" + name : "") + "_" + version;
     }
