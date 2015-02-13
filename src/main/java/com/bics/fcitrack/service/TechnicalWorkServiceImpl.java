@@ -28,4 +28,8 @@ public class TechnicalWorkServiceImpl extends AbstractServiceImpl<TechnicalWork,
     }
 
 
+    @Override
+    public List<Product> findUsage(TechnicalWork technicalWork) {
+        return technicalWorkDao.findUsage(technicalWork);
+    }
 }

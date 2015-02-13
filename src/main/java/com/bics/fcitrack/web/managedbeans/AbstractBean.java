@@ -42,7 +42,9 @@ public abstract class AbstractBean<T> implements Serializable {
         try {
             getService().create(selectedDto);
         } catch (Exception e) {
-            FacesUtils.error("Error. Entity was not created.");
+            //todo uncomment
+            //FacesUtils.error("Error. Entity was not created.");
+            FacesUtils.error(e);
             e.printStackTrace();
         }
         selectedDto = getNewDto();
