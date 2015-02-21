@@ -4,12 +4,14 @@ import com.bics.fcitrack.model.Product;
 import com.bics.fcitrack.model.TechnicalWork;
 import com.bics.fcitrack.service.interfaces.AbstractService;
 import com.bics.fcitrack.service.interfaces.TechnicalWorkService;
+import org.apache.commons.lang.StringUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by godex_000
@@ -44,24 +46,16 @@ public class TechnicalWorkBean extends AbstractBean<TechnicalWork> {
     }
 
 
-    public boolean UseMore2(TechnicalWork technicalWork) {
-        List<Product> productList = findProductWhoUse(technicalWork);
-        if (productList.size() >= 2) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean useMore2(TechnicalWork technicalWork) {
+        List<Product> productList = technicalWorkService.findUsage(technicalWork);
+        return productList.size() >= 2;
     }
 
-    public String ProdNameWhoUse(TechnicalWork technicalWork) {
-        String names = new String("Used by:");
-        List<Product> productList = findProductWhoUse(technicalWork);
-        for (int pos = 0; pos < productList.size(); pos++)
-            names += productList.get(pos).getCode() + ",";
+    public String prodNameWhoUse(TechnicalWork technicalWork) {
+        String names = "Used by:";
+        List<Product> productList = technicalWorkService.findUsage(technicalWork);
+        List<String> tmpList=productList.stream().map(Product::getName).collect(Collectors.toList());
+        names += StringUtils.join(tmpList,',');//reduce("", (a, b) -> b +","+ a);
         return names;
-    }
-
-    public List<Product> findProductWhoUse(TechnicalWork technicalWork) {
-        return technicalWorkService.findUsage(technicalWork);
     }
 }

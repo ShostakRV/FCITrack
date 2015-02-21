@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="841C5BA2-E514-30CD-EF6D-8CBABF17EF2F" name="COM_CONF_EMAIL_FK">
+<createdBy>godex_000</createdBy>
+<createdTime>2015-01-30 12:04:18 UTC</createdTime>
+<ownerDesignName>DB_MODEL_FC_ITRACK</ownerDesignName>
+<containerWithKeyObject>1F56B493-A06D-6B6F-1800-2FCF7E26D17D</containerWithKeyObject>
+<deleteRule>RESTRICT</deleteRule>
+<localFKIndex>B8A13496-07A0-EEAB-CA01-7E739D0844AF</localFKIndex>
+<keyObject>908DD3E9-08C3-AF8D-CC9A-B664957BC076</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
