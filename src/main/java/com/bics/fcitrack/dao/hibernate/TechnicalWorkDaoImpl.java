@@ -20,6 +20,7 @@ public class TechnicalWorkDaoImpl extends AbstractDaoImpl<TechnicalWork, String>
 
     @Override
     public List<Product> findUsage(TechnicalWork technicalWork) {
+        
         String hql = "select pro from CommonConfig cc inner join cc.product pro inner join cc.technicalWork tw where tw.code ='"+technicalWork.getCode()+"'";
         return getSessionFactory().getCurrentSession().createQuery(hql).list();
     }
